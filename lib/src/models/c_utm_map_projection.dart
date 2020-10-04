@@ -1,0 +1,95 @@
+﻿import 'package:train_simulator_client/src/models/map_offset.dart';
+import 'package:train_simulator_client/src/models/origin.dart';
+import 'package:train_simulator_client/src/models/zone_letter.dart';
+import 'package:train_simulator_client/src/models/zone_number.dart';
+import 'package:xml/xml.dart';
+import 'package:xml_annotation/xml_annotation.dart' as annotation;
+
+part 'c_utm_map_projection.g.dart';
+
+@annotation.XmlRootElement(
+  name: 'cUTMMapProjection',
+)
+@annotation.XmlSerializable()
+class CUtmMapProjection {
+  @annotation.XmlAttribute(
+    name: 'id',
+    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+  )
+  String id;
+
+  @annotation.XmlElement(
+    name: 'MapOffset',
+  )
+  MapOffset mapOffset;
+
+  @annotation.XmlElement(
+    name: 'Origin',
+  )
+  Origin origin;
+
+  @annotation.XmlElement(
+    name: 'ZoneLetter',
+  )
+  ZoneLetter zoneLetter;
+
+  @annotation.XmlElement(
+    name: 'ZoneNumber',
+  )
+  ZoneNumber zoneNumber;
+
+  CUtmMapProjection({
+    this.id,
+    this.mapOffset,
+    this.origin,
+    this.zoneLetter,
+    this.zoneNumber,
+  });
+
+  factory CUtmMapProjection.fromXmlElement(XmlElement element) =>
+      _$CUtmMapProjectionFromXmlElement(element);
+
+  void buildXmlChildren(
+    XmlBuilder builder, {
+    Map<String, String> namespaces = const {},
+  }) =>
+      _$CUtmMapProjectionBuildXmlChildren(
+        this,
+        builder,
+        namespaces: namespaces,
+      );
+
+  void buildXmlElement(
+    XmlBuilder builder, {
+    Map<String, String> namespaces = const {},
+  }) =>
+      _$CUtmMapProjectionBuildXmlElement(
+        this,
+        builder,
+        namespaces: namespaces,
+      );
+
+  List<XmlAttribute> toXmlAttributes({
+    Map<String, String> namespaces = const {},
+  }) =>
+      _$CUtmMapProjectionToXmlAttributes(
+        this,
+        namespaces: namespaces,
+      );
+
+  List<XmlNode> toXmlChildren({
+    Map<String, String> namespaces = const {},
+  }) =>
+      _$CUtmMapProjectionToXmlChildren(
+        this,
+        namespaces: namespaces,
+      );
+
+  XmlElement toXmlElement({
+    Map<String, String> namespaces = const {},
+  }) =>
+      _$CUtmMapProjectionToXmlElement(
+        this,
+        namespaces: namespaces,
+      );
+}
