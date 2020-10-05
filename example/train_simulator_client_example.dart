@@ -10,4 +10,8 @@ Future<void> main() async {
   await for (final route in client.routes.get()) {
     print(route);
   }
+
+  await for (final scenario in client.scenarios.get()) {
+    print(scenario);
+  }
 }
