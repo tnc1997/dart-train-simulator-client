@@ -2,21 +2,21 @@ import 'dart:io';
 
 import 'package:meta/meta.dart';
 import 'package:train_simulator_client/src/extensions/file_extensions.dart';
-import 'package:train_simulator_client/src/models/c_route_properties.dart';
+import 'package:train_simulator_client/src/models/c_scenario_properties.dart';
 import 'package:train_simulator_client/src/train_simulator_client_base.dart';
 import 'package:xml/xml.dart';
 
-class RouteService {
+class ScenarioService {
   final TrainSimulatorClientOptions options;
 
-  RouteService({
+  ScenarioService({
     @required this.options,
   });
 
-  Stream<CRouteProperties> get() async* {
+  Stream<CScenarioProperties> get() async* {
     await for (final entity in options.routesDirectory.list(recursive: true)) {
-      if (entity is File && entity.isRouteProperties()) {
-        yield CRouteProperties.fromXmlElement(
+      if (entity is File && entity.isScenarioProperties()) {
+        yield CScenarioProperties.fromXmlElement(
           XmlDocument.parse(
             await entity.readAsString(),
           ).rootElement,
@@ -27,7 +27,7 @@ class RouteService {
     }
   }
 
-  Future<CRouteProperties> getById(String id) async {
+  Future<CScenarioProperties> getById(String id) async {
     return await get().singleWhere(
       (element) => element.id == id,
       orElse: null,

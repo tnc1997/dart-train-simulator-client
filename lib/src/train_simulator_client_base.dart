@@ -3,36 +3,39 @@ import 'dart:io';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 import 'package:train_simulator_client/src/services/route_service.dart';
+import 'package:train_simulator_client/src/services/scenario_service.dart';
 
 class TrainSimulatorClient {
   final RouteService routes;
+  final ScenarioService scenarios;
 
   TrainSimulatorClient({
     @required TrainSimulatorClientOptions options,
-  }) : routes = RouteService(options: options);
+  })  : routes = RouteService(options: options),
+        scenarios = ScenarioService(options: options);
 }
 
 class TrainSimulatorClientOptions {
-  final Directory assets;
-  final Directory content;
+  final Directory assetsDirectory;
+  final Directory contentDirectory;
   final String path;
-  final Directory routes;
+  final Directory routesDirectory;
 
   TrainSimulatorClientOptions({
     @required this.path,
-  })  : assets = Directory(
+  })  : assetsDirectory = Directory(
           join(
             path,
             'Assets',
           ),
         ),
-        content = Directory(
+        contentDirectory = Directory(
           join(
             path,
             'Content',
           ),
         ),
-        routes = Directory(
+        routesDirectory = Directory(
           join(
             path,
             'Content',
