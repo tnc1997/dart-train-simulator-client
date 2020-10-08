@@ -12,7 +12,7 @@ void _$LocalisationCUserLocalisedStringBuildXmlChildren(
   Map<String, String> namespaces = const {},
 }) {
   builder.element(
-    'LocalisationCUserLocalisedString',
+    'Arabic',
     nest: () {
       instance.arabic?.buildXmlChildren(
         builder,
@@ -349,7 +349,7 @@ void _$LocalisationCUserLocalisedStringBuildXmlElement(
 LocalisationCUserLocalisedString
     _$LocalisationCUserLocalisedStringFromXmlElement(XmlElement element) {
   final arabic = element.getElement(
-    'LocalisationCUserLocalisedString',
+    'Arabic',
   );
   final basque = element.getElement(
     'Basque',
@@ -455,9 +455,7 @@ LocalisationCUserLocalisedString
   );
 
   return LocalisationCUserLocalisedString(
-    arabic: arabic != null
-        ? LocalisationCUserLocalisedString.fromXmlElement(arabic)
-        : null,
+    arabic: arabic != null ? Arabic.fromXmlElement(arabic) : null,
     basque: basque != null ? Basque.fromXmlElement(basque) : null,
     bulgarian: bulgarian != null ? Bulgarian.fromXmlElement(bulgarian) : null,
     catalan: catalan != null ? Catalan.fromXmlElement(catalan) : null,
@@ -514,7 +512,7 @@ List<XmlNode> _$LocalisationCUserLocalisedStringToXmlChildren(
   return [
     XmlElement(
       XmlName(
-        'LocalisationCUserLocalisedString',
+        'Arabic',
       ),
       instance.arabic?.toXmlAttributes(
             namespaces: namespaces,
