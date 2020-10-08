@@ -1,4 +1,5 @@
-﻿import 'package:train_simulator_client/src/models/basque.dart';
+﻿import 'package:train_simulator_client/src/models/arabic.dart';
+import 'package:train_simulator_client/src/models/basque.dart';
 import 'package:train_simulator_client/src/models/bulgarian.dart';
 import 'package:train_simulator_client/src/models/catalan.dart';
 import 'package:train_simulator_client/src/models/croatian.dart';
@@ -42,9 +43,9 @@ part 'localisation_c_user_localised_string.g.dart';
 @annotation.XmlSerializable()
 class LocalisationCUserLocalisedString {
   @annotation.XmlElement(
-    name: 'LocalisationCUserLocalisedString',
+    name: 'Arabic',
   )
-  LocalisationCUserLocalisedString arabic;
+  Arabic arabic;
 
   @annotation.XmlElement(
     name: 'Basque',
