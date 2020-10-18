@@ -64,7 +64,7 @@ class CScenarioProperties {
   @annotation.XmlElement(
     name: 'ID',
   )
-  Id Id1;
+  Id id1;
 
   @annotation.XmlElement(
     name: 'Rating',
@@ -130,7 +130,7 @@ class CScenarioProperties {
     this.frontEndDriverList,
     this.gizmo,
     this.id,
-    this.Id1,
+    this.id1,
     this.rating,
     this.scenarioClass,
     this.season,
