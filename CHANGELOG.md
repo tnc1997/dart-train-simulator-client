@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [Conventional Commits](https://www.conventionalcommits.org) for commit guidelines.
 
+## [0.4.0](https://www.github.com/tnc1997/dart-train-simulator-client/compare/v0.3.0...v0.4.0) (2020-10-18)
+
+### ⚠ BREAKING CHANGES
+
+* get by id to use dev string (#4)
+
+### Code Refactoring
+
+* get by id to use dev string ([#4](https://github.com/tnc1997/dart-train-simulator-client/issues/4)) ([329e34a](https://github.com/tnc1997/dart-train-simulator-client/commit/329e34aadf9354ba8dde3b167365ca1a68051be6))
+
 ## [0.3.0](https://www.github.com/tnc1997/dart-train-simulator-client/compare/v0.2.0...v0.3.0) (2020-10-08)
 
 ### Features
