@@ -29,7 +29,7 @@ class ScenarioService {
 
   Future<CScenarioProperties> getById(String id) async {
     return await get().singleWhere(
-      (element) => element.id == id,
+      (element) => element.id1?.cGuid?.devString?.text == id,
       orElse: null,
     );
   }

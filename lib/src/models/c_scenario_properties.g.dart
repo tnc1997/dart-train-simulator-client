@@ -82,7 +82,7 @@ void _$CScenarioPropertiesBuildXmlChildren(
   builder.element(
     'ID',
     nest: () {
-      instance.Id1?.buildXmlChildren(
+      instance.id1?.buildXmlChildren(
         builder,
         namespaces: namespaces,
       );
@@ -220,7 +220,7 @@ CScenarioProperties _$CScenarioPropertiesFromXmlElement(XmlElement element) {
     'id',
     namespace: 'http://www.kuju.com/TnT/2003/Delta',
   );
-  final Id1 = element.getElement(
+  final id1 = element.getElement(
     'ID',
   );
   final rating = element.getElement(
@@ -271,7 +271,7 @@ CScenarioProperties _$CScenarioPropertiesFromXmlElement(XmlElement element) {
         : null,
     gizmo: gizmo != null ? Gizmo.fromXmlElement(gizmo) : null,
     id: id,
-    Id1: Id1 != null ? Id.fromXmlElement(Id1) : null,
+    id1: id1 != null ? Id.fromXmlElement(id1) : null,
     rating: rating != null ? Rating.fromXmlElement(rating) : null,
     scenarioClass: scenarioClass != null
         ? ScenarioClass.fromXmlElement(scenarioClass)
@@ -405,11 +405,11 @@ List<XmlNode> _$CScenarioPropertiesToXmlChildren(
       XmlName(
         'ID',
       ),
-      instance.Id1?.toXmlAttributes(
+      instance.id1?.toXmlAttributes(
             namespaces: namespaces,
           ) ??
           [],
-      instance.Id1?.toXmlChildren(
+      instance.id1?.toXmlChildren(
             namespaces: namespaces,
           ) ??
           [],
