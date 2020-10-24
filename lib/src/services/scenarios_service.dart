@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:meta/meta.dart';
+import 'package:path/path.dart';
 import 'package:train_simulator_client/src/extensions/file_extensions.dart';
 import 'package:train_simulator_client/src/models/c_scenario_properties.dart';
 import 'package:train_simulator_client/src/services/route_service.dart';
@@ -18,7 +19,9 @@ class ScenariosService {
   }) : _context = context;
 
   Stream<CScenarioProperties> get() async* {
-    await for (final entity in _context.routesDirectory.list(recursive: true)) {
+    final directory = Directory(join(route.path, 'Scenarios'));
+
+    await for (final entity in directory.list(recursive: true)) {
       if (entity is File && entity.isScenarioProperties()) {
         yield CScenarioProperties.fromXmlElement(
           XmlDocument.parse(
