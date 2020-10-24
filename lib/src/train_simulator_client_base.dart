@@ -3,16 +3,23 @@ import 'dart:io';
 import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 import 'package:train_simulator_client/src/services/route_service.dart';
-import 'package:train_simulator_client/src/services/scenario_service.dart';
+import 'package:train_simulator_client/src/services/routes_service.dart';
 
 class TrainSimulatorClient {
-  final RouteService routes;
-  final ScenarioService scenarios;
+  final TrainSimulatorClientOptions options;
 
   TrainSimulatorClient({
-    @required TrainSimulatorClientOptions options,
-  })  : routes = RouteService(options: options),
-        scenarios = ScenarioService(options: options);
+    @required this.options,
+  });
+
+  RouteService route(String id) => RouteService(
+        options: options,
+        id: id,
+      );
+
+  RoutesService routes() => RoutesService(
+        options: options,
+      );
 }
 
 class TrainSimulatorClientOptions {
