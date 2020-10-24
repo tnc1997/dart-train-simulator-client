@@ -1,5 +1,6 @@
 library train_simulator_client;
 
+export 'package:train_simulator_client/src/constants/file_name_constants.dart';
 export 'package:train_simulator_client/src/extensions/file_extensions.dart';
 export 'package:train_simulator_client/src/models/arabic.dart';
 export 'package:train_simulator_client/src/models/authored_language.dart';
@@ -122,7 +123,9 @@ export 'package:train_simulator_client/src/models/z.dart';
 export 'package:train_simulator_client/src/models/zone_letter.dart';
 export 'package:train_simulator_client/src/models/zone_number.dart';
 export 'package:train_simulator_client/src/services/route_service.dart';
+export 'package:train_simulator_client/src/services/routes_service.dart';
 export 'package:train_simulator_client/src/services/scenario_service.dart';
+export 'package:train_simulator_client/src/services/scenarios_service.dart';
 export 'package:train_simulator_client/src/specifications/and_composite_specification.dart';
 export 'package:train_simulator_client/src/specifications/c_route_properties_display_name_specification.dart';
 export 'package:train_simulator_client/src/specifications/c_scenario_properties_display_name_specification.dart';

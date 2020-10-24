@@ -1,36 +1,36 @@
 import 'dart:io';
 
 import 'package:meta/meta.dart';
-import 'package:train_simulator_client/src/extensions/file_extensions.dart';
+import 'package:path/path.dart';
+import 'package:train_simulator_client/src/constants/file_name_constants.dart';
 import 'package:train_simulator_client/src/models/c_scenario_properties.dart';
+import 'package:train_simulator_client/src/services/route_service.dart';
 import 'package:train_simulator_client/src/train_simulator_client_base.dart';
 import 'package:xml/xml.dart';
 
 class ScenarioService {
   final TrainSimulatorClientOptions options;
+  final RouteService route;
+  final String id;
+  final String path;
 
   ScenarioService({
     @required this.options,
-  });
+    @required this.route,
+    @required this.id,
+  }) : path = join(route.path, id);
 
-  Stream<CScenarioProperties> get() async* {
-    await for (final entity in options.routesDirectory.list(recursive: true)) {
-      if (entity is File && entity.isScenarioProperties()) {
-        yield CScenarioProperties.fromXmlElement(
-          XmlDocument.parse(
-            await entity.readAsString(),
-          ).rootElement,
-        );
-      } else {
-        continue;
-      }
+  Future<CScenarioProperties> get() async {
+    final file = File(join(path, scenarioPropertiesFileName));
+
+    if (!await file.exists()) {
+      return null;
     }
-  }
 
-  Future<CScenarioProperties> getById(String id) async {
-    return await get().singleWhere(
-      (element) => element.id1?.cGuid?.devString?.text == id,
-      orElse: null,
+    return CScenarioProperties.fromXmlElement(
+      XmlDocument.parse(
+        await file.readAsString(),
+      ).rootElement,
     );
   }
 }

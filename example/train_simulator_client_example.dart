@@ -7,11 +7,13 @@ Future<void> main() async {
     ),
   );
 
-  await for (final route in client.routes.get()) {
+  await for (final route in client.routes().get()) {
     print(route);
   }
 
-  await for (final scenario in client.scenarios.get()) {
+  final id = '00000001-0000-0000-0000-000000000000';
+
+  await for (final scenario in client.route(id).scenarios().get()) {
     print(scenario);
   }
 }
