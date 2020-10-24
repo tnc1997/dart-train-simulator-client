@@ -17,7 +17,9 @@ class RoutesService {
   }) : _context = context;
 
   Stream<CRouteProperties> get() async* {
-    await for (final entity in _context.routesDirectory.list(recursive: true)) {
+    final directory = _context.routesDirectory;
+
+    await for (final entity in directory.list(recursive: true)) {
       if (entity is File && entity.isRouteProperties()) {
         yield CRouteProperties.fromXmlElement(
           XmlDocument.parse(
