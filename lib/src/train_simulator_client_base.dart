@@ -6,47 +6,58 @@ import 'package:train_simulator_client/src/services/route_service.dart';
 import 'package:train_simulator_client/src/services/routes_service.dart';
 
 class TrainSimulatorClient {
-  final TrainSimulatorClientOptions options;
+  final TrainSimulatorClientContext _context;
 
   TrainSimulatorClient({
-    @required this.options,
-  });
+    @required TrainSimulatorClientOptions options,
+  }) : _context = TrainSimulatorClientContext(
+          options: options,
+        );
 
   RouteService route(String id) => RouteService(
-        options: options,
+        client: this,
         id: id,
+        context: _context,
       );
 
   RoutesService routes() => RoutesService(
-        options: options,
+        client: this,
+        context: _context,
       );
 }
 
-class TrainSimulatorClientOptions {
+class TrainSimulatorClientContext {
   final Directory assetsDirectory;
   final Directory contentDirectory;
-  final String path;
   final Directory routesDirectory;
 
-  TrainSimulatorClientOptions({
-    @required this.path,
+  TrainSimulatorClientContext({
+    @required TrainSimulatorClientOptions options,
   })  : assetsDirectory = Directory(
           join(
-            path,
+            options.path,
             'Assets',
           ),
         ),
         contentDirectory = Directory(
           join(
-            path,
+            options.path,
             'Content',
           ),
         ),
         routesDirectory = Directory(
           join(
-            path,
+            options.path,
             'Content',
             'Routes',
           ),
         );
+}
+
+class TrainSimulatorClientOptions {
+  final String path;
+
+  TrainSimulatorClientOptions({
+    @required this.path,
+  });
 }
