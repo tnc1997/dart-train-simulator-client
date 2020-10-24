@@ -19,7 +19,7 @@ class ScenarioService {
     @required this.route,
     @required this.id,
     @required TrainSimulatorClientContext context,
-  })  : path = join(route.path, id),
+  })  : path = join(route.path, 'Scenarios', id),
         _context = context;
 
   Future<CScenarioProperties> get() async {
