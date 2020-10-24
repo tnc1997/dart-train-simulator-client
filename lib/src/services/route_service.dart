@@ -10,14 +10,18 @@ import 'package:train_simulator_client/src/train_simulator_client_base.dart';
 import 'package:xml/xml.dart';
 
 class RouteService {
-  final TrainSimulatorClientOptions options;
+  final TrainSimulatorClient client;
   final String id;
   final String path;
 
+  final TrainSimulatorClientContext _context;
+
   RouteService({
-    @required this.options,
+    @required this.client,
     @required this.id,
-  }) : path = join(options.routesDirectory.path, id);
+    @required TrainSimulatorClientContext context,
+  })  : path = join(context.routesDirectory.path, id),
+        _context = context;
 
   Future<CRouteProperties> get() async {
     final file = File(join(path, routePropertiesFileName));
@@ -34,13 +38,13 @@ class RouteService {
   }
 
   ScenarioService scenario(String id) => ScenarioService(
-        options: options,
         route: this,
         id: id,
+        context: _context,
       );
 
   ScenariosService scenarios() => ScenariosService(
-        options: options,
         route: this,
+        context: _context,
       );
 }

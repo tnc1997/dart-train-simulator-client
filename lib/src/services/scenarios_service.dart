@@ -8,16 +8,17 @@ import 'package:train_simulator_client/src/train_simulator_client_base.dart';
 import 'package:xml/xml.dart';
 
 class ScenariosService {
-  final TrainSimulatorClientOptions options;
   final RouteService route;
 
+  final TrainSimulatorClientContext _context;
+
   ScenariosService({
-    @required this.options,
     @required this.route,
-  });
+    @required TrainSimulatorClientContext context,
+  }) : _context = context;
 
   Stream<CScenarioProperties> get() async* {
-    await for (final entity in options.routesDirectory.list(recursive: true)) {
+    await for (final entity in _context.routesDirectory.list(recursive: true)) {
       if (entity is File && entity.isScenarioProperties()) {
         yield CScenarioProperties.fromXmlElement(
           XmlDocument.parse(
