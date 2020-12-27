@@ -2,6 +2,10 @@ import 'dart:io';
 
 import 'package:meta/meta.dart';
 import 'package:path/path.dart';
+import 'package:train_simulator_client/src/constants/directory_name_constants.dart';
+import 'package:train_simulator_client/src/constants/file_extension_constants.dart';
+import 'package:train_simulator_client/src/constants/file_name_constants.dart';
+import 'package:train_simulator_client/src/services/rail_driver_service.dart';
 import 'package:train_simulator_client/src/services/route_service.dart';
 import 'package:train_simulator_client/src/services/routes_service.dart';
 
@@ -29,10 +33,12 @@ class TrainSimulatorClient {
 class TrainSimulatorClientContext {
   final Directory assetsDirectory;
   final Directory contentDirectory;
+  final File railDriverFile;
   final Directory routesDirectory;
 
   TrainSimulatorClientContext({
     @required TrainSimulatorClientOptions options,
+    String railDriverPath,
   })  : assetsDirectory = Directory(
           join(
             options.path,
@@ -41,9 +47,20 @@ class TrainSimulatorClientContext {
         ),
         contentDirectory = Directory(
           join(
-            options.path,
-            'Content',
+            options.rootPath,
+            contentDirectoryName,
           ),
+        ),
+        railDriverFile = File(
+          railDriverPath ??
+              setExtension(
+                join(
+                  options.path,
+                  pluginsDirectoryName,
+                  railDriverFileName,
+                ),
+                dllFileExtension,
+              ),
         ),
         routesDirectory = Directory(
           join(
