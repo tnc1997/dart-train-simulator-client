@@ -8,6 +8,7 @@ import 'package:train_simulator_client/src/constants/file_name_constants.dart';
 import 'package:train_simulator_client/src/services/rail_driver_service.dart';
 import 'package:train_simulator_client/src/services/route_service.dart';
 import 'package:train_simulator_client/src/services/routes_service.dart';
+import 'package:train_simulator_client/src/services/serz_service.dart';
 
 class TrainSimulatorClient {
   final TrainSimulatorClientContext _context;
@@ -35,10 +36,12 @@ class TrainSimulatorClientContext {
   final Directory contentDirectory;
   final File railDriverFile;
   final Directory routesDirectory;
+  final File serzFile;
 
   TrainSimulatorClientContext({
     @required TrainSimulatorClientOptions options,
     String railDriverPath,
+    String serzPath,
   })  : assetsDirectory = Directory(
           join(
             options.path,
@@ -65,9 +68,19 @@ class TrainSimulatorClientContext {
         routesDirectory = Directory(
           join(
             options.path,
-            'Content',
-            'Routes',
+            contentDirectoryName,
+            routesDirectoryName,
           ),
+        ),
+        serzFile = File(
+          serzPath ??
+              setExtension(
+                join(
+                  options.path,
+                  serzFileName,
+                ),
+                exeFileExtension,
+              ),
         );
 }
 
