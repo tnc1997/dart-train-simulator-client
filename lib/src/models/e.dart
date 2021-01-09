@@ -1,23 +1,39 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'e.g.dart';
 
 @annotation.XmlRootElement(
   name: 'e',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class E {
+  @annotation.XmlAttribute(
+    name: 'alt_encoding',
+    namespace: delta,
+  )
+  String? altEncoding;
+
+  @annotation.XmlAttribute(
+    name: 'precision',
+    namespace: delta,
+  )
+  String? precision;
+
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   E({
+    this.altEncoding,
+    this.precision,
     this.text,
     this.type,
   });
@@ -25,7 +41,7 @@ class E {
   factory E.fromXmlElement(XmlElement element) => _$EFromXmlElement(element);
 
   @override
-  String toString() => text?.toString() ?? super.toString();
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -48,7 +64,7 @@ class E {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$EToXmlAttributes(
         this,
@@ -56,7 +72,7 @@ class E {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$EToXmlChildren(
         this,
@@ -64,7 +80,7 @@ class E {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$EToXmlElement(
         this,

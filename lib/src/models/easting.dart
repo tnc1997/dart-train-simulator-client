@@ -1,33 +1,35 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'easting.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Easting',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Easting {
   @annotation.XmlAttribute(
     name: 'alt_encoding',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String altEncoding;
+  String? altEncoding;
 
   @annotation.XmlAttribute(
     name: 'precision',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String precision;
+  String? precision;
 
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   Easting({
     this.altEncoding,
@@ -40,7 +42,7 @@ class Easting {
       _$EastingFromXmlElement(element);
 
   @override
-  String toString() => text?.toString() ?? super.toString();
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -63,7 +65,7 @@ class Easting {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$EastingToXmlAttributes(
         this,
@@ -71,7 +73,7 @@ class Easting {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$EastingToXmlChildren(
         this,
@@ -79,7 +81,7 @@ class Easting {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$EastingToXmlElement(
         this,

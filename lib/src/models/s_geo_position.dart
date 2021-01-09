@@ -7,18 +7,23 @@ part 's_geo_position.g.dart';
 
 @annotation.XmlRootElement(
   name: 'sGeoPosition',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class SGeoPosition {
   @annotation.XmlElement(
     name: 'Lat',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Lat lat;
+  Lat? lat;
 
   @annotation.XmlElement(
     name: 'Long',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Long long;
+  Long? long;
 
   SGeoPosition({
     this.lat,
@@ -49,7 +54,7 @@ class SGeoPosition {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SGeoPositionToXmlAttributes(
         this,
@@ -57,7 +62,7 @@ class SGeoPosition {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SGeoPositionToXmlChildren(
         this,
@@ -65,7 +70,7 @@ class SGeoPosition {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SGeoPositionToXmlElement(
         this,

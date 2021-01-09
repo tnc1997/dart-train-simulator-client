@@ -6,13 +6,16 @@ part 'map_offset.g.dart';
 
 @annotation.XmlRootElement(
   name: 'MapOffset',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class MapOffset {
   @annotation.XmlElement(
     name: 'sMapCoords',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SMapCoords sMapCoords;
+  SMapCoords? sMapCoords;
 
   MapOffset({
     this.sMapCoords,
@@ -42,7 +45,7 @@ class MapOffset {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$MapOffsetToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class MapOffset {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$MapOffsetToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class MapOffset {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$MapOffsetToXmlElement(
         this,

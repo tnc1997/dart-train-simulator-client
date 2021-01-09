@@ -11,15 +11,20 @@ void _$IdBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cGUID',
-    nest: () {
-      instance.cGuid?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cGuid = instance.cGuid;
+
+  if (cGuid != null) {
+    builder.element(
+      'cGUID',
+      isSelfClosing: false,
+      nest: () {
+        cGuid.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$IdBuildXmlElement(
@@ -51,53 +56,48 @@ Id _$IdFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$IdToXmlAttributes(
   Id instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$IdToXmlChildren(
   Id instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cGuid = instance.cGuid;
+
   return [
-    XmlElement(
-      XmlName(
-        'cGUID',
+    if (cGuid != null)
+      XmlElement(
+        XmlName(
+          'cGUID',
+        ),
+        [
+          ...cGuid.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cGuid.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cGuid?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cGuid?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$IdToXmlElement(
   Id instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'ID',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -105,5 +105,6 @@ XmlElement _$IdToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

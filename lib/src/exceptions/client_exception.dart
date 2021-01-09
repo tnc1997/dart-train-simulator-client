@@ -1,7 +1,7 @@
 import 'dart:io';
 
 class ClientException implements Exception {
-  final String message;
+  final String? message;
 
   ClientException({
     this.message,

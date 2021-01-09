@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'zone_letter.g.dart';
 
 @annotation.XmlRootElement(
   name: 'ZoneLetter',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class ZoneLetter {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   ZoneLetter({
     this.text,
@@ -26,7 +28,7 @@ class ZoneLetter {
       _$ZoneLetterFromXmlElement(element);
 
   @override
-  String toString() => text?.toString() ?? super.toString();
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -49,7 +51,7 @@ class ZoneLetter {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$ZoneLetterToXmlAttributes(
         this,
@@ -57,7 +59,7 @@ class ZoneLetter {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$ZoneLetterToXmlChildren(
         this,
@@ -65,7 +67,7 @@ class ZoneLetter {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$ZoneLetterToXmlElement(
         this,

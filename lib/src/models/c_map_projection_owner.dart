@@ -1,4 +1,5 @@
 ﻿import 'package:train_simulator_client/src/models/map_projection.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -6,19 +7,22 @@ part 'c_map_projection_owner.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cMapProjectionOwner',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CMapProjectionOwner {
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'MapProjection',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  MapProjection mapProjection;
+  MapProjection2? mapProjection;
 
   CMapProjectionOwner({
     this.id,
@@ -49,7 +53,7 @@ class CMapProjectionOwner {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CMapProjectionOwnerToXmlAttributes(
         this,
@@ -57,7 +61,7 @@ class CMapProjectionOwner {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CMapProjectionOwnerToXmlChildren(
         this,
@@ -65,7 +69,7 @@ class CMapProjectionOwner {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CMapProjectionOwnerToXmlElement(
         this,

@@ -11,15 +11,20 @@ void _$GizmoBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cOwnedEntity',
-    nest: () {
-      instance.cOwnedEntity?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cOwnedEntity = instance.cOwnedEntity;
+
+  if (cOwnedEntity != null) {
+    builder.element(
+      'cOwnedEntity',
+      isSelfClosing: false,
+      nest: () {
+        cOwnedEntity.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$GizmoBuildXmlElement(
@@ -45,60 +50,56 @@ Gizmo _$GizmoFromXmlElement(XmlElement element) {
   );
 
   return Gizmo(
-    cOwnedEntity:
-        cOwnedEntity != null ? COwnedEntity.fromXmlElement(cOwnedEntity) : null,
+    cOwnedEntity: cOwnedEntity != null
+        ? COwnedEntity1.fromXmlElement(cOwnedEntity)
+        : null,
   );
 }
 
 List<XmlAttribute> _$GizmoToXmlAttributes(
   Gizmo instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$GizmoToXmlChildren(
   Gizmo instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cOwnedEntity = instance.cOwnedEntity;
+
   return [
-    XmlElement(
-      XmlName(
-        'cOwnedEntity',
+    if (cOwnedEntity != null)
+      XmlElement(
+        XmlName(
+          'cOwnedEntity',
+        ),
+        [
+          ...cOwnedEntity.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cOwnedEntity.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cOwnedEntity?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cOwnedEntity?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$GizmoToXmlElement(
   Gizmo instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'Gizmo',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -106,5 +107,6 @@ XmlElement _$GizmoToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

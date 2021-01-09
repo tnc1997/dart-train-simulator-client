@@ -6,13 +6,16 @@ part 'c_route_coordinate.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cRouteCoordinate',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CRouteCoordinate {
   @annotation.XmlElement(
     name: 'Distance',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Distance distance;
+  Distance? distance;
 
   CRouteCoordinate({
     this.distance,
@@ -42,7 +45,7 @@ class CRouteCoordinate {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRouteCoordinateToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class CRouteCoordinate {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRouteCoordinateToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class CRouteCoordinate {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRouteCoordinateToXmlElement(
         this,

@@ -2,18 +2,19 @@ import 'package:train_simulator_client/train_simulator_client.dart';
 
 Future<void> main() async {
   final client = TrainSimulatorClient(
-    options: TrainSimulatorClientOptions(
-      path: 'C:\\Program Files (x86)\\Steam\\steamapps\\common\\RailWorks',
-    ),
+    rootPath: 'C:\\Program Files (x86)\\Steam\\steamapps\\common\\RailWorks',
   );
 
-  await for (final route in client.routes().get()) {
-    print(route);
+  await for (final directory in client.routes.list()) {
+    await for (final file in client.routes.listRouteProperties(directory)) {
+      print(await client.routes.readRouteProperties(file));
+    }
   }
 
-  final id = '00000001-0000-0000-0000-000000000000';
-
-  await for (final scenario in client.route(id).scenarios().get()) {
-    print(scenario);
+  await for (final directory in client.scenarios.list()) {
+    await for (final file
+        in client.scenarios.listScenarioProperties(directory)) {
+      print(await client.scenarios.readScenarioProperties(file));
+    }
   }
 }

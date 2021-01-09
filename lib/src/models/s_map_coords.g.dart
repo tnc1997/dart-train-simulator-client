@@ -11,24 +11,33 @@ void _$SMapCoordsBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'Easting',
-    nest: () {
-      instance.easting?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Northing',
-    nest: () {
-      instance.northing?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final easting = instance.easting;
+  final northing = instance.northing;
+
+  if (easting != null) {
+    builder.element(
+      'Easting',
+      isSelfClosing: false,
+      nest: () {
+        easting.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (northing != null) {
+    builder.element(
+      'Northing',
+      isSelfClosing: false,
+      nest: () {
+        northing.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$SMapCoordsBuildXmlElement(
@@ -64,66 +73,66 @@ SMapCoords _$SMapCoordsFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$SMapCoordsToXmlAttributes(
   SMapCoords instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$SMapCoordsToXmlChildren(
   SMapCoords instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final easting = instance.easting;
+  final northing = instance.northing;
+
   return [
-    XmlElement(
-      XmlName(
-        'Easting',
+    if (easting != null)
+      XmlElement(
+        XmlName(
+          'Easting',
+        ),
+        [
+          ...easting.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...easting.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.easting?.toXmlAttributes(
+    if (northing != null)
+      XmlElement(
+        XmlName(
+          'Northing',
+        ),
+        [
+          ...northing.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.easting?.toXmlChildren(
+          ),
+        ],
+        [
+          ...northing.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Northing',
+          ),
+        ],
+        false,
       ),
-      instance.northing?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.northing?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$SMapCoordsToXmlElement(
   SMapCoords instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'sMapCoords',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -131,5 +140,6 @@ XmlElement _$SMapCoordsToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

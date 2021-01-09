@@ -6,13 +6,16 @@ part 'autumn_sky_blueprint.g.dart';
 
 @annotation.XmlRootElement(
   name: 'AutumnSkyBlueprint',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class AutumnSkyBlueprint {
   @annotation.XmlElement(
     name: 'iBlueprintLibrary-cAbsoluteBlueprintID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  IBlueprintLibraryCAbsoluteBlueprintId iBlueprintLibraryCAbsoluteBlueprintId;
+  IBlueprintLibraryCAbsoluteBlueprintId? iBlueprintLibraryCAbsoluteBlueprintId;
 
   AutumnSkyBlueprint({
     this.iBlueprintLibraryCAbsoluteBlueprintId,
@@ -42,7 +45,7 @@ class AutumnSkyBlueprint {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$AutumnSkyBlueprintToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class AutumnSkyBlueprint {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$AutumnSkyBlueprintToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class AutumnSkyBlueprint {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$AutumnSkyBlueprintToXmlElement(
         this,

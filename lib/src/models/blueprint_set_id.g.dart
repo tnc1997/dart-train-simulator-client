@@ -11,15 +11,21 @@ void _$BlueprintSetIdBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'iBlueprintLibrary-cBlueprintSetID',
-    nest: () {
-      instance.iBlueprintLibraryCBlueprintSetId?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final iBlueprintLibraryCBlueprintSetId =
+      instance.iBlueprintLibraryCBlueprintSetId;
+
+  if (iBlueprintLibraryCBlueprintSetId != null) {
+    builder.element(
+      'iBlueprintLibrary-cBlueprintSetID',
+      isSelfClosing: false,
+      nest: () {
+        iBlueprintLibraryCBlueprintSetId.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$BlueprintSetIdBuildXmlElement(
@@ -54,53 +60,49 @@ BlueprintSetId _$BlueprintSetIdFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$BlueprintSetIdToXmlAttributes(
   BlueprintSetId instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$BlueprintSetIdToXmlChildren(
   BlueprintSetId instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final iBlueprintLibraryCBlueprintSetId =
+      instance.iBlueprintLibraryCBlueprintSetId;
+
   return [
-    XmlElement(
-      XmlName(
-        'iBlueprintLibrary-cBlueprintSetID',
+    if (iBlueprintLibraryCBlueprintSetId != null)
+      XmlElement(
+        XmlName(
+          'iBlueprintLibrary-cBlueprintSetID',
+        ),
+        [
+          ...iBlueprintLibraryCBlueprintSetId.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...iBlueprintLibraryCBlueprintSetId.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.iBlueprintLibraryCBlueprintSetId?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.iBlueprintLibraryCBlueprintSetId?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$BlueprintSetIdToXmlElement(
   BlueprintSetId instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'BlueprintSetID',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -108,5 +110,6 @@ XmlElement _$BlueprintSetIdToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

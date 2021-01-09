@@ -9,28 +9,37 @@ part 'c_route_blueprint_s_skies.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cRouteBlueprint-sSkies',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CRouteBlueprintSSkies {
   @annotation.XmlElement(
     name: 'AutumnSkyBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  AutumnSkyBlueprint autumnSkyBlueprint;
+  AutumnSkyBlueprint? autumnSkyBlueprint;
 
   @annotation.XmlElement(
     name: 'SpringSkyBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SpringSkyBlueprint springSkyBlueprint;
+  SpringSkyBlueprint? springSkyBlueprint;
 
   @annotation.XmlElement(
     name: 'SummerSkyBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SummerSkyBlueprint summerSkyBlueprint;
+  SummerSkyBlueprint? summerSkyBlueprint;
 
   @annotation.XmlElement(
     name: 'WinterSkyBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  WinterSkyBlueprint winterSkyBlueprint;
+  WinterSkyBlueprint? winterSkyBlueprint;
 
   CRouteBlueprintSSkies({
     this.autumnSkyBlueprint,
@@ -63,7 +72,7 @@ class CRouteBlueprintSSkies {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRouteBlueprintSSkiesToXmlAttributes(
         this,
@@ -71,7 +80,7 @@ class CRouteBlueprintSSkies {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRouteBlueprintSSkiesToXmlChildren(
         this,
@@ -79,7 +88,7 @@ class CRouteBlueprintSSkies {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRouteBlueprintSSkiesToXmlElement(
         this,

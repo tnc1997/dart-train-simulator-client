@@ -11,22 +11,28 @@ void _$CPosOriBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final id = instance.id;
+  final rFarMatrix = instance.rFarMatrix;
+
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'RFarMatrix',
-    nest: () {
-      instance.rFarMatrix?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (rFarMatrix != null) {
+    builder.element(
+      'RFarMatrix',
+      isSelfClosing: false,
+      nest: () {
+        rFarMatrix.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CPosOriBuildXmlElement(
@@ -64,62 +70,59 @@ CPosOri _$CPosOriFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CPosOriToXmlAttributes(
   CPosOri instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$CPosOriToXmlChildren(
   CPosOri instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final rFarMatrix = instance.rFarMatrix;
+
   return [
-    XmlElement(
-      XmlName(
-        'RFarMatrix',
+    if (rFarMatrix != null)
+      XmlElement(
+        XmlName(
+          'RFarMatrix',
+        ),
+        [
+          ...rFarMatrix.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...rFarMatrix.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.rFarMatrix?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.rFarMatrix?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CPosOriToXmlElement(
   CPosOri instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cPosOri',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -127,5 +130,6 @@ XmlElement _$CPosOriToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

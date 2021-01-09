@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 import 'package:train_simulator_client/src/constants/file_extension_constants.dart';
 import 'package:train_simulator_client/src/exceptions/client_exception.dart';
@@ -10,7 +9,7 @@ class SerzService {
   final File _serz;
 
   SerzService({
-    @required TrainSimulatorClientContext context,
+    required TrainSimulatorClientContext context,
   }) : _serz = context.serzFile;
 
   Future<File> convert(File file) async {

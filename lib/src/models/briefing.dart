@@ -6,13 +6,16 @@ part 'briefing.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Briefing',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Briefing {
   @annotation.XmlElement(
     name: 'Localisation-cUserLocalisedString',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  LocalisationCUserLocalisedString localisationCUserLocalisedString;
+  LocalisationCUserLocalisedString? localisationCUserLocalisedString;
 
   Briefing({
     this.localisationCUserLocalisedString,
@@ -42,7 +45,7 @@ class Briefing {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$BriefingToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class Briefing {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$BriefingToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class Briefing {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$BriefingToXmlElement(
         this,

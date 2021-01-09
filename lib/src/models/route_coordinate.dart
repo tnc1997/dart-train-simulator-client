@@ -6,13 +6,16 @@ part 'route_coordinate.g.dart';
 
 @annotation.XmlRootElement(
   name: 'RouteCoordinate',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class RouteCoordinate {
   @annotation.XmlElement(
     name: 'cRouteCoordinate',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CRouteCoordinate cRouteCoordinate;
+  CRouteCoordinate? cRouteCoordinate;
 
   RouteCoordinate({
     this.cRouteCoordinate,
@@ -42,7 +45,7 @@ class RouteCoordinate {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RouteCoordinateToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class RouteCoordinate {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RouteCoordinateToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class RouteCoordinate {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RouteCoordinateToXmlElement(
         this,

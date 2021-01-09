@@ -11,30 +11,35 @@ void _$RYAxisBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.elementType != null) {
+  final elementType = instance.elementType;
+  final numElements = instance.numElements;
+  final precision = instance.precision;
+  final text = instance.text;
+
+  if (elementType != null) {
     builder.attribute(
       'elementType',
-      instance.elementType,
+      elementType,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.numElements != null) {
+  if (numElements != null) {
     builder.attribute(
       'numElements',
-      instance.numElements,
+      numElements,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.precision != null) {
+  if (precision != null) {
     builder.attribute(
       'precision',
-      instance.precision,
+      precision,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.text != null) {
+  if (text != null) {
     builder.text(
-      instance.text,
+      text,
     );
   }
 }
@@ -69,7 +74,7 @@ RYAxis _$RYAxisFromXmlElement(XmlElement element) {
     'precision',
     namespace: 'http://www.kuju.com/TnT/2003/Delta',
   );
-  final text = element.text;
+  final text = element.getText();
 
   return RYAxis(
     elementType: elementType,
@@ -81,69 +86,64 @@ RYAxis _$RYAxisFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$RYAxisToXmlAttributes(
   RYAxis instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final elementType = instance.elementType;
+  final numElements = instance.numElements;
+  final precision = instance.precision;
+
   return [
-    if (instance.elementType != null)
+    if (elementType != null)
       XmlAttribute(
         XmlName(
           'elementType',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.elementType,
+        elementType,
       ),
-    if (instance.numElements != null)
+    if (numElements != null)
       XmlAttribute(
         XmlName(
           'numElements',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.numElements,
+        numElements,
       ),
-    if (instance.precision != null)
+    if (precision != null)
       XmlAttribute(
         XmlName(
           'precision',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.precision,
+        precision,
       ),
   ];
 }
 
 List<XmlNode> _$RYAxisToXmlChildren(
   RYAxis instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final text = instance.text;
+
   return [
-    if (instance.text != null)
+    if (text != null)
       XmlText(
-        instance.text,
+        text,
       ),
   ];
 }
 
 XmlElement _$RYAxisToXmlElement(
   RYAxis instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'RYAxis',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -151,5 +151,6 @@ XmlElement _$RYAxisToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

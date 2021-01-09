@@ -15,6 +15,7 @@ import 'package:train_simulator_client/src/models/start_time.dart';
 import 'package:train_simulator_client/src/models/start_yyyy.dart';
 import 'package:train_simulator_client/src/models/streaming_start_position.dart';
 import 'package:train_simulator_client/src/models/weather_blueprint.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -22,105 +23,140 @@ part 'c_scenario_properties.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cScenarioProperties',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CScenarioProperties {
   @annotation.XmlElement(
     name: 'Briefing',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Briefing briefing;
+  Briefing? briefing;
 
   @annotation.XmlElement(
     name: 'Description',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Description description;
+  Description? description;
 
   @annotation.XmlElement(
     name: 'DisplayName',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  DisplayName displayName;
+  DisplayName1? displayName;
 
   @annotation.XmlElement(
     name: 'DurationMins',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  DurationMins durationMins;
+  DurationMins? durationMins;
 
   @annotation.XmlElement(
     name: 'FrontEndDriverList',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  FrontEndDriverList frontEndDriverList;
+  FrontEndDriverList? frontEndDriverList;
 
   @annotation.XmlElement(
     name: 'Gizmo',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Gizmo gizmo;
+  Gizmo? gizmo;
 
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'ID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Id id1;
+  Id? id1;
 
   @annotation.XmlElement(
     name: 'Rating',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Rating rating;
+  Rating? rating;
 
   @annotation.XmlElement(
     name: 'ScenarioClass',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  ScenarioClass scenarioClass;
+  ScenarioClass? scenarioClass;
 
   @annotation.XmlElement(
     name: 'Season',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Season season;
+  Season? season;
 
   @annotation.XmlElement(
     name: 'SimulationTime',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SimulationTime simulationTime;
+  SimulationTime? simulationTime;
 
   @annotation.XmlElement(
     name: 'StartDD',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  StartDd startDd;
+  StartDd? startDd;
 
   @annotation.XmlElement(
     name: 'StartMM',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  StartMm startMm;
+  StartMm? startMm;
 
   @annotation.XmlElement(
     name: 'StartTime',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  StartTime startTime;
+  StartTime? startTime;
 
   @annotation.XmlElement(
     name: 'StartYYYY',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  StartYyyy startYyyy;
+  StartYyyy? startYyyy;
 
   @annotation.XmlElement(
     name: 'StreamingStartPosition',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  StreamingStartPosition streamingStartPosition;
+  StreamingStartPosition? streamingStartPosition;
 
   @annotation.XmlAttribute(
     name: 'version',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String version;
+  String? version;
 
   @annotation.XmlElement(
     name: 'WeatherBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  WeatherBlueprint weatherBlueprint;
+  WeatherBlueprint? weatherBlueprint;
 
   CScenarioProperties({
     this.briefing,
@@ -168,7 +204,7 @@ class CScenarioProperties {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CScenarioPropertiesToXmlAttributes(
         this,
@@ -176,7 +212,7 @@ class CScenarioProperties {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CScenarioPropertiesToXmlChildren(
         this,
@@ -184,7 +220,7 @@ class CScenarioProperties {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CScenarioPropertiesToXmlElement(
         this,

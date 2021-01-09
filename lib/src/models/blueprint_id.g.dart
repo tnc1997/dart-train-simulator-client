@@ -6,24 +6,30 @@ part of 'blueprint_id.dart';
 // XmlSerializableGenerator
 // **************************************************************************
 
-void _$BlueprintIdBuildXmlChildren(
-  BlueprintId instance,
+void _$BlueprintId1BuildXmlChildren(
+  BlueprintId1 instance,
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'iBlueprintLibrary-cAbsoluteBlueprintID',
-    nest: () {
-      instance.iBlueprintLibraryCAbsoluteBlueprintId?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final iBlueprintLibraryCAbsoluteBlueprintId =
+      instance.iBlueprintLibraryCAbsoluteBlueprintId;
+
+  if (iBlueprintLibraryCAbsoluteBlueprintId != null) {
+    builder.element(
+      'iBlueprintLibrary-cAbsoluteBlueprintID',
+      isSelfClosing: false,
+      nest: () {
+        iBlueprintLibraryCAbsoluteBlueprintId.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
-void _$BlueprintIdBuildXmlElement(
-  BlueprintId instance,
+void _$BlueprintId1BuildXmlElement(
+  BlueprintId1 instance,
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
@@ -39,12 +45,12 @@ void _$BlueprintIdBuildXmlElement(
   );
 }
 
-BlueprintId _$BlueprintIdFromXmlElement(XmlElement element) {
+BlueprintId1 _$BlueprintId1FromXmlElement(XmlElement element) {
   final iBlueprintLibraryCAbsoluteBlueprintId = element.getElement(
     'iBlueprintLibrary-cAbsoluteBlueprintID',
   );
 
-  return BlueprintId(
+  return BlueprintId1(
     iBlueprintLibraryCAbsoluteBlueprintId:
         iBlueprintLibraryCAbsoluteBlueprintId != null
             ? IBlueprintLibraryCAbsoluteBlueprintId.fromXmlElement(
@@ -53,55 +59,51 @@ BlueprintId _$BlueprintIdFromXmlElement(XmlElement element) {
   );
 }
 
-List<XmlAttribute> _$BlueprintIdToXmlAttributes(
-  BlueprintId instance, {
-  Map<String, String> namespaces = const {},
+List<XmlAttribute> _$BlueprintId1ToXmlAttributes(
+  BlueprintId1 instance, {
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
-List<XmlNode> _$BlueprintIdToXmlChildren(
-  BlueprintId instance, {
-  Map<String, String> namespaces = const {},
+List<XmlNode> _$BlueprintId1ToXmlChildren(
+  BlueprintId1 instance, {
+  Map<String, String?> namespaces = const {},
 }) {
+  final iBlueprintLibraryCAbsoluteBlueprintId =
+      instance.iBlueprintLibraryCAbsoluteBlueprintId;
+
   return [
-    XmlElement(
-      XmlName(
-        'iBlueprintLibrary-cAbsoluteBlueprintID',
+    if (iBlueprintLibraryCAbsoluteBlueprintId != null)
+      XmlElement(
+        XmlName(
+          'iBlueprintLibrary-cAbsoluteBlueprintID',
+        ),
+        [
+          ...iBlueprintLibraryCAbsoluteBlueprintId.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...iBlueprintLibraryCAbsoluteBlueprintId.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.iBlueprintLibraryCAbsoluteBlueprintId?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.iBlueprintLibraryCAbsoluteBlueprintId?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
-XmlElement _$BlueprintIdToXmlElement(
-  BlueprintId instance, {
-  Map<String, String> namespaces = const {},
+XmlElement _$BlueprintId1ToXmlElement(
+  BlueprintId1 instance, {
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'BlueprintID',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -109,5 +111,111 @@ XmlElement _$BlueprintIdToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
+  );
+}
+
+void _$BlueprintId2BuildXmlChildren(
+  BlueprintId2 instance,
+  XmlBuilder builder, {
+  Map<String, String> namespaces = const {},
+}) {
+  final text = instance.text;
+  final type = instance.type;
+
+  if (text != null) {
+    builder.text(
+      text,
+    );
+  }
+  if (type != null) {
+    builder.attribute(
+      'type',
+      type,
+      namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    );
+  }
+}
+
+void _$BlueprintId2BuildXmlElement(
+  BlueprintId2 instance,
+  XmlBuilder builder, {
+  Map<String, String> namespaces = const {},
+}) {
+  builder.element(
+    'BlueprintId',
+    namespaces: namespaces,
+    nest: () {
+      instance.buildXmlChildren(
+        builder,
+        namespaces: namespaces,
+      );
+    },
+  );
+}
+
+BlueprintId2 _$BlueprintId2FromXmlElement(XmlElement element) {
+  final text = element.getText();
+  final type = element.getAttribute(
+    'type',
+    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+  );
+
+  return BlueprintId2(
+    text: text,
+    type: type,
+  );
+}
+
+List<XmlAttribute> _$BlueprintId2ToXmlAttributes(
+  BlueprintId2 instance, {
+  Map<String, String?> namespaces = const {},
+}) {
+  final type = instance.type;
+
+  return [
+    if (type != null)
+      XmlAttribute(
+        XmlName(
+          'type',
+          namespaces['http://www.kuju.com/TnT/2003/Delta'],
+        ),
+        type,
+      ),
+  ];
+}
+
+List<XmlNode> _$BlueprintId2ToXmlChildren(
+  BlueprintId2 instance, {
+  Map<String, String?> namespaces = const {},
+}) {
+  final text = instance.text;
+
+  return [
+    if (text != null)
+      XmlText(
+        text,
+      ),
+  ];
+}
+
+XmlElement _$BlueprintId2ToXmlElement(
+  BlueprintId2 instance, {
+  Map<String, String?> namespaces = const {},
+}) {
+  return XmlElement(
+    XmlName(
+      'BlueprintId',
+    ),
+    [
+      ...namespaces.toXmlAttributes(),
+      ...instance.toXmlAttributes(
+        namespaces: namespaces,
+      ),
+    ],
+    instance.toXmlChildren(
+      namespaces: namespaces,
+    ),
+    false,
   );
 }

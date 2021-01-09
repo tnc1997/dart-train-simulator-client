@@ -7,18 +7,23 @@ part 'c_far_coordinate.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cFarCoordinate',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CFarCoordinate {
   @annotation.XmlElement(
     name: 'RouteCoordinate',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RouteCoordinate routeCoordinate;
+  RouteCoordinate? routeCoordinate;
 
   @annotation.XmlElement(
     name: 'TileCoordinate',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  TileCoordinate tileCoordinate;
+  TileCoordinate? tileCoordinate;
 
   CFarCoordinate({
     this.routeCoordinate,
@@ -49,7 +54,7 @@ class CFarCoordinate {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarCoordinateToXmlAttributes(
         this,
@@ -57,7 +62,7 @@ class CFarCoordinate {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarCoordinateToXmlChildren(
         this,
@@ -65,7 +70,7 @@ class CFarCoordinate {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarCoordinateToXmlElement(
         this,

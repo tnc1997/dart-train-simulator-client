@@ -11,24 +11,33 @@ void _$SGeoPositionBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'Lat',
-    nest: () {
-      instance.lat?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Long',
-    nest: () {
-      instance.long?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final lat = instance.lat;
+  final long = instance.long;
+
+  if (lat != null) {
+    builder.element(
+      'Lat',
+      isSelfClosing: false,
+      nest: () {
+        lat.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (long != null) {
+    builder.element(
+      'Long',
+      isSelfClosing: false,
+      nest: () {
+        long.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$SGeoPositionBuildXmlElement(
@@ -64,66 +73,66 @@ SGeoPosition _$SGeoPositionFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$SGeoPositionToXmlAttributes(
   SGeoPosition instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$SGeoPositionToXmlChildren(
   SGeoPosition instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final lat = instance.lat;
+  final long = instance.long;
+
   return [
-    XmlElement(
-      XmlName(
-        'Lat',
+    if (lat != null)
+      XmlElement(
+        XmlName(
+          'Lat',
+        ),
+        [
+          ...lat.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...lat.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.lat?.toXmlAttributes(
+    if (long != null)
+      XmlElement(
+        XmlName(
+          'Long',
+        ),
+        [
+          ...long.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.lat?.toXmlChildren(
+          ),
+        ],
+        [
+          ...long.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Long',
+          ),
+        ],
+        false,
       ),
-      instance.long?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.long?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$SGeoPositionToXmlElement(
   SGeoPosition instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'sGeoPosition',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -131,5 +140,6 @@ XmlElement _$SGeoPositionToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

@@ -6,13 +6,16 @@ part 'id.g.dart';
 
 @annotation.XmlRootElement(
   name: 'ID',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Id {
   @annotation.XmlElement(
     name: 'cGUID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CGuid cGuid;
+  CGuid? cGuid;
 
   Id({
     this.cGuid,
@@ -41,7 +44,7 @@ class Id {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$IdToXmlAttributes(
         this,
@@ -49,7 +52,7 @@ class Id {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$IdToXmlChildren(
         this,
@@ -57,7 +60,7 @@ class Id {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$IdToXmlElement(
         this,

@@ -11,322 +11,449 @@ void _$LocalisationCUserLocalisedStringBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'Arabic',
-    nest: () {
-      instance.arabic?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Basque',
-    nest: () {
-      instance.basque?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Bulgarian',
-    nest: () {
-      instance.bulgarian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Catalan',
-    nest: () {
-      instance.catalan?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Croatian',
-    nest: () {
-      instance.croatian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Czech',
-    nest: () {
-      instance.czech?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Danish',
-    nest: () {
-      instance.danish?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Dutch',
-    nest: () {
-      instance.dutch?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'English',
-    nest: () {
-      instance.english?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Finnish',
-    nest: () {
-      instance.finnish?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'French',
-    nest: () {
-      instance.french?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'FrenchCA',
-    nest: () {
-      instance.frenchCa?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'German',
-    nest: () {
-      instance.german?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Greek',
-    nest: () {
-      instance.greek?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Hungarian',
-    nest: () {
-      instance.hungarian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Indonesian',
-    nest: () {
-      instance.indonesian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Italian',
-    nest: () {
-      instance.italian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Japanese',
-    nest: () {
-      instance.japanese?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Korean',
-    nest: () {
-      instance.korean?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Norwegian',
-    nest: () {
-      instance.norwegian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Other',
-    nest: () {
-      if (instance.other != null) {
-        builder.text(
-          instance.other,
+  final arabic = instance.arabic;
+  final basque = instance.basque;
+  final bulgarian = instance.bulgarian;
+  final catalan = instance.catalan;
+  final croatian = instance.croatian;
+  final czech = instance.czech;
+  final danish = instance.danish;
+  final dutch = instance.dutch;
+  final english = instance.english;
+  final finnish = instance.finnish;
+  final french = instance.french;
+  final frenchCa = instance.frenchCa;
+  final german = instance.german;
+  final greek = instance.greek;
+  final hungarian = instance.hungarian;
+  final indonesian = instance.indonesian;
+  final italian = instance.italian;
+  final japanese = instance.japanese;
+  final korean = instance.korean;
+  final norwegian = instance.norwegian;
+  final polish = instance.polish;
+  final portuguese = instance.portuguese;
+  final portugueseBr = instance.portugueseBr;
+  final romanian = instance.romanian;
+  final russian = instance.russian;
+  final serbian = instance.serbian;
+  final simpChinese = instance.simpChinese;
+  final slovak = instance.slovak;
+  final slovenian = instance.slovenian;
+  final spanish = instance.spanish;
+  final swedish = instance.swedish;
+  final thai = instance.thai;
+  final tradChinese = instance.tradChinese;
+  final turkish = instance.turkish;
+
+  if (arabic != null) {
+    builder.element(
+      'Arabic',
+      isSelfClosing: false,
+      nest: () {
+        arabic.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
         );
-      }
-    },
-  );
-  builder.element(
-    'Polish',
-    nest: () {
-      instance.polish?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Portuguese',
-    nest: () {
-      instance.portuguese?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'PortugueseBR',
-    nest: () {
-      instance.portugueseBr?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Romanian',
-    nest: () {
-      instance.romanian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Russian',
-    nest: () {
-      instance.russian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Serbian',
-    nest: () {
-      instance.serbian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'SimpChinese',
-    nest: () {
-      instance.simpChinese?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Slovak',
-    nest: () {
-      instance.slovak?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Slovenian',
-    nest: () {
-      instance.slovenian?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Spanish',
-    nest: () {
-      instance.spanish?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Swedish',
-    nest: () {
-      instance.swedish?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Thai',
-    nest: () {
-      instance.thai?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'TradChinese',
-    nest: () {
-      instance.tradChinese?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Turkish',
-    nest: () {
-      instance.turkish?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+      },
+    );
+  }
+  if (basque != null) {
+    builder.element(
+      'Basque',
+      isSelfClosing: false,
+      nest: () {
+        basque.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (bulgarian != null) {
+    builder.element(
+      'Bulgarian',
+      isSelfClosing: false,
+      nest: () {
+        bulgarian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (catalan != null) {
+    builder.element(
+      'Catalan',
+      isSelfClosing: false,
+      nest: () {
+        catalan.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (croatian != null) {
+    builder.element(
+      'Croatian',
+      isSelfClosing: false,
+      nest: () {
+        croatian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (czech != null) {
+    builder.element(
+      'Czech',
+      isSelfClosing: false,
+      nest: () {
+        czech.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (danish != null) {
+    builder.element(
+      'Danish',
+      isSelfClosing: false,
+      nest: () {
+        danish.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (dutch != null) {
+    builder.element(
+      'Dutch',
+      isSelfClosing: false,
+      nest: () {
+        dutch.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (english != null) {
+    builder.element(
+      'English',
+      isSelfClosing: false,
+      nest: () {
+        english.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (finnish != null) {
+    builder.element(
+      'Finnish',
+      isSelfClosing: false,
+      nest: () {
+        finnish.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (french != null) {
+    builder.element(
+      'French',
+      isSelfClosing: false,
+      nest: () {
+        french.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (frenchCa != null) {
+    builder.element(
+      'FrenchCA',
+      isSelfClosing: false,
+      nest: () {
+        frenchCa.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (german != null) {
+    builder.element(
+      'German',
+      isSelfClosing: false,
+      nest: () {
+        german.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (greek != null) {
+    builder.element(
+      'Greek',
+      isSelfClosing: false,
+      nest: () {
+        greek.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (hungarian != null) {
+    builder.element(
+      'Hungarian',
+      isSelfClosing: false,
+      nest: () {
+        hungarian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (indonesian != null) {
+    builder.element(
+      'Indonesian',
+      isSelfClosing: false,
+      nest: () {
+        indonesian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (italian != null) {
+    builder.element(
+      'Italian',
+      isSelfClosing: false,
+      nest: () {
+        italian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (japanese != null) {
+    builder.element(
+      'Japanese',
+      isSelfClosing: false,
+      nest: () {
+        japanese.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (korean != null) {
+    builder.element(
+      'Korean',
+      isSelfClosing: false,
+      nest: () {
+        korean.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (norwegian != null) {
+    builder.element(
+      'Norwegian',
+      isSelfClosing: false,
+      nest: () {
+        norwegian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (polish != null) {
+    builder.element(
+      'Polish',
+      isSelfClosing: false,
+      nest: () {
+        polish.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (portuguese != null) {
+    builder.element(
+      'Portuguese',
+      isSelfClosing: false,
+      nest: () {
+        portuguese.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (portugueseBr != null) {
+    builder.element(
+      'PortugueseBR',
+      isSelfClosing: false,
+      nest: () {
+        portugueseBr.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (romanian != null) {
+    builder.element(
+      'Romanian',
+      isSelfClosing: false,
+      nest: () {
+        romanian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (russian != null) {
+    builder.element(
+      'Russian',
+      isSelfClosing: false,
+      nest: () {
+        russian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (serbian != null) {
+    builder.element(
+      'Serbian',
+      isSelfClosing: false,
+      nest: () {
+        serbian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (simpChinese != null) {
+    builder.element(
+      'SimpChinese',
+      isSelfClosing: false,
+      nest: () {
+        simpChinese.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (slovak != null) {
+    builder.element(
+      'Slovak',
+      isSelfClosing: false,
+      nest: () {
+        slovak.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (slovenian != null) {
+    builder.element(
+      'Slovenian',
+      isSelfClosing: false,
+      nest: () {
+        slovenian.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (spanish != null) {
+    builder.element(
+      'Spanish',
+      isSelfClosing: false,
+      nest: () {
+        spanish.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (swedish != null) {
+    builder.element(
+      'Swedish',
+      isSelfClosing: false,
+      nest: () {
+        swedish.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (thai != null) {
+    builder.element(
+      'Thai',
+      isSelfClosing: false,
+      nest: () {
+        thai.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (tradChinese != null) {
+    builder.element(
+      'TradChinese',
+      isSelfClosing: false,
+      nest: () {
+        tradChinese.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (turkish != null) {
+    builder.element(
+      'Turkish',
+      isSelfClosing: false,
+      nest: () {
+        turkish.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$LocalisationCUserLocalisedStringBuildXmlElement(
@@ -408,9 +535,6 @@ LocalisationCUserLocalisedString
   final norwegian = element.getElement(
     'Norwegian',
   );
-  final other = element.getElement(
-    'Other',
-  );
   final polish = element.getElement(
     'Polish',
   );
@@ -476,7 +600,6 @@ LocalisationCUserLocalisedString
     japanese: japanese != null ? Japanese.fromXmlElement(japanese) : null,
     korean: korean != null ? Korean.fromXmlElement(korean) : null,
     norwegian: norwegian != null ? Norwegian.fromXmlElement(norwegian) : null,
-    other: other != null ? other.text : null,
     polish: polish != null ? Polish.fromXmlElement(polish) : null,
     portuguese:
         portuguese != null ? Portuguese.fromXmlElement(portuguese) : null,
@@ -500,494 +623,642 @@ LocalisationCUserLocalisedString
 
 List<XmlAttribute> _$LocalisationCUserLocalisedStringToXmlAttributes(
   LocalisationCUserLocalisedString instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$LocalisationCUserLocalisedStringToXmlChildren(
   LocalisationCUserLocalisedString instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final arabic = instance.arabic;
+  final basque = instance.basque;
+  final bulgarian = instance.bulgarian;
+  final catalan = instance.catalan;
+  final croatian = instance.croatian;
+  final czech = instance.czech;
+  final danish = instance.danish;
+  final dutch = instance.dutch;
+  final english = instance.english;
+  final finnish = instance.finnish;
+  final french = instance.french;
+  final frenchCa = instance.frenchCa;
+  final german = instance.german;
+  final greek = instance.greek;
+  final hungarian = instance.hungarian;
+  final indonesian = instance.indonesian;
+  final italian = instance.italian;
+  final japanese = instance.japanese;
+  final korean = instance.korean;
+  final norwegian = instance.norwegian;
+  final polish = instance.polish;
+  final portuguese = instance.portuguese;
+  final portugueseBr = instance.portugueseBr;
+  final romanian = instance.romanian;
+  final russian = instance.russian;
+  final serbian = instance.serbian;
+  final simpChinese = instance.simpChinese;
+  final slovak = instance.slovak;
+  final slovenian = instance.slovenian;
+  final spanish = instance.spanish;
+  final swedish = instance.swedish;
+  final thai = instance.thai;
+  final tradChinese = instance.tradChinese;
+  final turkish = instance.turkish;
+
   return [
-    XmlElement(
-      XmlName(
-        'Arabic',
-      ),
-      instance.arabic?.toXmlAttributes(
+    if (arabic != null)
+      XmlElement(
+        XmlName(
+          'Arabic',
+        ),
+        [
+          ...arabic.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.arabic?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Basque',
-      ),
-      instance.basque?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.basque?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Bulgarian',
-      ),
-      instance.bulgarian?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.bulgarian?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Catalan',
-      ),
-      instance.catalan?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.catalan?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Croatian',
-      ),
-      instance.croatian?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.croatian?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Czech',
-      ),
-      instance.czech?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.czech?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Danish',
-      ),
-      instance.danish?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.danish?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Dutch',
-      ),
-      instance.dutch?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.dutch?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'English',
-      ),
-      instance.english?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.english?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Finnish',
-      ),
-      instance.finnish?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.finnish?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'French',
-      ),
-      instance.french?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.french?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'FrenchCA',
-      ),
-      instance.frenchCa?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.frenchCa?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'German',
-      ),
-      instance.german?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.german?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Greek',
-      ),
-      instance.greek?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.greek?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Hungarian',
-      ),
-      instance.hungarian?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.hungarian?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Indonesian',
-      ),
-      instance.indonesian?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.indonesian?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Italian',
-      ),
-      instance.italian?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.italian?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Japanese',
-      ),
-      instance.japanese?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.japanese?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Korean',
-      ),
-      instance.korean?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.korean?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Norwegian',
-      ),
-      instance.norwegian?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.norwegian?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Other',
-      ),
-      [],
-      [
-        if (instance.other != null)
-          XmlText(
-            instance.other,
           ),
-      ],
-    ),
-    XmlElement(
-      XmlName(
-        'Polish',
+        ],
+        [
+          ...arabic.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.polish?.toXmlAttributes(
+    if (basque != null)
+      XmlElement(
+        XmlName(
+          'Basque',
+        ),
+        [
+          ...basque.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.polish?.toXmlChildren(
+          ),
+        ],
+        [
+          ...basque.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Portuguese',
+          ),
+        ],
+        false,
       ),
-      instance.portuguese?.toXmlAttributes(
+    if (bulgarian != null)
+      XmlElement(
+        XmlName(
+          'Bulgarian',
+        ),
+        [
+          ...bulgarian.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.portuguese?.toXmlChildren(
+          ),
+        ],
+        [
+          ...bulgarian.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'PortugueseBR',
+          ),
+        ],
+        false,
       ),
-      instance.portugueseBr?.toXmlAttributes(
+    if (catalan != null)
+      XmlElement(
+        XmlName(
+          'Catalan',
+        ),
+        [
+          ...catalan.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.portugueseBr?.toXmlChildren(
+          ),
+        ],
+        [
+          ...catalan.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Romanian',
+          ),
+        ],
+        false,
       ),
-      instance.romanian?.toXmlAttributes(
+    if (croatian != null)
+      XmlElement(
+        XmlName(
+          'Croatian',
+        ),
+        [
+          ...croatian.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.romanian?.toXmlChildren(
+          ),
+        ],
+        [
+          ...croatian.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Russian',
+          ),
+        ],
+        false,
       ),
-      instance.russian?.toXmlAttributes(
+    if (czech != null)
+      XmlElement(
+        XmlName(
+          'Czech',
+        ),
+        [
+          ...czech.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.russian?.toXmlChildren(
+          ),
+        ],
+        [
+          ...czech.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Serbian',
+          ),
+        ],
+        false,
       ),
-      instance.serbian?.toXmlAttributes(
+    if (danish != null)
+      XmlElement(
+        XmlName(
+          'Danish',
+        ),
+        [
+          ...danish.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.serbian?.toXmlChildren(
+          ),
+        ],
+        [
+          ...danish.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'SimpChinese',
+          ),
+        ],
+        false,
       ),
-      instance.simpChinese?.toXmlAttributes(
+    if (dutch != null)
+      XmlElement(
+        XmlName(
+          'Dutch',
+        ),
+        [
+          ...dutch.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.simpChinese?.toXmlChildren(
+          ),
+        ],
+        [
+          ...dutch.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Slovak',
+          ),
+        ],
+        false,
       ),
-      instance.slovak?.toXmlAttributes(
+    if (english != null)
+      XmlElement(
+        XmlName(
+          'English',
+        ),
+        [
+          ...english.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.slovak?.toXmlChildren(
+          ),
+        ],
+        [
+          ...english.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Slovenian',
+          ),
+        ],
+        false,
       ),
-      instance.slovenian?.toXmlAttributes(
+    if (finnish != null)
+      XmlElement(
+        XmlName(
+          'Finnish',
+        ),
+        [
+          ...finnish.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.slovenian?.toXmlChildren(
+          ),
+        ],
+        [
+          ...finnish.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Spanish',
+          ),
+        ],
+        false,
       ),
-      instance.spanish?.toXmlAttributes(
+    if (french != null)
+      XmlElement(
+        XmlName(
+          'French',
+        ),
+        [
+          ...french.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.spanish?.toXmlChildren(
+          ),
+        ],
+        [
+          ...french.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Swedish',
+          ),
+        ],
+        false,
       ),
-      instance.swedish?.toXmlAttributes(
+    if (frenchCa != null)
+      XmlElement(
+        XmlName(
+          'FrenchCA',
+        ),
+        [
+          ...frenchCa.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.swedish?.toXmlChildren(
+          ),
+        ],
+        [
+          ...frenchCa.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Thai',
+          ),
+        ],
+        false,
       ),
-      instance.thai?.toXmlAttributes(
+    if (german != null)
+      XmlElement(
+        XmlName(
+          'German',
+        ),
+        [
+          ...german.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.thai?.toXmlChildren(
+          ),
+        ],
+        [
+          ...german.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'TradChinese',
+          ),
+        ],
+        false,
       ),
-      instance.tradChinese?.toXmlAttributes(
+    if (greek != null)
+      XmlElement(
+        XmlName(
+          'Greek',
+        ),
+        [
+          ...greek.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.tradChinese?.toXmlChildren(
+          ),
+        ],
+        [
+          ...greek.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Turkish',
+          ),
+        ],
+        false,
       ),
-      instance.turkish?.toXmlAttributes(
+    if (hungarian != null)
+      XmlElement(
+        XmlName(
+          'Hungarian',
+        ),
+        [
+          ...hungarian.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.turkish?.toXmlChildren(
+          ),
+        ],
+        [
+          ...hungarian.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
+          ),
+        ],
+        false,
+      ),
+    if (indonesian != null)
+      XmlElement(
+        XmlName(
+          'Indonesian',
+        ),
+        [
+          ...indonesian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...indonesian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (italian != null)
+      XmlElement(
+        XmlName(
+          'Italian',
+        ),
+        [
+          ...italian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...italian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (japanese != null)
+      XmlElement(
+        XmlName(
+          'Japanese',
+        ),
+        [
+          ...japanese.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...japanese.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (korean != null)
+      XmlElement(
+        XmlName(
+          'Korean',
+        ),
+        [
+          ...korean.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...korean.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (norwegian != null)
+      XmlElement(
+        XmlName(
+          'Norwegian',
+        ),
+        [
+          ...norwegian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...norwegian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (polish != null)
+      XmlElement(
+        XmlName(
+          'Polish',
+        ),
+        [
+          ...polish.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...polish.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (portuguese != null)
+      XmlElement(
+        XmlName(
+          'Portuguese',
+        ),
+        [
+          ...portuguese.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...portuguese.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (portugueseBr != null)
+      XmlElement(
+        XmlName(
+          'PortugueseBR',
+        ),
+        [
+          ...portugueseBr.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...portugueseBr.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (romanian != null)
+      XmlElement(
+        XmlName(
+          'Romanian',
+        ),
+        [
+          ...romanian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...romanian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (russian != null)
+      XmlElement(
+        XmlName(
+          'Russian',
+        ),
+        [
+          ...russian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...russian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (serbian != null)
+      XmlElement(
+        XmlName(
+          'Serbian',
+        ),
+        [
+          ...serbian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...serbian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (simpChinese != null)
+      XmlElement(
+        XmlName(
+          'SimpChinese',
+        ),
+        [
+          ...simpChinese.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...simpChinese.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (slovak != null)
+      XmlElement(
+        XmlName(
+          'Slovak',
+        ),
+        [
+          ...slovak.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...slovak.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (slovenian != null)
+      XmlElement(
+        XmlName(
+          'Slovenian',
+        ),
+        [
+          ...slovenian.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...slovenian.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (spanish != null)
+      XmlElement(
+        XmlName(
+          'Spanish',
+        ),
+        [
+          ...spanish.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...spanish.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (swedish != null)
+      XmlElement(
+        XmlName(
+          'Swedish',
+        ),
+        [
+          ...swedish.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...swedish.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (thai != null)
+      XmlElement(
+        XmlName(
+          'Thai',
+        ),
+        [
+          ...thai.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...thai.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (tradChinese != null)
+      XmlElement(
+        XmlName(
+          'TradChinese',
+        ),
+        [
+          ...tradChinese.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...tradChinese.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
+    if (turkish != null)
+      XmlElement(
+        XmlName(
+          'Turkish',
+        ),
+        [
+          ...turkish.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...turkish.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
+      ),
   ];
 }
 
 XmlElement _$LocalisationCUserLocalisedStringToXmlElement(
   LocalisationCUserLocalisedString instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'Localisation-cUserLocalisedString',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -995,5 +1266,6 @@ XmlElement _$LocalisationCUserLocalisedStringToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

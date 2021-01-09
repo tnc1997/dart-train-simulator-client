@@ -11,30 +11,35 @@ void _$SummerTimeBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.altEncoding != null) {
+  final altEncoding = instance.altEncoding;
+  final precision = instance.precision;
+  final text = instance.text;
+  final type = instance.type;
+
+  if (altEncoding != null) {
     builder.attribute(
       'alt_encoding',
-      instance.altEncoding,
+      altEncoding,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.precision != null) {
+  if (precision != null) {
     builder.attribute(
       'precision',
-      instance.precision,
+      precision,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.type != null) {
+  if (text != null) {
+    builder.text(
+      text,
+    );
+  }
+  if (type != null) {
     builder.attribute(
       'type',
-      instance.type,
+      type,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
-    );
-  }
-  if (instance.text != null) {
-    builder.text(
-      instance.text,
     );
   }
 }
@@ -65,7 +70,7 @@ SummerTime _$SummerTimeFromXmlElement(XmlElement element) {
     'precision',
     namespace: 'http://www.kuju.com/TnT/2003/Delta',
   );
-  final text = element.text;
+  final text = element.getText();
   final type = element.getAttribute(
     'type',
     namespace: 'http://www.kuju.com/TnT/2003/Delta',
@@ -81,69 +86,64 @@ SummerTime _$SummerTimeFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$SummerTimeToXmlAttributes(
   SummerTime instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final altEncoding = instance.altEncoding;
+  final precision = instance.precision;
+  final type = instance.type;
+
   return [
-    if (instance.altEncoding != null)
+    if (altEncoding != null)
       XmlAttribute(
         XmlName(
           'alt_encoding',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.altEncoding,
+        altEncoding,
       ),
-    if (instance.precision != null)
+    if (precision != null)
       XmlAttribute(
         XmlName(
           'precision',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.precision,
+        precision,
       ),
-    if (instance.type != null)
+    if (type != null)
       XmlAttribute(
         XmlName(
           'type',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.type,
+        type,
       ),
   ];
 }
 
 List<XmlNode> _$SummerTimeToXmlChildren(
   SummerTime instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final text = instance.text;
+
   return [
-    if (instance.text != null)
+    if (text != null)
       XmlText(
-        instance.text,
+        text,
       ),
   ];
 }
 
 XmlElement _$SummerTimeToXmlElement(
   SummerTime instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'SummerTime',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -151,5 +151,6 @@ XmlElement _$SummerTimeToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

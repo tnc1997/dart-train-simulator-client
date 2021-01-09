@@ -1,4 +1,5 @@
 ﻿import 'package:train_simulator_client/src/models/r_far_matrix.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -6,19 +7,22 @@ part 'c_pos_ori.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cPosOri',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CPosOri {
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'RFarMatrix',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RFarMatrix rFarMatrix;
+  RFarMatrix? rFarMatrix;
 
   CPosOri({
     this.id,
@@ -49,7 +53,7 @@ class CPosOri {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CPosOriToXmlAttributes(
         this,
@@ -57,7 +61,7 @@ class CPosOri {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CPosOriToXmlChildren(
         this,
@@ -65,7 +69,7 @@ class CPosOri {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CPosOriToXmlElement(
         this,

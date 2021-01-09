@@ -11,15 +11,20 @@ void _$RFarMatrixBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cFarMatrix',
-    nest: () {
-      instance.cFarMatrix?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cFarMatrix = instance.cFarMatrix;
+
+  if (cFarMatrix != null) {
+    builder.element(
+      'cFarMatrix',
+      isSelfClosing: false,
+      nest: () {
+        cFarMatrix.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$RFarMatrixBuildXmlElement(
@@ -52,53 +57,48 @@ RFarMatrix _$RFarMatrixFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$RFarMatrixToXmlAttributes(
   RFarMatrix instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$RFarMatrixToXmlChildren(
   RFarMatrix instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cFarMatrix = instance.cFarMatrix;
+
   return [
-    XmlElement(
-      XmlName(
-        'cFarMatrix',
+    if (cFarMatrix != null)
+      XmlElement(
+        XmlName(
+          'cFarMatrix',
+        ),
+        [
+          ...cFarMatrix.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cFarMatrix.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cFarMatrix?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cFarMatrix?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$RFarMatrixToXmlElement(
   RFarMatrix instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'RFarMatrix',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -106,5 +106,6 @@ XmlElement _$RFarMatrixToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

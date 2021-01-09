@@ -11,15 +11,20 @@ void _$MapOffsetBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'sMapCoords',
-    nest: () {
-      instance.sMapCoords?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final sMapCoords = instance.sMapCoords;
+
+  if (sMapCoords != null) {
+    builder.element(
+      'sMapCoords',
+      isSelfClosing: false,
+      nest: () {
+        sMapCoords.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$MapOffsetBuildXmlElement(
@@ -52,53 +57,48 @@ MapOffset _$MapOffsetFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$MapOffsetToXmlAttributes(
   MapOffset instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$MapOffsetToXmlChildren(
   MapOffset instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final sMapCoords = instance.sMapCoords;
+
   return [
-    XmlElement(
-      XmlName(
-        'sMapCoords',
+    if (sMapCoords != null)
+      XmlElement(
+        XmlName(
+          'sMapCoords',
+        ),
+        [
+          ...sMapCoords.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...sMapCoords.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.sMapCoords?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.sMapCoords?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$MapOffsetToXmlElement(
   MapOffset instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'MapOffset',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -106,5 +106,6 @@ XmlElement _$MapOffsetToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

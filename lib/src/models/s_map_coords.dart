@@ -7,18 +7,23 @@ part 's_map_coords.g.dart';
 
 @annotation.XmlRootElement(
   name: 'sMapCoords',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class SMapCoords {
   @annotation.XmlElement(
     name: 'Easting',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Easting easting;
+  Easting? easting;
 
   @annotation.XmlElement(
     name: 'Northing',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Northing northing;
+  Northing? northing;
 
   SMapCoords({
     this.easting,
@@ -49,7 +54,7 @@ class SMapCoords {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SMapCoordsToXmlAttributes(
         this,
@@ -57,7 +62,7 @@ class SMapCoords {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SMapCoordsToXmlChildren(
         this,
@@ -65,7 +70,7 @@ class SMapCoords {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SMapCoordsToXmlElement(
         this,

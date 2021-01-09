@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'french_ca.g.dart';
 
 @annotation.XmlRootElement(
   name: 'FrenchCA',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class FrenchCa {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   FrenchCa({
     this.text,
@@ -24,6 +26,9 @@ class FrenchCa {
 
   factory FrenchCa.fromXmlElement(XmlElement element) =>
       _$FrenchCaFromXmlElement(element);
+
+  @override
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -46,7 +51,7 @@ class FrenchCa {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$FrenchCaToXmlAttributes(
         this,
@@ -54,7 +59,7 @@ class FrenchCa {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$FrenchCaToXmlChildren(
         this,
@@ -62,7 +67,7 @@ class FrenchCa {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$FrenchCaToXmlElement(
         this,

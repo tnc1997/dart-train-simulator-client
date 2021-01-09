@@ -6,13 +6,16 @@ part 'blueprint_set_id.g.dart';
 
 @annotation.XmlRootElement(
   name: 'BlueprintSetID',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class BlueprintSetId {
   @annotation.XmlElement(
     name: 'iBlueprintLibrary-cBlueprintSetID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  IBlueprintLibraryCBlueprintSetId iBlueprintLibraryCBlueprintSetId;
+  IBlueprintLibraryCBlueprintSetId? iBlueprintLibraryCBlueprintSetId;
 
   BlueprintSetId({
     this.iBlueprintLibraryCBlueprintSetId,
@@ -42,7 +45,7 @@ class BlueprintSetId {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$BlueprintSetIdToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class BlueprintSetId {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$BlueprintSetIdToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class BlueprintSetId {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$BlueprintSetIdToXmlElement(
         this,

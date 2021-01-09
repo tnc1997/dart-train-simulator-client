@@ -11,42 +11,59 @@ void _$CRouteBlueprintSSkiesBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'AutumnSkyBlueprint',
-    nest: () {
-      instance.autumnSkyBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'SpringSkyBlueprint',
-    nest: () {
-      instance.springSkyBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'SummerSkyBlueprint',
-    nest: () {
-      instance.summerSkyBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'WinterSkyBlueprint',
-    nest: () {
-      instance.winterSkyBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final autumnSkyBlueprint = instance.autumnSkyBlueprint;
+  final springSkyBlueprint = instance.springSkyBlueprint;
+  final summerSkyBlueprint = instance.summerSkyBlueprint;
+  final winterSkyBlueprint = instance.winterSkyBlueprint;
+
+  if (autumnSkyBlueprint != null) {
+    builder.element(
+      'AutumnSkyBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        autumnSkyBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (springSkyBlueprint != null) {
+    builder.element(
+      'SpringSkyBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        springSkyBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (summerSkyBlueprint != null) {
+    builder.element(
+      'SummerSkyBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        summerSkyBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (winterSkyBlueprint != null) {
+    builder.element(
+      'WinterSkyBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        winterSkyBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CRouteBlueprintSSkiesBuildXmlElement(
@@ -99,92 +116,102 @@ CRouteBlueprintSSkies _$CRouteBlueprintSSkiesFromXmlElement(
 
 List<XmlAttribute> _$CRouteBlueprintSSkiesToXmlAttributes(
   CRouteBlueprintSSkies instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$CRouteBlueprintSSkiesToXmlChildren(
   CRouteBlueprintSSkies instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final autumnSkyBlueprint = instance.autumnSkyBlueprint;
+  final springSkyBlueprint = instance.springSkyBlueprint;
+  final summerSkyBlueprint = instance.summerSkyBlueprint;
+  final winterSkyBlueprint = instance.winterSkyBlueprint;
+
   return [
-    XmlElement(
-      XmlName(
-        'AutumnSkyBlueprint',
+    if (autumnSkyBlueprint != null)
+      XmlElement(
+        XmlName(
+          'AutumnSkyBlueprint',
+        ),
+        [
+          ...autumnSkyBlueprint.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...autumnSkyBlueprint.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.autumnSkyBlueprint?.toXmlAttributes(
+    if (springSkyBlueprint != null)
+      XmlElement(
+        XmlName(
+          'SpringSkyBlueprint',
+        ),
+        [
+          ...springSkyBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.autumnSkyBlueprint?.toXmlChildren(
+          ),
+        ],
+        [
+          ...springSkyBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'SpringSkyBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.springSkyBlueprint?.toXmlAttributes(
+    if (summerSkyBlueprint != null)
+      XmlElement(
+        XmlName(
+          'SummerSkyBlueprint',
+        ),
+        [
+          ...summerSkyBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.springSkyBlueprint?.toXmlChildren(
+          ),
+        ],
+        [
+          ...summerSkyBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'SummerSkyBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.summerSkyBlueprint?.toXmlAttributes(
+    if (winterSkyBlueprint != null)
+      XmlElement(
+        XmlName(
+          'WinterSkyBlueprint',
+        ),
+        [
+          ...winterSkyBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.summerSkyBlueprint?.toXmlChildren(
+          ),
+        ],
+        [
+          ...winterSkyBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'WinterSkyBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.winterSkyBlueprint?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.winterSkyBlueprint?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CRouteBlueprintSSkiesToXmlElement(
   CRouteBlueprintSSkies instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cRouteBlueprint-sSkies',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -192,5 +219,6 @@ XmlElement _$CRouteBlueprintSSkiesToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

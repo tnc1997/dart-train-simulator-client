@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'dev_string.g.dart';
 
 @annotation.XmlRootElement(
   name: 'DevString',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class DevString {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   DevString({
     this.text,
@@ -26,7 +28,7 @@ class DevString {
       _$DevStringFromXmlElement(element);
 
   @override
-  String toString() => text?.toString() ?? super.toString();
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -49,7 +51,7 @@ class DevString {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$DevStringToXmlAttributes(
         this,
@@ -57,7 +59,7 @@ class DevString {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$DevStringToXmlChildren(
         this,
@@ -65,7 +67,7 @@ class DevString {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$DevStringToXmlElement(
         this,

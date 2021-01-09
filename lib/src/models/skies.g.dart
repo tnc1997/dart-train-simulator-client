@@ -11,15 +11,20 @@ void _$SkiesBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cRouteBlueprint-sSkies',
-    nest: () {
-      instance.cRouteBlueprintSSkies?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cRouteBlueprintSSkies = instance.cRouteBlueprintSSkies;
+
+  if (cRouteBlueprintSSkies != null) {
+    builder.element(
+      'cRouteBlueprint-sSkies',
+      isSelfClosing: false,
+      nest: () {
+        cRouteBlueprintSSkies.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$SkiesBuildXmlElement(
@@ -53,53 +58,48 @@ Skies _$SkiesFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$SkiesToXmlAttributes(
   Skies instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$SkiesToXmlChildren(
   Skies instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cRouteBlueprintSSkies = instance.cRouteBlueprintSSkies;
+
   return [
-    XmlElement(
-      XmlName(
-        'cRouteBlueprint-sSkies',
+    if (cRouteBlueprintSSkies != null)
+      XmlElement(
+        XmlName(
+          'cRouteBlueprint-sSkies',
+        ),
+        [
+          ...cRouteBlueprintSSkies.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cRouteBlueprintSSkies.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cRouteBlueprintSSkies?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cRouteBlueprintSSkies?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$SkiesToXmlElement(
   Skies instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'Skies',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -107,5 +107,6 @@ XmlElement _$SkiesToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

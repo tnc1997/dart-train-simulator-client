@@ -11,15 +11,20 @@ void _$RouteCoordinateBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cRouteCoordinate',
-    nest: () {
-      instance.cRouteCoordinate?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cRouteCoordinate = instance.cRouteCoordinate;
+
+  if (cRouteCoordinate != null) {
+    builder.element(
+      'cRouteCoordinate',
+      isSelfClosing: false,
+      nest: () {
+        cRouteCoordinate.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$RouteCoordinateBuildXmlElement(
@@ -53,53 +58,48 @@ RouteCoordinate _$RouteCoordinateFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$RouteCoordinateToXmlAttributes(
   RouteCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$RouteCoordinateToXmlChildren(
   RouteCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cRouteCoordinate = instance.cRouteCoordinate;
+
   return [
-    XmlElement(
-      XmlName(
-        'cRouteCoordinate',
+    if (cRouteCoordinate != null)
+      XmlElement(
+        XmlName(
+          'cRouteCoordinate',
+        ),
+        [
+          ...cRouteCoordinate.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cRouteCoordinate.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cRouteCoordinate?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cRouteCoordinate?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$RouteCoordinateToXmlElement(
   RouteCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'RouteCoordinate',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -107,5 +107,6 @@ XmlElement _$RouteCoordinateToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }
