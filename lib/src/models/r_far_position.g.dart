@@ -11,15 +11,20 @@ void _$RFarPositionBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cFarVector2',
-    nest: () {
-      instance.cFarVector2?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cFarVector2 = instance.cFarVector2;
+
+  if (cFarVector2 != null) {
+    builder.element(
+      'cFarVector2',
+      isSelfClosing: false,
+      nest: () {
+        cFarVector2.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$RFarPositionBuildXmlElement(
@@ -52,53 +57,48 @@ RFarPosition _$RFarPositionFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$RFarPositionToXmlAttributes(
   RFarPosition instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$RFarPositionToXmlChildren(
   RFarPosition instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cFarVector2 = instance.cFarVector2;
+
   return [
-    XmlElement(
-      XmlName(
-        'cFarVector2',
+    if (cFarVector2 != null)
+      XmlElement(
+        XmlName(
+          'cFarVector2',
+        ),
+        [
+          ...cFarVector2.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cFarVector2.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cFarVector2?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cFarVector2?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$RFarPositionToXmlElement(
   RFarPosition instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'RFarPosition',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -106,5 +106,6 @@ XmlElement _$RFarPositionToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

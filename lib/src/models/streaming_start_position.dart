@@ -6,13 +6,16 @@ part 'streaming_start_position.g.dart';
 
 @annotation.XmlRootElement(
   name: 'StreamingStartPosition',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class StreamingStartPosition {
   @annotation.XmlElement(
     name: 'cFarVector2',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CFarVector2 cFarVector2;
+  CFarVector2? cFarVector2;
 
   StreamingStartPosition({
     this.cFarVector2,
@@ -42,7 +45,7 @@ class StreamingStartPosition {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$StreamingStartPositionToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class StreamingStartPosition {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$StreamingStartPositionToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class StreamingStartPosition {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$StreamingStartPositionToXmlElement(
         this,

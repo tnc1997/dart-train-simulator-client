@@ -11,24 +11,33 @@ void _$CFarCoordinateBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'RouteCoordinate',
-    nest: () {
-      instance.routeCoordinate?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'TileCoordinate',
-    nest: () {
-      instance.tileCoordinate?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final routeCoordinate = instance.routeCoordinate;
+  final tileCoordinate = instance.tileCoordinate;
+
+  if (routeCoordinate != null) {
+    builder.element(
+      'RouteCoordinate',
+      isSelfClosing: false,
+      nest: () {
+        routeCoordinate.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (tileCoordinate != null) {
+    builder.element(
+      'TileCoordinate',
+      isSelfClosing: false,
+      nest: () {
+        tileCoordinate.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CFarCoordinateBuildXmlElement(
@@ -68,66 +77,66 @@ CFarCoordinate _$CFarCoordinateFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CFarCoordinateToXmlAttributes(
   CFarCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$CFarCoordinateToXmlChildren(
   CFarCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final routeCoordinate = instance.routeCoordinate;
+  final tileCoordinate = instance.tileCoordinate;
+
   return [
-    XmlElement(
-      XmlName(
-        'RouteCoordinate',
+    if (routeCoordinate != null)
+      XmlElement(
+        XmlName(
+          'RouteCoordinate',
+        ),
+        [
+          ...routeCoordinate.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...routeCoordinate.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.routeCoordinate?.toXmlAttributes(
+    if (tileCoordinate != null)
+      XmlElement(
+        XmlName(
+          'TileCoordinate',
+        ),
+        [
+          ...tileCoordinate.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.routeCoordinate?.toXmlChildren(
+          ),
+        ],
+        [
+          ...tileCoordinate.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'TileCoordinate',
+          ),
+        ],
+        false,
       ),
-      instance.tileCoordinate?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.tileCoordinate?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CFarCoordinateToXmlElement(
   CFarCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cFarCoordinate',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -135,5 +144,6 @@ XmlElement _$CFarCoordinateToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

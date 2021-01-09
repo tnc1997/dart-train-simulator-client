@@ -1,4 +1,5 @@
 ﻿import 'package:train_simulator_client/src/models/service_name.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -6,19 +7,22 @@ part 's_driver_front_end_details.g.dart';
 
 @annotation.XmlRootElement(
   name: 'sDriverFrontEndDetails',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class SDriverFrontEndDetails {
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'ServiceName',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  ServiceName serviceName;
+  ServiceName? serviceName;
 
   SDriverFrontEndDetails({
     this.id,
@@ -49,7 +53,7 @@ class SDriverFrontEndDetails {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SDriverFrontEndDetailsToXmlAttributes(
         this,
@@ -57,7 +61,7 @@ class SDriverFrontEndDetails {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SDriverFrontEndDetailsToXmlChildren(
         this,
@@ -65,7 +69,7 @@ class SDriverFrontEndDetails {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SDriverFrontEndDetailsToXmlElement(
         this,

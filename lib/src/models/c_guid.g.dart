@@ -11,24 +11,33 @@ void _$CGuidBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'DevString',
-    nest: () {
-      instance.devString?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'UUID',
-    nest: () {
-      instance.uuid?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final devString = instance.devString;
+  final uuid = instance.uuid;
+
+  if (devString != null) {
+    builder.element(
+      'DevString',
+      isSelfClosing: false,
+      nest: () {
+        devString.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (uuid != null) {
+    builder.element(
+      'UUID',
+      isSelfClosing: false,
+      nest: () {
+        uuid.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CGuidBuildXmlElement(
@@ -64,66 +73,66 @@ CGuid _$CGuidFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CGuidToXmlAttributes(
   CGuid instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$CGuidToXmlChildren(
   CGuid instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final devString = instance.devString;
+  final uuid = instance.uuid;
+
   return [
-    XmlElement(
-      XmlName(
-        'DevString',
+    if (devString != null)
+      XmlElement(
+        XmlName(
+          'DevString',
+        ),
+        [
+          ...devString.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...devString.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.devString?.toXmlAttributes(
+    if (uuid != null)
+      XmlElement(
+        XmlName(
+          'UUID',
+        ),
+        [
+          ...uuid.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.devString?.toXmlChildren(
+          ),
+        ],
+        [
+          ...uuid.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'UUID',
+          ),
+        ],
+        false,
       ),
-      instance.uuid?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.uuid?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CGuidToXmlElement(
   CGuid instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cGUID',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -131,5 +140,6 @@ XmlElement _$CGuidToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

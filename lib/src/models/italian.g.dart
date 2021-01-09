@@ -11,16 +11,19 @@ void _$ItalianBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.type != null) {
-    builder.attribute(
-      'type',
-      instance.type,
-      namespace: 'http://www.kuju.com/TnT/2003/Delta',
+  final text = instance.text;
+  final type = instance.type;
+
+  if (text != null) {
+    builder.text(
+      text,
     );
   }
-  if (instance.text != null) {
-    builder.text(
-      instance.text,
+  if (type != null) {
+    builder.attribute(
+      'type',
+      type,
+      namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
 }
@@ -43,7 +46,7 @@ void _$ItalianBuildXmlElement(
 }
 
 Italian _$ItalianFromXmlElement(XmlElement element) {
-  final text = element.text;
+  final text = element.getText();
   final type = element.getAttribute(
     'type',
     namespace: 'http://www.kuju.com/TnT/2003/Delta',
@@ -57,53 +60,46 @@ Italian _$ItalianFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$ItalianToXmlAttributes(
   Italian instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final type = instance.type;
+
   return [
-    if (instance.type != null)
+    if (type != null)
       XmlAttribute(
         XmlName(
           'type',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.type,
+        type,
       ),
   ];
 }
 
 List<XmlNode> _$ItalianToXmlChildren(
   Italian instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final text = instance.text;
+
   return [
-    if (instance.text != null)
+    if (text != null)
       XmlText(
-        instance.text,
+        text,
       ),
   ];
 }
 
 XmlElement _$ItalianToXmlElement(
   Italian instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'Italian',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -111,5 +107,6 @@ XmlElement _$ItalianToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

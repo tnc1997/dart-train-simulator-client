@@ -11,22 +11,28 @@ void _$CMapProjectionOwnerBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final id = instance.id;
+  final mapProjection = instance.mapProjection;
+
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'MapProjection',
-    nest: () {
-      instance.mapProjection?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (mapProjection != null) {
+    builder.element(
+      'MapProjection',
+      isSelfClosing: false,
+      nest: () {
+        mapProjection.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CMapProjectionOwnerBuildXmlElement(
@@ -58,69 +64,66 @@ CMapProjectionOwner _$CMapProjectionOwnerFromXmlElement(XmlElement element) {
   return CMapProjectionOwner(
     id: id,
     mapProjection: mapProjection != null
-        ? MapProjection.fromXmlElement(mapProjection)
+        ? MapProjection2.fromXmlElement(mapProjection)
         : null,
   );
 }
 
 List<XmlAttribute> _$CMapProjectionOwnerToXmlAttributes(
   CMapProjectionOwner instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$CMapProjectionOwnerToXmlChildren(
   CMapProjectionOwner instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final mapProjection = instance.mapProjection;
+
   return [
-    XmlElement(
-      XmlName(
-        'MapProjection',
+    if (mapProjection != null)
+      XmlElement(
+        XmlName(
+          'MapProjection',
+        ),
+        [
+          ...mapProjection.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...mapProjection.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.mapProjection?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.mapProjection?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CMapProjectionOwnerToXmlElement(
   CMapProjectionOwner instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cMapProjectionOwner',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -128,5 +131,6 @@ XmlElement _$CMapProjectionOwnerToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

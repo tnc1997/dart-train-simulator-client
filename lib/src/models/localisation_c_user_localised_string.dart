@@ -39,183 +39,247 @@ part 'localisation_c_user_localised_string.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Localisation-cUserLocalisedString',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class LocalisationCUserLocalisedString {
   @annotation.XmlElement(
     name: 'Arabic',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Arabic arabic;
+  Arabic? arabic;
 
   @annotation.XmlElement(
     name: 'Basque',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Basque basque;
+  Basque? basque;
 
   @annotation.XmlElement(
     name: 'Bulgarian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Bulgarian bulgarian;
+  Bulgarian? bulgarian;
 
   @annotation.XmlElement(
     name: 'Catalan',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Catalan catalan;
+  Catalan? catalan;
 
   @annotation.XmlElement(
     name: 'Croatian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Croatian croatian;
+  Croatian? croatian;
 
   @annotation.XmlElement(
     name: 'Czech',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Czech czech;
+  Czech? czech;
 
   @annotation.XmlElement(
     name: 'Danish',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Danish danish;
+  Danish? danish;
 
   @annotation.XmlElement(
     name: 'Dutch',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Dutch dutch;
+  Dutch? dutch;
 
   @annotation.XmlElement(
     name: 'English',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  English english;
+  English? english;
 
   @annotation.XmlElement(
     name: 'Finnish',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Finnish finnish;
+  Finnish? finnish;
 
   @annotation.XmlElement(
     name: 'French',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  French french;
+  French? french;
 
   @annotation.XmlElement(
     name: 'FrenchCA',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  FrenchCa frenchCa;
+  FrenchCa? frenchCa;
 
   @annotation.XmlElement(
     name: 'German',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  German german;
+  German? german;
 
   @annotation.XmlElement(
     name: 'Greek',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Greek greek;
+  Greek? greek;
 
   @annotation.XmlElement(
     name: 'Hungarian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Hungarian hungarian;
+  Hungarian? hungarian;
 
   @annotation.XmlElement(
     name: 'Indonesian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Indonesian indonesian;
+  Indonesian? indonesian;
 
   @annotation.XmlElement(
     name: 'Italian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Italian italian;
+  Italian? italian;
 
   @annotation.XmlElement(
     name: 'Japanese',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Japanese japanese;
+  Japanese? japanese;
 
   @annotation.XmlElement(
     name: 'Korean',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Korean korean;
+  Korean? korean;
 
   @annotation.XmlElement(
     name: 'Norwegian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Norwegian norwegian;
-
-  @annotation.XmlElement(
-    name: 'Other',
-  )
-  String other;
+  Norwegian? norwegian;
 
   @annotation.XmlElement(
     name: 'Polish',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Polish polish;
+  Polish? polish;
 
   @annotation.XmlElement(
     name: 'Portuguese',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Portuguese portuguese;
+  Portuguese? portuguese;
 
   @annotation.XmlElement(
     name: 'PortugueseBR',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  PortugueseBr portugueseBr;
+  PortugueseBr? portugueseBr;
 
   @annotation.XmlElement(
     name: 'Romanian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Romanian romanian;
+  Romanian? romanian;
 
   @annotation.XmlElement(
     name: 'Russian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Russian russian;
+  Russian? russian;
 
   @annotation.XmlElement(
     name: 'Serbian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Serbian serbian;
+  Serbian? serbian;
 
   @annotation.XmlElement(
     name: 'SimpChinese',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SimpChinese simpChinese;
+  SimpChinese? simpChinese;
 
   @annotation.XmlElement(
     name: 'Slovak',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Slovak slovak;
+  Slovak? slovak;
 
   @annotation.XmlElement(
     name: 'Slovenian',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Slovenian slovenian;
+  Slovenian? slovenian;
 
   @annotation.XmlElement(
     name: 'Spanish',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Spanish spanish;
+  Spanish? spanish;
 
   @annotation.XmlElement(
     name: 'Swedish',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Swedish swedish;
+  Swedish? swedish;
 
   @annotation.XmlElement(
     name: 'Thai',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Thai thai;
+  Thai? thai;
 
   @annotation.XmlElement(
     name: 'TradChinese',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  TradChinese tradChinese;
+  TradChinese? tradChinese;
 
   @annotation.XmlElement(
     name: 'Turkish',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Turkish turkish;
+  Turkish? turkish;
 
   LocalisationCUserLocalisedString({
     this.arabic,
@@ -238,7 +302,6 @@ class LocalisationCUserLocalisedString {
     this.japanese,
     this.korean,
     this.norwegian,
-    this.other,
     this.polish,
     this.portuguese,
     this.portugueseBr,
@@ -279,7 +342,7 @@ class LocalisationCUserLocalisedString {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$LocalisationCUserLocalisedStringToXmlAttributes(
         this,
@@ -287,7 +350,7 @@ class LocalisationCUserLocalisedString {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$LocalisationCUserLocalisedStringToXmlChildren(
         this,
@@ -295,7 +358,7 @@ class LocalisationCUserLocalisedString {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$LocalisationCUserLocalisedStringToXmlElement(
         this,

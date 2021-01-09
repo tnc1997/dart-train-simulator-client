@@ -11,31 +11,41 @@ void _$CFarVector2BuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final id = instance.id;
+  final x = instance.x;
+  final z = instance.z;
+
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'X',
-    nest: () {
-      instance.x?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Z',
-    nest: () {
-      instance.z?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (x != null) {
+    builder.element(
+      'X',
+      isSelfClosing: false,
+      nest: () {
+        x.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (z != null) {
+    builder.element(
+      'Z',
+      isSelfClosing: false,
+      nest: () {
+        z.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CFarVector2BuildXmlElement(
@@ -76,75 +86,77 @@ CFarVector2 _$CFarVector2FromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CFarVector2ToXmlAttributes(
   CFarVector2 instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$CFarVector2ToXmlChildren(
   CFarVector2 instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final x = instance.x;
+  final z = instance.z;
+
   return [
-    XmlElement(
-      XmlName(
-        'X',
+    if (x != null)
+      XmlElement(
+        XmlName(
+          'X',
+        ),
+        [
+          ...x.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...x.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.x?.toXmlAttributes(
+    if (z != null)
+      XmlElement(
+        XmlName(
+          'Z',
+        ),
+        [
+          ...z.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.x?.toXmlChildren(
+          ),
+        ],
+        [
+          ...z.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Z',
+          ),
+        ],
+        false,
       ),
-      instance.z?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.z?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CFarVector2ToXmlElement(
   CFarVector2 instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cFarVector2',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -152,5 +164,6 @@ XmlElement _$CFarVector2ToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

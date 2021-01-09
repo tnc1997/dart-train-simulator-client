@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'simp_chinese.g.dart';
 
 @annotation.XmlRootElement(
   name: 'SimpChinese',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class SimpChinese {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   SimpChinese({
     this.text,
@@ -24,6 +26,9 @@ class SimpChinese {
 
   factory SimpChinese.fromXmlElement(XmlElement element) =>
       _$SimpChineseFromXmlElement(element);
+
+  @override
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -46,7 +51,7 @@ class SimpChinese {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SimpChineseToXmlAttributes(
         this,
@@ -54,7 +59,7 @@ class SimpChinese {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SimpChineseToXmlChildren(
         this,
@@ -62,7 +67,7 @@ class SimpChinese {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SimpChineseToXmlElement(
         this,

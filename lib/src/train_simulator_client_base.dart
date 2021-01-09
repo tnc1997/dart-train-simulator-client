@@ -1,32 +1,40 @@
 import 'dart:io';
 
-import 'package:meta/meta.dart';
 import 'package:path/path.dart';
 import 'package:train_simulator_client/src/constants/directory_name_constants.dart';
 import 'package:train_simulator_client/src/constants/file_extension_constants.dart';
 import 'package:train_simulator_client/src/constants/file_name_constants.dart';
 import 'package:train_simulator_client/src/services/rail_driver_service.dart';
 import 'package:train_simulator_client/src/services/route_service.dart';
-import 'package:train_simulator_client/src/services/routes_service.dart';
+import 'package:train_simulator_client/src/services/scenario_service.dart';
 import 'package:train_simulator_client/src/services/serz_service.dart';
 
 class TrainSimulatorClient {
   final TrainSimulatorClientContext _context;
 
   TrainSimulatorClient({
-    @required TrainSimulatorClientOptions options,
+    required String rootPath,
+    String? railDriverPath,
+    String? serzPath,
   }) : _context = TrainSimulatorClientContext(
-          options: options,
+          rootPath: rootPath,
+          railDriverPath: railDriverPath,
+          serzPath: serzPath,
         );
 
-  RouteService route(String id) => RouteService(
-        client: this,
-        id: id,
+  RailDriverService get railDriver => RailDriverService(
         context: _context,
       );
 
-  RoutesService routes() => RoutesService(
-        client: this,
+  RouteService get routes => RouteService(
+        context: _context,
+      );
+
+  SerzService get serz => SerzService(
+        context: _context,
+      );
+
+  ScenarioService get scenarios => ScenarioService(
         context: _context,
       );
 }
@@ -39,18 +47,18 @@ class TrainSimulatorClientContext {
   final File serzFile;
 
   TrainSimulatorClientContext({
-    @required TrainSimulatorClientOptions options,
-    String railDriverPath,
-    String serzPath,
+    required String rootPath,
+    String? railDriverPath,
+    String? serzPath,
   })  : assetsDirectory = Directory(
           join(
-            options.path,
-            'Assets',
+            rootPath,
+            assetsDirectoryName,
           ),
         ),
         contentDirectory = Directory(
           join(
-            options.rootPath,
+            rootPath,
             contentDirectoryName,
           ),
         ),
@@ -58,7 +66,7 @@ class TrainSimulatorClientContext {
           railDriverPath ??
               setExtension(
                 join(
-                  options.path,
+                  rootPath,
                   pluginsDirectoryName,
                   railDriverFileName,
                 ),
@@ -67,7 +75,7 @@ class TrainSimulatorClientContext {
         ),
         routesDirectory = Directory(
           join(
-            options.path,
+            rootPath,
             contentDirectoryName,
             routesDirectoryName,
           ),
@@ -76,18 +84,10 @@ class TrainSimulatorClientContext {
           serzPath ??
               setExtension(
                 join(
-                  options.path,
+                  rootPath,
                   serzFileName,
                 ),
                 exeFileExtension,
               ),
         );
-}
-
-class TrainSimulatorClientOptions {
-  final String path;
-
-  TrainSimulatorClientOptions({
-    @required this.path,
-  });
 }

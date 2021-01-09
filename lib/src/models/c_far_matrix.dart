@@ -3,6 +3,7 @@ import 'package:train_simulator_client/src/models/r_far_position.dart';
 import 'package:train_simulator_client/src/models/r_x_axis.dart';
 import 'package:train_simulator_client/src/models/r_y_axis.dart';
 import 'package:train_simulator_client/src/models/r_z_axis.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -10,39 +11,50 @@ part 'c_far_matrix.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cFarMatrix',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CFarMatrix {
   @annotation.XmlElement(
     name: 'Height',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Height height;
+  Height? height;
 
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'RFarPosition',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RFarPosition rFarPosition;
+  RFarPosition? rFarPosition;
 
   @annotation.XmlElement(
     name: 'RXAxis',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RXAxis rXAxis;
+  RXAxis? rXAxis;
 
   @annotation.XmlElement(
     name: 'RYAxis',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RYAxis rYAxis;
+  RYAxis? rYAxis;
 
   @annotation.XmlElement(
     name: 'RZAxis',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RZAxis rZAxis;
+  RZAxis? rZAxis;
 
   CFarMatrix({
     this.height,
@@ -77,7 +89,7 @@ class CFarMatrix {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarMatrixToXmlAttributes(
         this,
@@ -85,7 +97,7 @@ class CFarMatrix {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarMatrixToXmlChildren(
         this,
@@ -93,7 +105,7 @@ class CFarMatrix {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarMatrixToXmlElement(
         this,

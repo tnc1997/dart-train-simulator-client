@@ -11,10 +11,14 @@ void _$RBlueprintSetPreLoadBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.iBlueprintLibraryCBlueprintSetIds != null) {
-    for (final value in instance.iBlueprintLibraryCBlueprintSetIds) {
+  final iBlueprintLibraryCBlueprintSetIds =
+      instance.iBlueprintLibraryCBlueprintSetIds;
+
+  if (iBlueprintLibraryCBlueprintSetIds != null) {
+    for (final value in iBlueprintLibraryCBlueprintSetIds) {
       builder.element(
         'iBlueprintLibrary-cBlueprintSetID',
+        isSelfClosing: false,
         nest: () {
           value.buildXmlChildren(
             builder,
@@ -49,29 +53,30 @@ RBlueprintSetPreLoad _$RBlueprintSetPreLoadFromXmlElement(XmlElement element) {
   );
 
   return RBlueprintSetPreLoad(
-    iBlueprintLibraryCBlueprintSetIds: iBlueprintLibraryCBlueprintSetIds != null
-        ? iBlueprintLibraryCBlueprintSetIds
-            .map((element) =>
-                IBlueprintLibraryCBlueprintSetId.fromXmlElement(element))
-            .toList()
-        : null,
+    iBlueprintLibraryCBlueprintSetIds: iBlueprintLibraryCBlueprintSetIds
+        .map((element) =>
+            IBlueprintLibraryCBlueprintSetId.fromXmlElement(element))
+        .toList(),
   );
 }
 
 List<XmlAttribute> _$RBlueprintSetPreLoadToXmlAttributes(
   RBlueprintSetPreLoad instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$RBlueprintSetPreLoadToXmlChildren(
   RBlueprintSetPreLoad instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final iBlueprintLibraryCBlueprintSetIds =
+      instance.iBlueprintLibraryCBlueprintSetIds;
+
   return [
-    if (instance.iBlueprintLibraryCBlueprintSetIds != null)
-      for (final value in instance.iBlueprintLibraryCBlueprintSetIds)
+    if (iBlueprintLibraryCBlueprintSetIds != null)
+      for (final value in iBlueprintLibraryCBlueprintSetIds)
         XmlElement(
           XmlName(
             'iBlueprintLibrary-cBlueprintSetID',
@@ -82,31 +87,21 @@ List<XmlNode> _$RBlueprintSetPreLoadToXmlChildren(
           value.toXmlChildren(
             namespaces: namespaces,
           ),
+          false,
         ),
   ];
 }
 
 XmlElement _$RBlueprintSetPreLoadToXmlElement(
   RBlueprintSetPreLoad instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'RBlueprintSetPreLoad',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -114,5 +109,6 @@ XmlElement _$RBlueprintSetPreLoadToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

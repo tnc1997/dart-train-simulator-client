@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'authored_language.g.dart';
 
 @annotation.XmlRootElement(
   name: 'AuthoredLanguage',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class AuthoredLanguage {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   AuthoredLanguage({
     this.text,
@@ -26,7 +28,7 @@ class AuthoredLanguage {
       _$AuthoredLanguageFromXmlElement(element);
 
   @override
-  String toString() => text?.toString() ?? super.toString();
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -49,7 +51,7 @@ class AuthoredLanguage {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$AuthoredLanguageToXmlAttributes(
         this,
@@ -57,7 +59,7 @@ class AuthoredLanguage {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$AuthoredLanguageToXmlChildren(
         this,
@@ -65,7 +67,7 @@ class AuthoredLanguage {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$AuthoredLanguageToXmlElement(
         this,

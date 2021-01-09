@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'hungarian.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Hungarian',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Hungarian {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   Hungarian({
     this.text,
@@ -24,6 +26,9 @@ class Hungarian {
 
   factory Hungarian.fromXmlElement(XmlElement element) =>
       _$HungarianFromXmlElement(element);
+
+  @override
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -46,7 +51,7 @@ class Hungarian {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$HungarianToXmlAttributes(
         this,
@@ -54,7 +59,7 @@ class Hungarian {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$HungarianToXmlChildren(
         this,
@@ -62,7 +67,7 @@ class Hungarian {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$HungarianToXmlElement(
         this,

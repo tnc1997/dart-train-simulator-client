@@ -6,13 +6,16 @@ part 'c_tile_coordinate.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cTileCoordinate',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CTileCoordinate {
   @annotation.XmlElement(
     name: 'Distance',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Distance distance;
+  Distance? distance;
 
   CTileCoordinate({
     this.distance,
@@ -42,7 +45,7 @@ class CTileCoordinate {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CTileCoordinateToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class CTileCoordinate {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CTileCoordinateToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class CTileCoordinate {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CTileCoordinateToXmlElement(
         this,

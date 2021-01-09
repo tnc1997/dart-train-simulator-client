@@ -11,15 +11,21 @@ void _$SummerSkyBlueprintBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'iBlueprintLibrary-cAbsoluteBlueprintID',
-    nest: () {
-      instance.iBlueprintLibraryCAbsoluteBlueprintId?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final iBlueprintLibraryCAbsoluteBlueprintId =
+      instance.iBlueprintLibraryCAbsoluteBlueprintId;
+
+  if (iBlueprintLibraryCAbsoluteBlueprintId != null) {
+    builder.element(
+      'iBlueprintLibrary-cAbsoluteBlueprintID',
+      isSelfClosing: false,
+      nest: () {
+        iBlueprintLibraryCAbsoluteBlueprintId.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$SummerSkyBlueprintBuildXmlElement(
@@ -55,53 +61,49 @@ SummerSkyBlueprint _$SummerSkyBlueprintFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$SummerSkyBlueprintToXmlAttributes(
   SummerSkyBlueprint instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$SummerSkyBlueprintToXmlChildren(
   SummerSkyBlueprint instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final iBlueprintLibraryCAbsoluteBlueprintId =
+      instance.iBlueprintLibraryCAbsoluteBlueprintId;
+
   return [
-    XmlElement(
-      XmlName(
-        'iBlueprintLibrary-cAbsoluteBlueprintID',
+    if (iBlueprintLibraryCAbsoluteBlueprintId != null)
+      XmlElement(
+        XmlName(
+          'iBlueprintLibrary-cAbsoluteBlueprintID',
+        ),
+        [
+          ...iBlueprintLibraryCAbsoluteBlueprintId.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...iBlueprintLibraryCAbsoluteBlueprintId.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.iBlueprintLibraryCAbsoluteBlueprintId?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.iBlueprintLibraryCAbsoluteBlueprintId?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$SummerSkyBlueprintToXmlElement(
   SummerSkyBlueprint instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'SummerSkyBlueprint',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -109,5 +111,6 @@ XmlElement _$SummerSkyBlueprintToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

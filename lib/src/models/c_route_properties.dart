@@ -15,6 +15,7 @@ import 'package:train_simulator_client/src/models/terrain_blueprint.dart';
 import 'package:train_simulator_client/src/models/time_zone.dart';
 import 'package:train_simulator_client/src/models/version.dart';
 import 'package:train_simulator_client/src/models/weather_blueprint.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -22,105 +23,140 @@ part 'c_route_properties.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cRouteProperties',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CRouteProperties {
   @annotation.XmlElement(
     name: 'AuthoredLanguage',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  AuthoredLanguage authoredLanguage;
+  AuthoredLanguage? authoredLanguage;
 
   @annotation.XmlElement(
     name: 'BlueprintID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  BlueprintId blueprintId;
+  BlueprintId1? blueprintId;
 
   @annotation.XmlElement(
     name: 'DisplayName',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  DisplayName displayName;
+  DisplayName1? displayName;
 
   @annotation.XmlElement(
     name: 'HasSpeedsigns',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  HasSpeedSigns hasSpeedSigns;
+  HasSpeedSigns? hasSpeedSigns;
 
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'ID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Id id1;
+  Id? id1;
 
   @annotation.XmlElement(
     name: 'InfrastructureModified',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  InfrastructureModified infrastructureModified;
+  InfrastructureModified? infrastructureModified;
 
   @annotation.XmlElement(
     name: 'LockCounter',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  LockCounter lockCounter;
+  LockCounter? lockCounter;
 
   @annotation.XmlElement(
     name: 'Locked',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Locked locked;
+  Locked? locked;
 
   @annotation.XmlElement(
     name: 'MapBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  MapBlueprint mapBlueprint;
+  MapBlueprint? mapBlueprint;
 
   @annotation.XmlElement(
     name: 'MapProjection',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  MapProjection mapProjection;
+  MapProjection1? mapProjection;
 
   @annotation.XmlElement(
     name: 'RBlueprintSetPreLoad',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  RBlueprintSetPreLoad rBlueprintSetPreLoad;
+  RBlueprintSetPreLoad? rBlueprintSetPreLoad;
 
   @annotation.XmlElement(
     name: 'Skies',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Skies skies;
+  Skies? skies;
 
   @annotation.XmlElement(
     name: 'SummerTime',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SummerTime summerTime;
+  SummerTime? summerTime;
 
   @annotation.XmlElement(
     name: 'TerrainBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  TerrainBlueprint terrainBlueprint;
+  TerrainBlueprint? terrainBlueprint;
 
   @annotation.XmlElement(
     name: 'TimeZone',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  TimeZone timeZone;
+  TimeZone? timeZone;
 
   @annotation.XmlAttribute(
     name: 'version',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String version;
+  String? version;
 
   @annotation.XmlElement(
     name: 'Version',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Version version1;
+  Version? version1;
 
   @annotation.XmlElement(
     name: 'WeatherBlueprint',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  WeatherBlueprint weatherBlueprint;
+  WeatherBlueprint? weatherBlueprint;
 
   CRouteProperties({
     this.authoredLanguage,
@@ -168,7 +204,7 @@ class CRouteProperties {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRoutePropertiesToXmlAttributes(
         this,
@@ -176,7 +212,7 @@ class CRouteProperties {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRoutePropertiesToXmlChildren(
         this,
@@ -184,7 +220,7 @@ class CRouteProperties {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CRoutePropertiesToXmlElement(
         this,

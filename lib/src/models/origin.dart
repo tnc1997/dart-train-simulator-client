@@ -6,13 +6,16 @@ part 'origin.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Origin',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Origin {
   @annotation.XmlElement(
     name: 'sGeoPosition',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  SGeoPosition sGeoPosition;
+  SGeoPosition? sGeoPosition;
 
   Origin({
     this.sGeoPosition,
@@ -42,7 +45,7 @@ class Origin {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$OriginToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class Origin {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$OriginToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class Origin {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$OriginToXmlElement(
         this,

@@ -11,173 +11,244 @@ void _$CRoutePropertiesBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final authoredLanguage = instance.authoredLanguage;
+  final blueprintId = instance.blueprintId;
+  final displayName = instance.displayName;
+  final hasSpeedSigns = instance.hasSpeedSigns;
+  final id = instance.id;
+  final id1 = instance.id1;
+  final infrastructureModified = instance.infrastructureModified;
+  final lockCounter = instance.lockCounter;
+  final locked = instance.locked;
+  final mapBlueprint = instance.mapBlueprint;
+  final mapProjection = instance.mapProjection;
+  final rBlueprintSetPreLoad = instance.rBlueprintSetPreLoad;
+  final skies = instance.skies;
+  final summerTime = instance.summerTime;
+  final terrainBlueprint = instance.terrainBlueprint;
+  final timeZone = instance.timeZone;
+  final version = instance.version;
+  final version1 = instance.version1;
+  final weatherBlueprint = instance.weatherBlueprint;
+
+  if (authoredLanguage != null) {
+    builder.element(
+      'AuthoredLanguage',
+      isSelfClosing: false,
+      nest: () {
+        authoredLanguage.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (blueprintId != null) {
+    builder.element(
+      'BlueprintID',
+      isSelfClosing: false,
+      nest: () {
+        blueprintId.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (displayName != null) {
+    builder.element(
+      'DisplayName',
+      isSelfClosing: false,
+      nest: () {
+        displayName.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (hasSpeedSigns != null) {
+    builder.element(
+      'HasSpeedsigns',
+      isSelfClosing: false,
+      nest: () {
+        hasSpeedSigns.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.version != null) {
+  if (id1 != null) {
+    builder.element(
+      'ID',
+      isSelfClosing: false,
+      nest: () {
+        id1.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (infrastructureModified != null) {
+    builder.element(
+      'InfrastructureModified',
+      isSelfClosing: false,
+      nest: () {
+        infrastructureModified.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (lockCounter != null) {
+    builder.element(
+      'LockCounter',
+      isSelfClosing: false,
+      nest: () {
+        lockCounter.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (locked != null) {
+    builder.element(
+      'Locked',
+      isSelfClosing: false,
+      nest: () {
+        locked.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (mapBlueprint != null) {
+    builder.element(
+      'MapBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        mapBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (mapProjection != null) {
+    builder.element(
+      'MapProjection',
+      isSelfClosing: false,
+      nest: () {
+        mapProjection.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (rBlueprintSetPreLoad != null) {
+    builder.element(
+      'RBlueprintSetPreLoad',
+      isSelfClosing: false,
+      nest: () {
+        rBlueprintSetPreLoad.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (skies != null) {
+    builder.element(
+      'Skies',
+      isSelfClosing: false,
+      nest: () {
+        skies.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (summerTime != null) {
+    builder.element(
+      'SummerTime',
+      isSelfClosing: false,
+      nest: () {
+        summerTime.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (terrainBlueprint != null) {
+    builder.element(
+      'TerrainBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        terrainBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (timeZone != null) {
+    builder.element(
+      'TimeZone',
+      isSelfClosing: false,
+      nest: () {
+        timeZone.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (version != null) {
     builder.attribute(
       'version',
-      instance.version,
+      version,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'AuthoredLanguage',
-    nest: () {
-      instance.authoredLanguage?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'BlueprintID',
-    nest: () {
-      instance.blueprintId?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'DisplayName',
-    nest: () {
-      instance.displayName?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'HasSpeedsigns',
-    nest: () {
-      instance.hasSpeedSigns?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'ID',
-    nest: () {
-      instance.id1?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'InfrastructureModified',
-    nest: () {
-      instance.infrastructureModified?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'LockCounter',
-    nest: () {
-      instance.lockCounter?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Locked',
-    nest: () {
-      instance.locked?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'MapBlueprint',
-    nest: () {
-      instance.mapBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'MapProjection',
-    nest: () {
-      instance.mapProjection?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'RBlueprintSetPreLoad',
-    nest: () {
-      instance.rBlueprintSetPreLoad?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Skies',
-    nest: () {
-      instance.skies?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'SummerTime',
-    nest: () {
-      instance.summerTime?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'TerrainBlueprint',
-    nest: () {
-      instance.terrainBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'TimeZone',
-    nest: () {
-      instance.timeZone?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Version',
-    nest: () {
-      instance.version1?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'WeatherBlueprint',
-    nest: () {
-      instance.weatherBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (version1 != null) {
+    builder.element(
+      'Version',
+      isSelfClosing: false,
+      nest: () {
+        version1.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (weatherBlueprint != null) {
+    builder.element(
+      'WeatherBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        weatherBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CRoutePropertiesBuildXmlElement(
@@ -263,9 +334,9 @@ CRouteProperties _$CRoutePropertiesFromXmlElement(XmlElement element) {
         ? AuthoredLanguage.fromXmlElement(authoredLanguage)
         : null,
     blueprintId:
-        blueprintId != null ? BlueprintId.fromXmlElement(blueprintId) : null,
+        blueprintId != null ? BlueprintId1.fromXmlElement(blueprintId) : null,
     displayName:
-        displayName != null ? DisplayName.fromXmlElement(displayName) : null,
+        displayName != null ? DisplayName1.fromXmlElement(displayName) : null,
     hasSpeedSigns: hasSpeedSigns != null
         ? HasSpeedSigns.fromXmlElement(hasSpeedSigns)
         : null,
@@ -280,7 +351,7 @@ CRouteProperties _$CRoutePropertiesFromXmlElement(XmlElement element) {
     mapBlueprint:
         mapBlueprint != null ? MapBlueprint.fromXmlElement(mapBlueprint) : null,
     mapProjection: mapProjection != null
-        ? MapProjection.fromXmlElement(mapProjection)
+        ? MapProjection1.fromXmlElement(mapProjection)
         : null,
     rBlueprintSetPreLoad: rBlueprintSetPreLoad != null
         ? RBlueprintSetPreLoad.fromXmlElement(rBlueprintSetPreLoad)
@@ -302,278 +373,356 @@ CRouteProperties _$CRoutePropertiesFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CRoutePropertiesToXmlAttributes(
   CRouteProperties instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+  final version = instance.version;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
-    if (instance.version != null)
+    if (version != null)
       XmlAttribute(
         XmlName(
           'version',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.version,
+        version,
       ),
   ];
 }
 
 List<XmlNode> _$CRoutePropertiesToXmlChildren(
   CRouteProperties instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final authoredLanguage = instance.authoredLanguage;
+  final blueprintId = instance.blueprintId;
+  final displayName = instance.displayName;
+  final hasSpeedSigns = instance.hasSpeedSigns;
+  final id1 = instance.id1;
+  final infrastructureModified = instance.infrastructureModified;
+  final lockCounter = instance.lockCounter;
+  final locked = instance.locked;
+  final mapBlueprint = instance.mapBlueprint;
+  final mapProjection = instance.mapProjection;
+  final rBlueprintSetPreLoad = instance.rBlueprintSetPreLoad;
+  final skies = instance.skies;
+  final summerTime = instance.summerTime;
+  final terrainBlueprint = instance.terrainBlueprint;
+  final timeZone = instance.timeZone;
+  final version1 = instance.version1;
+  final weatherBlueprint = instance.weatherBlueprint;
+
   return [
-    XmlElement(
-      XmlName(
-        'AuthoredLanguage',
+    if (authoredLanguage != null)
+      XmlElement(
+        XmlName(
+          'AuthoredLanguage',
+        ),
+        [
+          ...authoredLanguage.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...authoredLanguage.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.authoredLanguage?.toXmlAttributes(
+    if (blueprintId != null)
+      XmlElement(
+        XmlName(
+          'BlueprintID',
+        ),
+        [
+          ...blueprintId.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.authoredLanguage?.toXmlChildren(
+          ),
+        ],
+        [
+          ...blueprintId.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'BlueprintID',
+          ),
+        ],
+        false,
       ),
-      instance.blueprintId?.toXmlAttributes(
+    if (displayName != null)
+      XmlElement(
+        XmlName(
+          'DisplayName',
+        ),
+        [
+          ...displayName.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.blueprintId?.toXmlChildren(
+          ),
+        ],
+        [
+          ...displayName.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'DisplayName',
+          ),
+        ],
+        false,
       ),
-      instance.displayName?.toXmlAttributes(
+    if (hasSpeedSigns != null)
+      XmlElement(
+        XmlName(
+          'HasSpeedsigns',
+        ),
+        [
+          ...hasSpeedSigns.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.displayName?.toXmlChildren(
+          ),
+        ],
+        [
+          ...hasSpeedSigns.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'HasSpeedsigns',
+          ),
+        ],
+        false,
       ),
-      instance.hasSpeedSigns?.toXmlAttributes(
+    if (id1 != null)
+      XmlElement(
+        XmlName(
+          'ID',
+        ),
+        [
+          ...id1.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.hasSpeedSigns?.toXmlChildren(
+          ),
+        ],
+        [
+          ...id1.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'ID',
+          ),
+        ],
+        false,
       ),
-      instance.id1?.toXmlAttributes(
+    if (infrastructureModified != null)
+      XmlElement(
+        XmlName(
+          'InfrastructureModified',
+        ),
+        [
+          ...infrastructureModified.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.id1?.toXmlChildren(
+          ),
+        ],
+        [
+          ...infrastructureModified.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'InfrastructureModified',
+          ),
+        ],
+        false,
       ),
-      instance.infrastructureModified?.toXmlAttributes(
+    if (lockCounter != null)
+      XmlElement(
+        XmlName(
+          'LockCounter',
+        ),
+        [
+          ...lockCounter.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.infrastructureModified?.toXmlChildren(
+          ),
+        ],
+        [
+          ...lockCounter.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'LockCounter',
+          ),
+        ],
+        false,
       ),
-      instance.lockCounter?.toXmlAttributes(
+    if (locked != null)
+      XmlElement(
+        XmlName(
+          'Locked',
+        ),
+        [
+          ...locked.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.lockCounter?.toXmlChildren(
+          ),
+        ],
+        [
+          ...locked.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Locked',
+          ),
+        ],
+        false,
       ),
-      instance.locked?.toXmlAttributes(
+    if (mapBlueprint != null)
+      XmlElement(
+        XmlName(
+          'MapBlueprint',
+        ),
+        [
+          ...mapBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.locked?.toXmlChildren(
+          ),
+        ],
+        [
+          ...mapBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'MapBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.mapBlueprint?.toXmlAttributes(
+    if (mapProjection != null)
+      XmlElement(
+        XmlName(
+          'MapProjection',
+        ),
+        [
+          ...mapProjection.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.mapBlueprint?.toXmlChildren(
+          ),
+        ],
+        [
+          ...mapProjection.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'MapProjection',
+          ),
+        ],
+        false,
       ),
-      instance.mapProjection?.toXmlAttributes(
+    if (rBlueprintSetPreLoad != null)
+      XmlElement(
+        XmlName(
+          'RBlueprintSetPreLoad',
+        ),
+        [
+          ...rBlueprintSetPreLoad.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.mapProjection?.toXmlChildren(
+          ),
+        ],
+        [
+          ...rBlueprintSetPreLoad.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'RBlueprintSetPreLoad',
+          ),
+        ],
+        false,
       ),
-      instance.rBlueprintSetPreLoad?.toXmlAttributes(
+    if (skies != null)
+      XmlElement(
+        XmlName(
+          'Skies',
+        ),
+        [
+          ...skies.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.rBlueprintSetPreLoad?.toXmlChildren(
+          ),
+        ],
+        [
+          ...skies.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Skies',
+          ),
+        ],
+        false,
       ),
-      instance.skies?.toXmlAttributes(
+    if (summerTime != null)
+      XmlElement(
+        XmlName(
+          'SummerTime',
+        ),
+        [
+          ...summerTime.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.skies?.toXmlChildren(
+          ),
+        ],
+        [
+          ...summerTime.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'SummerTime',
+          ),
+        ],
+        false,
       ),
-      instance.summerTime?.toXmlAttributes(
+    if (terrainBlueprint != null)
+      XmlElement(
+        XmlName(
+          'TerrainBlueprint',
+        ),
+        [
+          ...terrainBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.summerTime?.toXmlChildren(
+          ),
+        ],
+        [
+          ...terrainBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'TerrainBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.terrainBlueprint?.toXmlAttributes(
+    if (timeZone != null)
+      XmlElement(
+        XmlName(
+          'TimeZone',
+        ),
+        [
+          ...timeZone.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.terrainBlueprint?.toXmlChildren(
+          ),
+        ],
+        [
+          ...timeZone.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'TimeZone',
+          ),
+        ],
+        false,
       ),
-      instance.timeZone?.toXmlAttributes(
+    if (version1 != null)
+      XmlElement(
+        XmlName(
+          'Version',
+        ),
+        [
+          ...version1.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.timeZone?.toXmlChildren(
+          ),
+        ],
+        [
+          ...version1.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Version',
+          ),
+        ],
+        false,
       ),
-      instance.version1?.toXmlAttributes(
+    if (weatherBlueprint != null)
+      XmlElement(
+        XmlName(
+          'WeatherBlueprint',
+        ),
+        [
+          ...weatherBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.version1?.toXmlChildren(
+          ),
+        ],
+        [
+          ...weatherBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'WeatherBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.weatherBlueprint?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.weatherBlueprint?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CRoutePropertiesToXmlElement(
   CRouteProperties instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cRouteProperties',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -581,5 +730,6 @@ XmlElement _$CRoutePropertiesToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

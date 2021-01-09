@@ -6,13 +6,16 @@ part 'r_blueprint_set_pre_load.g.dart';
 
 @annotation.XmlRootElement(
   name: 'RBlueprintSetPreLoad',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class RBlueprintSetPreLoad {
   @annotation.XmlElement(
     name: 'iBlueprintLibrary-cBlueprintSetID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  List<IBlueprintLibraryCBlueprintSetId> iBlueprintLibraryCBlueprintSetIds;
+  List<IBlueprintLibraryCBlueprintSetId>? iBlueprintLibraryCBlueprintSetIds;
 
   RBlueprintSetPreLoad({
     this.iBlueprintLibraryCBlueprintSetIds,
@@ -42,7 +45,7 @@ class RBlueprintSetPreLoad {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RBlueprintSetPreLoadToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class RBlueprintSetPreLoad {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RBlueprintSetPreLoadToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class RBlueprintSetPreLoad {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RBlueprintSetPreLoadToXmlElement(
         this,

@@ -11,15 +11,21 @@ void _$BriefingBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'Localisation-cUserLocalisedString',
-    nest: () {
-      instance.localisationCUserLocalisedString?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final localisationCUserLocalisedString =
+      instance.localisationCUserLocalisedString;
+
+  if (localisationCUserLocalisedString != null) {
+    builder.element(
+      'Localisation-cUserLocalisedString',
+      isSelfClosing: false,
+      nest: () {
+        localisationCUserLocalisedString.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$BriefingBuildXmlElement(
@@ -54,53 +60,49 @@ Briefing _$BriefingFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$BriefingToXmlAttributes(
   Briefing instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$BriefingToXmlChildren(
   Briefing instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final localisationCUserLocalisedString =
+      instance.localisationCUserLocalisedString;
+
   return [
-    XmlElement(
-      XmlName(
-        'Localisation-cUserLocalisedString',
+    if (localisationCUserLocalisedString != null)
+      XmlElement(
+        XmlName(
+          'Localisation-cUserLocalisedString',
+        ),
+        [
+          ...localisationCUserLocalisedString.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...localisationCUserLocalisedString.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.localisationCUserLocalisedString?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.localisationCUserLocalisedString?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$BriefingToXmlElement(
   Briefing instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'Briefing',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -108,5 +110,6 @@ XmlElement _$BriefingToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

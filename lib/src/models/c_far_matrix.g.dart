@@ -11,58 +11,80 @@ void _$CFarMatrixBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final height = instance.height;
+  final id = instance.id;
+  final rFarPosition = instance.rFarPosition;
+  final rXAxis = instance.rXAxis;
+  final rYAxis = instance.rYAxis;
+  final rZAxis = instance.rZAxis;
+
+  if (height != null) {
+    builder.element(
+      'Height',
+      isSelfClosing: false,
+      nest: () {
+        height.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'Height',
-    nest: () {
-      instance.height?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'RFarPosition',
-    nest: () {
-      instance.rFarPosition?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'RXAxis',
-    nest: () {
-      instance.rXAxis?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'RYAxis',
-    nest: () {
-      instance.rYAxis?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'RZAxis',
-    nest: () {
-      instance.rZAxis?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (rFarPosition != null) {
+    builder.element(
+      'RFarPosition',
+      isSelfClosing: false,
+      nest: () {
+        rFarPosition.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (rXAxis != null) {
+    builder.element(
+      'RXAxis',
+      isSelfClosing: false,
+      nest: () {
+        rXAxis.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (rYAxis != null) {
+    builder.element(
+      'RYAxis',
+      isSelfClosing: false,
+      nest: () {
+        rYAxis.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (rZAxis != null) {
+    builder.element(
+      'RZAxis',
+      isSelfClosing: false,
+      nest: () {
+        rZAxis.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CFarMatrixBuildXmlElement(
@@ -116,114 +138,131 @@ CFarMatrix _$CFarMatrixFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CFarMatrixToXmlAttributes(
   CFarMatrix instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$CFarMatrixToXmlChildren(
   CFarMatrix instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final height = instance.height;
+  final rFarPosition = instance.rFarPosition;
+  final rXAxis = instance.rXAxis;
+  final rYAxis = instance.rYAxis;
+  final rZAxis = instance.rZAxis;
+
   return [
-    XmlElement(
-      XmlName(
-        'Height',
+    if (height != null)
+      XmlElement(
+        XmlName(
+          'Height',
+        ),
+        [
+          ...height.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...height.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.height?.toXmlAttributes(
+    if (rFarPosition != null)
+      XmlElement(
+        XmlName(
+          'RFarPosition',
+        ),
+        [
+          ...rFarPosition.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.height?.toXmlChildren(
+          ),
+        ],
+        [
+          ...rFarPosition.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'RFarPosition',
+          ),
+        ],
+        false,
       ),
-      instance.rFarPosition?.toXmlAttributes(
+    if (rXAxis != null)
+      XmlElement(
+        XmlName(
+          'RXAxis',
+        ),
+        [
+          ...rXAxis.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.rFarPosition?.toXmlChildren(
+          ),
+        ],
+        [
+          ...rXAxis.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'RXAxis',
+          ),
+        ],
+        false,
       ),
-      instance.rXAxis?.toXmlAttributes(
+    if (rYAxis != null)
+      XmlElement(
+        XmlName(
+          'RYAxis',
+        ),
+        [
+          ...rYAxis.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.rXAxis?.toXmlChildren(
+          ),
+        ],
+        [
+          ...rYAxis.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'RYAxis',
+          ),
+        ],
+        false,
       ),
-      instance.rYAxis?.toXmlAttributes(
+    if (rZAxis != null)
+      XmlElement(
+        XmlName(
+          'RZAxis',
+        ),
+        [
+          ...rZAxis.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.rYAxis?.toXmlChildren(
+          ),
+        ],
+        [
+          ...rZAxis.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'RZAxis',
+          ),
+        ],
+        false,
       ),
-      instance.rZAxis?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.rZAxis?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CFarMatrixToXmlElement(
   CFarMatrix instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cFarMatrix',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -231,5 +270,6 @@ XmlElement _$CFarMatrixToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

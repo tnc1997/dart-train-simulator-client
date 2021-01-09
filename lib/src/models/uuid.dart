@@ -6,13 +6,16 @@ part 'uuid.g.dart';
 
 @annotation.XmlRootElement(
   name: 'UUID',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Uuid {
   @annotation.XmlElement(
     name: 'e',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  List<E> es;
+  List<E>? es;
 
   Uuid({
     this.es,
@@ -42,7 +45,7 @@ class Uuid {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$UuidToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class Uuid {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$UuidToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class Uuid {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$UuidToXmlElement(
         this,

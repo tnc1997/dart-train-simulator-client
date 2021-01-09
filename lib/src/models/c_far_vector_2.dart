@@ -1,5 +1,6 @@
 ﻿import 'package:train_simulator_client/src/models/x.dart';
 import 'package:train_simulator_client/src/models/z.dart';
+import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -7,24 +8,29 @@ part 'c_far_vector_2.g.dart';
 
 @annotation.XmlRootElement(
   name: 'cFarVector2',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class CFarVector2 {
   @annotation.XmlAttribute(
     name: 'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String id;
+  String? id;
 
   @annotation.XmlElement(
     name: 'X',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  X x;
+  X? x;
 
   @annotation.XmlElement(
     name: 'Z',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  Z z;
+  Z? z;
 
   CFarVector2({
     this.id,
@@ -56,7 +62,7 @@ class CFarVector2 {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarVector2ToXmlAttributes(
         this,
@@ -64,7 +70,7 @@ class CFarVector2 {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarVector2ToXmlChildren(
         this,
@@ -72,7 +78,7 @@ class CFarVector2 {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$CFarVector2ToXmlElement(
         this,

@@ -11,173 +11,244 @@ void _$CScenarioPropertiesBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final briefing = instance.briefing;
+  final description = instance.description;
+  final displayName = instance.displayName;
+  final durationMins = instance.durationMins;
+  final frontEndDriverList = instance.frontEndDriverList;
+  final gizmo = instance.gizmo;
+  final id = instance.id;
+  final id1 = instance.id1;
+  final rating = instance.rating;
+  final scenarioClass = instance.scenarioClass;
+  final season = instance.season;
+  final simulationTime = instance.simulationTime;
+  final startDd = instance.startDd;
+  final startMm = instance.startMm;
+  final startTime = instance.startTime;
+  final startYyyy = instance.startYyyy;
+  final streamingStartPosition = instance.streamingStartPosition;
+  final version = instance.version;
+  final weatherBlueprint = instance.weatherBlueprint;
+
+  if (briefing != null) {
+    builder.element(
+      'Briefing',
+      isSelfClosing: false,
+      nest: () {
+        briefing.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (description != null) {
+    builder.element(
+      'Description',
+      isSelfClosing: false,
+      nest: () {
+        description.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (displayName != null) {
+    builder.element(
+      'DisplayName',
+      isSelfClosing: false,
+      nest: () {
+        displayName.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (durationMins != null) {
+    builder.element(
+      'DurationMins',
+      isSelfClosing: false,
+      nest: () {
+        durationMins.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (frontEndDriverList != null) {
+    builder.element(
+      'FrontEndDriverList',
+      isSelfClosing: false,
+      nest: () {
+        frontEndDriverList.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (gizmo != null) {
+    builder.element(
+      'Gizmo',
+      isSelfClosing: false,
+      nest: () {
+        gizmo.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  if (instance.version != null) {
+  if (id1 != null) {
+    builder.element(
+      'ID',
+      isSelfClosing: false,
+      nest: () {
+        id1.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (rating != null) {
+    builder.element(
+      'Rating',
+      isSelfClosing: false,
+      nest: () {
+        rating.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (scenarioClass != null) {
+    builder.element(
+      'ScenarioClass',
+      isSelfClosing: false,
+      nest: () {
+        scenarioClass.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (season != null) {
+    builder.element(
+      'Season',
+      isSelfClosing: false,
+      nest: () {
+        season.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (simulationTime != null) {
+    builder.element(
+      'SimulationTime',
+      isSelfClosing: false,
+      nest: () {
+        simulationTime.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (startDd != null) {
+    builder.element(
+      'StartDD',
+      isSelfClosing: false,
+      nest: () {
+        startDd.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (startMm != null) {
+    builder.element(
+      'StartMM',
+      isSelfClosing: false,
+      nest: () {
+        startMm.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (startTime != null) {
+    builder.element(
+      'StartTime',
+      isSelfClosing: false,
+      nest: () {
+        startTime.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (startYyyy != null) {
+    builder.element(
+      'StartYYYY',
+      isSelfClosing: false,
+      nest: () {
+        startYyyy.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (streamingStartPosition != null) {
+    builder.element(
+      'StreamingStartPosition',
+      isSelfClosing: false,
+      nest: () {
+        streamingStartPosition.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (version != null) {
     builder.attribute(
       'version',
-      instance.version,
+      version,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'Briefing',
-    nest: () {
-      instance.briefing?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Description',
-    nest: () {
-      instance.description?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'DisplayName',
-    nest: () {
-      instance.displayName?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'DurationMins',
-    nest: () {
-      instance.durationMins?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'FrontEndDriverList',
-    nest: () {
-      instance.frontEndDriverList?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Gizmo',
-    nest: () {
-      instance.gizmo?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'ID',
-    nest: () {
-      instance.id1?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Rating',
-    nest: () {
-      instance.rating?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'ScenarioClass',
-    nest: () {
-      instance.scenarioClass?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Season',
-    nest: () {
-      instance.season?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'SimulationTime',
-    nest: () {
-      instance.simulationTime?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'StartDD',
-    nest: () {
-      instance.startDd?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'StartMM',
-    nest: () {
-      instance.startMm?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'StartTime',
-    nest: () {
-      instance.startTime?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'StartYYYY',
-    nest: () {
-      instance.startYyyy?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'StreamingStartPosition',
-    nest: () {
-      instance.streamingStartPosition?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'WeatherBlueprint',
-    nest: () {
-      instance.weatherBlueprint?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (weatherBlueprint != null) {
+    builder.element(
+      'WeatherBlueprint',
+      isSelfClosing: false,
+      nest: () {
+        weatherBlueprint.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CScenarioPropertiesBuildXmlElement(
@@ -263,7 +334,7 @@ CScenarioProperties _$CScenarioPropertiesFromXmlElement(XmlElement element) {
     description:
         description != null ? Description.fromXmlElement(description) : null,
     displayName:
-        displayName != null ? DisplayName.fromXmlElement(displayName) : null,
+        displayName != null ? DisplayName1.fromXmlElement(displayName) : null,
     durationMins:
         durationMins != null ? DurationMins.fromXmlElement(durationMins) : null,
     frontEndDriverList: frontEndDriverList != null
@@ -296,278 +367,356 @@ CScenarioProperties _$CScenarioPropertiesFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CScenarioPropertiesToXmlAttributes(
   CScenarioProperties instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+  final version = instance.version;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
-    if (instance.version != null)
+    if (version != null)
       XmlAttribute(
         XmlName(
           'version',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.version,
+        version,
       ),
   ];
 }
 
 List<XmlNode> _$CScenarioPropertiesToXmlChildren(
   CScenarioProperties instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final briefing = instance.briefing;
+  final description = instance.description;
+  final displayName = instance.displayName;
+  final durationMins = instance.durationMins;
+  final frontEndDriverList = instance.frontEndDriverList;
+  final gizmo = instance.gizmo;
+  final id1 = instance.id1;
+  final rating = instance.rating;
+  final scenarioClass = instance.scenarioClass;
+  final season = instance.season;
+  final simulationTime = instance.simulationTime;
+  final startDd = instance.startDd;
+  final startMm = instance.startMm;
+  final startTime = instance.startTime;
+  final startYyyy = instance.startYyyy;
+  final streamingStartPosition = instance.streamingStartPosition;
+  final weatherBlueprint = instance.weatherBlueprint;
+
   return [
-    XmlElement(
-      XmlName(
-        'Briefing',
+    if (briefing != null)
+      XmlElement(
+        XmlName(
+          'Briefing',
+        ),
+        [
+          ...briefing.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...briefing.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.briefing?.toXmlAttributes(
+    if (description != null)
+      XmlElement(
+        XmlName(
+          'Description',
+        ),
+        [
+          ...description.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.briefing?.toXmlChildren(
+          ),
+        ],
+        [
+          ...description.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Description',
+          ),
+        ],
+        false,
       ),
-      instance.description?.toXmlAttributes(
+    if (displayName != null)
+      XmlElement(
+        XmlName(
+          'DisplayName',
+        ),
+        [
+          ...displayName.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.description?.toXmlChildren(
+          ),
+        ],
+        [
+          ...displayName.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'DisplayName',
+          ),
+        ],
+        false,
       ),
-      instance.displayName?.toXmlAttributes(
+    if (durationMins != null)
+      XmlElement(
+        XmlName(
+          'DurationMins',
+        ),
+        [
+          ...durationMins.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.displayName?.toXmlChildren(
+          ),
+        ],
+        [
+          ...durationMins.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'DurationMins',
+          ),
+        ],
+        false,
       ),
-      instance.durationMins?.toXmlAttributes(
+    if (frontEndDriverList != null)
+      XmlElement(
+        XmlName(
+          'FrontEndDriverList',
+        ),
+        [
+          ...frontEndDriverList.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.durationMins?.toXmlChildren(
+          ),
+        ],
+        [
+          ...frontEndDriverList.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'FrontEndDriverList',
+          ),
+        ],
+        false,
       ),
-      instance.frontEndDriverList?.toXmlAttributes(
+    if (gizmo != null)
+      XmlElement(
+        XmlName(
+          'Gizmo',
+        ),
+        [
+          ...gizmo.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.frontEndDriverList?.toXmlChildren(
+          ),
+        ],
+        [
+          ...gizmo.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Gizmo',
+          ),
+        ],
+        false,
       ),
-      instance.gizmo?.toXmlAttributes(
+    if (id1 != null)
+      XmlElement(
+        XmlName(
+          'ID',
+        ),
+        [
+          ...id1.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.gizmo?.toXmlChildren(
+          ),
+        ],
+        [
+          ...id1.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'ID',
+          ),
+        ],
+        false,
       ),
-      instance.id1?.toXmlAttributes(
+    if (rating != null)
+      XmlElement(
+        XmlName(
+          'Rating',
+        ),
+        [
+          ...rating.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.id1?.toXmlChildren(
+          ),
+        ],
+        [
+          ...rating.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Rating',
+          ),
+        ],
+        false,
       ),
-      instance.rating?.toXmlAttributes(
+    if (scenarioClass != null)
+      XmlElement(
+        XmlName(
+          'ScenarioClass',
+        ),
+        [
+          ...scenarioClass.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.rating?.toXmlChildren(
+          ),
+        ],
+        [
+          ...scenarioClass.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'ScenarioClass',
+          ),
+        ],
+        false,
       ),
-      instance.scenarioClass?.toXmlAttributes(
+    if (season != null)
+      XmlElement(
+        XmlName(
+          'Season',
+        ),
+        [
+          ...season.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.scenarioClass?.toXmlChildren(
+          ),
+        ],
+        [
+          ...season.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Season',
+          ),
+        ],
+        false,
       ),
-      instance.season?.toXmlAttributes(
+    if (simulationTime != null)
+      XmlElement(
+        XmlName(
+          'SimulationTime',
+        ),
+        [
+          ...simulationTime.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.season?.toXmlChildren(
+          ),
+        ],
+        [
+          ...simulationTime.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'SimulationTime',
+          ),
+        ],
+        false,
       ),
-      instance.simulationTime?.toXmlAttributes(
+    if (startDd != null)
+      XmlElement(
+        XmlName(
+          'StartDD',
+        ),
+        [
+          ...startDd.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.simulationTime?.toXmlChildren(
+          ),
+        ],
+        [
+          ...startDd.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'StartDD',
+          ),
+        ],
+        false,
       ),
-      instance.startDd?.toXmlAttributes(
+    if (startMm != null)
+      XmlElement(
+        XmlName(
+          'StartMM',
+        ),
+        [
+          ...startMm.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.startDd?.toXmlChildren(
+          ),
+        ],
+        [
+          ...startMm.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'StartMM',
+          ),
+        ],
+        false,
       ),
-      instance.startMm?.toXmlAttributes(
+    if (startTime != null)
+      XmlElement(
+        XmlName(
+          'StartTime',
+        ),
+        [
+          ...startTime.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.startMm?.toXmlChildren(
+          ),
+        ],
+        [
+          ...startTime.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'StartTime',
+          ),
+        ],
+        false,
       ),
-      instance.startTime?.toXmlAttributes(
+    if (startYyyy != null)
+      XmlElement(
+        XmlName(
+          'StartYYYY',
+        ),
+        [
+          ...startYyyy.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.startTime?.toXmlChildren(
+          ),
+        ],
+        [
+          ...startYyyy.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'StartYYYY',
+          ),
+        ],
+        false,
       ),
-      instance.startYyyy?.toXmlAttributes(
+    if (streamingStartPosition != null)
+      XmlElement(
+        XmlName(
+          'StreamingStartPosition',
+        ),
+        [
+          ...streamingStartPosition.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.startYyyy?.toXmlChildren(
+          ),
+        ],
+        [
+          ...streamingStartPosition.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'StreamingStartPosition',
+          ),
+        ],
+        false,
       ),
-      instance.streamingStartPosition?.toXmlAttributes(
+    if (weatherBlueprint != null)
+      XmlElement(
+        XmlName(
+          'WeatherBlueprint',
+        ),
+        [
+          ...weatherBlueprint.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.streamingStartPosition?.toXmlChildren(
+          ),
+        ],
+        [
+          ...weatherBlueprint.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'WeatherBlueprint',
+          ),
+        ],
+        false,
       ),
-      instance.weatherBlueprint?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.weatherBlueprint?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CScenarioPropertiesToXmlElement(
   CScenarioProperties instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cScenarioProperties',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -575,5 +724,6 @@ XmlElement _$CScenarioPropertiesToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

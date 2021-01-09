@@ -6,13 +6,16 @@ part 'gizmo.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Gizmo',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Gizmo {
   @annotation.XmlElement(
     name: 'cOwnedEntity',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  COwnedEntity cOwnedEntity;
+  COwnedEntity1? cOwnedEntity;
 
   Gizmo({
     this.cOwnedEntity,
@@ -42,7 +45,7 @@ class Gizmo {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$GizmoToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class Gizmo {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$GizmoToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class Gizmo {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$GizmoToXmlElement(
         this,

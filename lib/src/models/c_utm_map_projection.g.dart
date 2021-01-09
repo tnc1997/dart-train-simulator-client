@@ -11,49 +11,67 @@ void _$CUtmMapProjectionBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final id = instance.id;
+  final mapOffset = instance.mapOffset;
+  final origin = instance.origin;
+  final zoneLetter = instance.zoneLetter;
+  final zoneNumber = instance.zoneNumber;
+
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'MapOffset',
-    nest: () {
-      instance.mapOffset?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'Origin',
-    nest: () {
-      instance.origin?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'ZoneLetter',
-    nest: () {
-      instance.zoneLetter?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
-  builder.element(
-    'ZoneNumber',
-    nest: () {
-      instance.zoneNumber?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (mapOffset != null) {
+    builder.element(
+      'MapOffset',
+      isSelfClosing: false,
+      nest: () {
+        mapOffset.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (origin != null) {
+    builder.element(
+      'Origin',
+      isSelfClosing: false,
+      nest: () {
+        origin.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (zoneLetter != null) {
+    builder.element(
+      'ZoneLetter',
+      isSelfClosing: false,
+      nest: () {
+        zoneLetter.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (zoneNumber != null) {
+    builder.element(
+      'ZoneNumber',
+      isSelfClosing: false,
+      nest: () {
+        zoneNumber.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CUtmMapProjectionBuildXmlElement(
@@ -104,101 +122,113 @@ CUtmMapProjection _$CUtmMapProjectionFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CUtmMapProjectionToXmlAttributes(
   CUtmMapProjection instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$CUtmMapProjectionToXmlChildren(
   CUtmMapProjection instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final mapOffset = instance.mapOffset;
+  final origin = instance.origin;
+  final zoneLetter = instance.zoneLetter;
+  final zoneNumber = instance.zoneNumber;
+
   return [
-    XmlElement(
-      XmlName(
-        'MapOffset',
+    if (mapOffset != null)
+      XmlElement(
+        XmlName(
+          'MapOffset',
+        ),
+        [
+          ...mapOffset.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...mapOffset.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.mapOffset?.toXmlAttributes(
+    if (origin != null)
+      XmlElement(
+        XmlName(
+          'Origin',
+        ),
+        [
+          ...origin.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.mapOffset?.toXmlChildren(
+          ),
+        ],
+        [
+          ...origin.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'Origin',
+          ),
+        ],
+        false,
       ),
-      instance.origin?.toXmlAttributes(
+    if (zoneLetter != null)
+      XmlElement(
+        XmlName(
+          'ZoneLetter',
+        ),
+        [
+          ...zoneLetter.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.origin?.toXmlChildren(
+          ),
+        ],
+        [
+          ...zoneLetter.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'ZoneLetter',
+          ),
+        ],
+        false,
       ),
-      instance.zoneLetter?.toXmlAttributes(
+    if (zoneNumber != null)
+      XmlElement(
+        XmlName(
+          'ZoneNumber',
+        ),
+        [
+          ...zoneNumber.toXmlAttributes(
             namespaces: namespaces,
-          ) ??
-          [],
-      instance.zoneLetter?.toXmlChildren(
+          ),
+        ],
+        [
+          ...zoneNumber.toXmlChildren(
             namespaces: namespaces,
-          ) ??
-          [],
-    ),
-    XmlElement(
-      XmlName(
-        'ZoneNumber',
+          ),
+        ],
+        false,
       ),
-      instance.zoneNumber?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.zoneNumber?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CUtmMapProjectionToXmlElement(
   CUtmMapProjection instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cUTMMapProjection',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -206,5 +236,6 @@ XmlElement _$CUtmMapProjectionToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

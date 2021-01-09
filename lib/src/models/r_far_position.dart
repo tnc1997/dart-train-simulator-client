@@ -6,13 +6,16 @@ part 'r_far_position.g.dart';
 
 @annotation.XmlRootElement(
   name: 'RFarPosition',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class RFarPosition {
   @annotation.XmlElement(
     name: 'cFarVector2',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CFarVector2 cFarVector2;
+  CFarVector2? cFarVector2;
 
   RFarPosition({
     this.cFarVector2,
@@ -42,7 +45,7 @@ class RFarPosition {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RFarPositionToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class RFarPosition {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RFarPositionToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class RFarPosition {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RFarPositionToXmlElement(
         this,

@@ -11,15 +11,20 @@ void _$CTileCoordinateBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'Distance',
-    nest: () {
-      instance.distance?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final distance = instance.distance;
+
+  if (distance != null) {
+    builder.element(
+      'Distance',
+      isSelfClosing: false,
+      nest: () {
+        distance.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$CTileCoordinateBuildXmlElement(
@@ -51,53 +56,48 @@ CTileCoordinate _$CTileCoordinateFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CTileCoordinateToXmlAttributes(
   CTileCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$CTileCoordinateToXmlChildren(
   CTileCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final distance = instance.distance;
+
   return [
-    XmlElement(
-      XmlName(
-        'Distance',
+    if (distance != null)
+      XmlElement(
+        XmlName(
+          'Distance',
+        ),
+        [
+          ...distance.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...distance.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.distance?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.distance?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CTileCoordinateToXmlElement(
   CTileCoordinate instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cTileCoordinate',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -105,5 +105,6 @@ XmlElement _$CTileCoordinateToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

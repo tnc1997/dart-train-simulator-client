@@ -6,13 +6,16 @@ part 'z.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Z',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Z {
   @annotation.XmlElement(
     name: 'cFarCoordinate',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CFarCoordinate cFarCoordinate;
+  CFarCoordinate? cFarCoordinate;
 
   Z({
     this.cFarCoordinate,
@@ -41,7 +44,7 @@ class Z {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$ZToXmlAttributes(
         this,
@@ -49,7 +52,7 @@ class Z {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$ZToXmlChildren(
         this,
@@ -57,7 +60,7 @@ class Z {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$ZToXmlElement(
         this,

@@ -11,15 +11,20 @@ void _$OriginBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'sGeoPosition',
-    nest: () {
-      instance.sGeoPosition?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final sGeoPosition = instance.sGeoPosition;
+
+  if (sGeoPosition != null) {
+    builder.element(
+      'sGeoPosition',
+      isSelfClosing: false,
+      nest: () {
+        sGeoPosition.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$OriginBuildXmlElement(
@@ -52,53 +57,48 @@ Origin _$OriginFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$OriginToXmlAttributes(
   Origin instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$OriginToXmlChildren(
   Origin instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final sGeoPosition = instance.sGeoPosition;
+
   return [
-    XmlElement(
-      XmlName(
-        'sGeoPosition',
+    if (sGeoPosition != null)
+      XmlElement(
+        XmlName(
+          'sGeoPosition',
+        ),
+        [
+          ...sGeoPosition.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...sGeoPosition.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.sGeoPosition?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.sGeoPosition?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$OriginToXmlElement(
   Origin instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'Origin',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -106,5 +106,6 @@ XmlElement _$OriginToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

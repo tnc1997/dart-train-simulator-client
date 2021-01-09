@@ -11,10 +11,13 @@ void _$FrontEndDriverListBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.sDriverFrontEndDetails != null) {
-    for (final value in instance.sDriverFrontEndDetails) {
+  final sDriverFrontEndDetails = instance.sDriverFrontEndDetails;
+
+  if (sDriverFrontEndDetails != null) {
+    for (final value in sDriverFrontEndDetails) {
       builder.element(
         'sDriverFrontEndDetails',
+        isSelfClosing: false,
         nest: () {
           value.buildXmlChildren(
             builder,
@@ -49,28 +52,28 @@ FrontEndDriverList _$FrontEndDriverListFromXmlElement(XmlElement element) {
   );
 
   return FrontEndDriverList(
-    sDriverFrontEndDetails: sDriverFrontEndDetails != null
-        ? sDriverFrontEndDetails
-            .map((element) => SDriverFrontEndDetails.fromXmlElement(element))
-            .toList()
-        : null,
+    sDriverFrontEndDetails: sDriverFrontEndDetails
+        .map((element) => SDriverFrontEndDetails.fromXmlElement(element))
+        .toList(),
   );
 }
 
 List<XmlAttribute> _$FrontEndDriverListToXmlAttributes(
   FrontEndDriverList instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$FrontEndDriverListToXmlChildren(
   FrontEndDriverList instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final sDriverFrontEndDetails = instance.sDriverFrontEndDetails;
+
   return [
-    if (instance.sDriverFrontEndDetails != null)
-      for (final value in instance.sDriverFrontEndDetails)
+    if (sDriverFrontEndDetails != null)
+      for (final value in sDriverFrontEndDetails)
         XmlElement(
           XmlName(
             'sDriverFrontEndDetails',
@@ -81,31 +84,21 @@ List<XmlNode> _$FrontEndDriverListToXmlChildren(
           value.toXmlChildren(
             namespaces: namespaces,
           ),
+          false,
         ),
   ];
 }
 
 XmlElement _$FrontEndDriverListToXmlElement(
   FrontEndDriverList instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'FrontEndDriverList',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -113,5 +106,6 @@ XmlElement _$FrontEndDriverListToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

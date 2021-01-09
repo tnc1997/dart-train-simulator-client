@@ -6,13 +6,16 @@ part 'front_end_driver_list.g.dart';
 
 @annotation.XmlRootElement(
   name: 'FrontEndDriverList',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class FrontEndDriverList {
   @annotation.XmlElement(
     name: 'sDriverFrontEndDetails',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  List<SDriverFrontEndDetails> sDriverFrontEndDetails;
+  List<SDriverFrontEndDetails>? sDriverFrontEndDetails;
 
   FrontEndDriverList({
     this.sDriverFrontEndDetails,
@@ -42,7 +45,7 @@ class FrontEndDriverList {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$FrontEndDriverListToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class FrontEndDriverList {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$FrontEndDriverListToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class FrontEndDriverList {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$FrontEndDriverListToXmlElement(
         this,

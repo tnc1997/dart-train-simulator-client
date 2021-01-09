@@ -11,10 +11,13 @@ void _$UuidBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.es != null) {
-    for (final value in instance.es) {
+  final es = instance.es;
+
+  if (es != null) {
+    for (final value in es) {
       builder.element(
         'e',
+        isSelfClosing: false,
         nest: () {
           value.buildXmlChildren(
             builder,
@@ -49,26 +52,26 @@ Uuid _$UuidFromXmlElement(XmlElement element) {
   );
 
   return Uuid(
-    es: es != null
-        ? es.map((element) => E.fromXmlElement(element)).toList()
-        : null,
+    es: es.map((element) => E.fromXmlElement(element)).toList(),
   );
 }
 
 List<XmlAttribute> _$UuidToXmlAttributes(
   Uuid instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$UuidToXmlChildren(
   Uuid instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final es = instance.es;
+
   return [
-    if (instance.es != null)
-      for (final value in instance.es)
+    if (es != null)
+      for (final value in es)
         XmlElement(
           XmlName(
             'e',
@@ -79,31 +82,21 @@ List<XmlNode> _$UuidToXmlChildren(
           value.toXmlChildren(
             namespaces: namespaces,
           ),
+          false,
         ),
   ];
 }
 
 XmlElement _$UuidToXmlElement(
   Uuid instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'UUID',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -111,5 +104,6 @@ XmlElement _$UuidToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

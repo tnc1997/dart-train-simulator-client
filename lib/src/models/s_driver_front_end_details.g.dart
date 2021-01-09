@@ -11,22 +11,28 @@ void _$SDriverFrontEndDetailsBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final id = instance.id;
+  final serviceName = instance.serviceName;
+
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'ServiceName',
-    nest: () {
-      instance.serviceName?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  if (serviceName != null) {
+    builder.element(
+      'ServiceName',
+      isSelfClosing: false,
+      nest: () {
+        serviceName.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$SDriverFrontEndDetailsBuildXmlElement(
@@ -65,62 +71,59 @@ SDriverFrontEndDetails _$SDriverFrontEndDetailsFromXmlElement(
 
 List<XmlAttribute> _$SDriverFrontEndDetailsToXmlAttributes(
   SDriverFrontEndDetails instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$SDriverFrontEndDetailsToXmlChildren(
   SDriverFrontEndDetails instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final serviceName = instance.serviceName;
+
   return [
-    XmlElement(
-      XmlName(
-        'ServiceName',
+    if (serviceName != null)
+      XmlElement(
+        XmlName(
+          'ServiceName',
+        ),
+        [
+          ...serviceName.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...serviceName.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.serviceName?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.serviceName?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$SDriverFrontEndDetailsToXmlElement(
   SDriverFrontEndDetails instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'sDriverFrontEndDetails',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -128,5 +131,6 @@ XmlElement _$SDriverFrontEndDetailsToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

@@ -1,14 +1,13 @@
 import 'dart:ffi';
 
 import 'package:ffi/ffi.dart';
-import 'package:meta/meta.dart';
 import 'package:train_simulator_client/src/train_simulator_client_base.dart';
 
 class RailDriverService {
   final DynamicLibrary _railDriver;
 
   RailDriverService({
-    @required TrainSimulatorClientContext context,
+    required TrainSimulatorClientContext context,
   }) : _railDriver = DynamicLibrary.open(context.railDriverFile.path);
 
   void connect() {

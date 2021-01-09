@@ -6,13 +6,16 @@ part 'r_far_matrix.g.dart';
 
 @annotation.XmlRootElement(
   name: 'RFarMatrix',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class RFarMatrix {
   @annotation.XmlElement(
     name: 'cFarMatrix',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CFarMatrix cFarMatrix;
+  CFarMatrix? cFarMatrix;
 
   RFarMatrix({
     this.cFarMatrix,
@@ -42,7 +45,7 @@ class RFarMatrix {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RFarMatrixToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class RFarMatrix {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RFarMatrixToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class RFarMatrix {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$RFarMatrixToXmlElement(
         this,

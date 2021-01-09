@@ -6,13 +6,16 @@ part 'skies.g.dart';
 
 @annotation.XmlRootElement(
   name: 'Skies',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class Skies {
   @annotation.XmlElement(
     name: 'cRouteBlueprint-sSkies',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  CRouteBlueprintSSkies cRouteBlueprintSSkies;
+  CRouteBlueprintSSkies? cRouteBlueprintSSkies;
 
   Skies({
     this.cRouteBlueprintSSkies,
@@ -42,7 +45,7 @@ class Skies {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SkiesToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class Skies {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SkiesToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class Skies {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$SkiesToXmlElement(
         this,

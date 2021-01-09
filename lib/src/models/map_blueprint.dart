@@ -6,13 +6,16 @@ part 'map_blueprint.g.dart';
 
 @annotation.XmlRootElement(
   name: 'MapBlueprint',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class MapBlueprint {
   @annotation.XmlElement(
     name: 'iBlueprintLibrary-cAbsoluteBlueprintID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  IBlueprintLibraryCAbsoluteBlueprintId iBlueprintLibraryCAbsoluteBlueprintId;
+  IBlueprintLibraryCAbsoluteBlueprintId? iBlueprintLibraryCAbsoluteBlueprintId;
 
   MapBlueprint({
     this.iBlueprintLibraryCAbsoluteBlueprintId,
@@ -42,7 +45,7 @@ class MapBlueprint {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$MapBlueprintToXmlAttributes(
         this,
@@ -50,7 +53,7 @@ class MapBlueprint {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$MapBlueprintToXmlChildren(
         this,
@@ -58,7 +61,7 @@ class MapBlueprint {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$MapBlueprintToXmlElement(
         this,

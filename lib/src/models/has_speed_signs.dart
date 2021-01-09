@@ -1,21 +1,23 @@
-﻿import 'package:xml/xml.dart';
+﻿import 'package:train_simulator_client/src/constants/namespace_constants.dart';
+import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
 part 'has_speed_signs.g.dart';
 
 @annotation.XmlRootElement(
   name: 'HasSpeedsigns',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class HasSpeedSigns {
   @annotation.XmlText()
-  String text;
+  String? text;
 
   @annotation.XmlAttribute(
     name: 'type',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
+    namespace: delta,
   )
-  String type;
+  String? type;
 
   HasSpeedSigns({
     this.text,
@@ -26,7 +28,7 @@ class HasSpeedSigns {
       _$HasSpeedSignsFromXmlElement(element);
 
   @override
-  String toString() => text?.toString() ?? super.toString();
+  String toString() => text ?? super.toString();
 
   void buildXmlChildren(
     XmlBuilder builder, {
@@ -49,7 +51,7 @@ class HasSpeedSigns {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$HasSpeedSignsToXmlAttributes(
         this,
@@ -57,7 +59,7 @@ class HasSpeedSigns {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$HasSpeedSignsToXmlChildren(
         this,
@@ -65,7 +67,7 @@ class HasSpeedSigns {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$HasSpeedSignsToXmlElement(
         this,

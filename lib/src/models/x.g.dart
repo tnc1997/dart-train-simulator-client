@@ -11,15 +11,20 @@ void _$XBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  builder.element(
-    'cFarCoordinate',
-    nest: () {
-      instance.cFarCoordinate?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+  final cFarCoordinate = instance.cFarCoordinate;
+
+  if (cFarCoordinate != null) {
+    builder.element(
+      'cFarCoordinate',
+      isSelfClosing: false,
+      nest: () {
+        cFarCoordinate.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
 }
 
 void _$XBuildXmlElement(
@@ -53,53 +58,48 @@ X _$XFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$XToXmlAttributes(
   X instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return [];
 }
 
 List<XmlNode> _$XToXmlChildren(
   X instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final cFarCoordinate = instance.cFarCoordinate;
+
   return [
-    XmlElement(
-      XmlName(
-        'cFarCoordinate',
+    if (cFarCoordinate != null)
+      XmlElement(
+        XmlName(
+          'cFarCoordinate',
+        ),
+        [
+          ...cFarCoordinate.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...cFarCoordinate.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.cFarCoordinate?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.cFarCoordinate?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$XToXmlElement(
   X instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'X',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -107,5 +107,6 @@ XmlElement _$XToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }

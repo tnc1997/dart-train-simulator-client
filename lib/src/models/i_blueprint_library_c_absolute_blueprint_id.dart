@@ -1,5 +1,5 @@
-﻿import 'package:train_simulator_client/src/models/blueprint_set_id.dart';
-import 'package:train_simulator_client/src/models/i_blueprint_library_c_absolute_blueprint_id_blueprint_id.dart';
+﻿import 'package:train_simulator_client/src/models/blueprint_id.dart';
+import 'package:train_simulator_client/src/models/blueprint_set_id.dart';
 import 'package:xml/xml.dart';
 import 'package:xml_annotation/xml_annotation.dart' as annotation;
 
@@ -7,18 +7,23 @@ part 'i_blueprint_library_c_absolute_blueprint_id.g.dart';
 
 @annotation.XmlRootElement(
   name: 'iBlueprintLibrary-cAbsoluteBlueprintID',
+  isSelfClosing: false,
 )
 @annotation.XmlSerializable()
 class IBlueprintLibraryCAbsoluteBlueprintId {
   @annotation.XmlElement(
     name: 'BlueprintID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  IBlueprintLibraryCAbsoluteBlueprintIdBlueprintId blueprintId;
+  BlueprintId2? blueprintId;
 
   @annotation.XmlElement(
     name: 'BlueprintSetID',
+    isSelfClosing: false,
+    includeIfNull: false,
   )
-  BlueprintSetId blueprintSetId;
+  BlueprintSetId? blueprintSetId;
 
   IBlueprintLibraryCAbsoluteBlueprintId({
     this.blueprintId,
@@ -50,7 +55,7 @@ class IBlueprintLibraryCAbsoluteBlueprintId {
       );
 
   List<XmlAttribute> toXmlAttributes({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$IBlueprintLibraryCAbsoluteBlueprintIdToXmlAttributes(
         this,
@@ -58,7 +63,7 @@ class IBlueprintLibraryCAbsoluteBlueprintId {
       );
 
   List<XmlNode> toXmlChildren({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$IBlueprintLibraryCAbsoluteBlueprintIdToXmlChildren(
         this,
@@ -66,7 +71,7 @@ class IBlueprintLibraryCAbsoluteBlueprintId {
       );
 
   XmlElement toXmlElement({
-    Map<String, String> namespaces = const {},
+    Map<String, String?> namespaces = const {},
   }) =>
       _$IBlueprintLibraryCAbsoluteBlueprintIdToXmlElement(
         this,

@@ -11,22 +11,28 @@ void _$CEditorSceneryRenderBuildXmlChildren(
   XmlBuilder builder, {
   Map<String, String> namespaces = const {},
 }) {
-  if (instance.id != null) {
+  final detailLevel = instance.detailLevel;
+  final id = instance.id;
+
+  if (detailLevel != null) {
+    builder.element(
+      'DetailLevel',
+      isSelfClosing: false,
+      nest: () {
+        detailLevel.buildXmlChildren(
+          builder,
+          namespaces: namespaces,
+        );
+      },
+    );
+  }
+  if (id != null) {
     builder.attribute(
       'id',
-      instance.id,
+      id,
       namespace: 'http://www.kuju.com/TnT/2003/Delta',
     );
   }
-  builder.element(
-    'DetailLevel',
-    nest: () {
-      instance.detailLevel?.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
 }
 
 void _$CEditorSceneryRenderBuildXmlElement(
@@ -64,62 +70,59 @@ CEditorSceneryRender _$CEditorSceneryRenderFromXmlElement(XmlElement element) {
 
 List<XmlAttribute> _$CEditorSceneryRenderToXmlAttributes(
   CEditorSceneryRender instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final id = instance.id;
+
   return [
-    if (instance.id != null)
+    if (id != null)
       XmlAttribute(
         XmlName(
           'id',
           namespaces['http://www.kuju.com/TnT/2003/Delta'],
         ),
-        instance.id,
+        id,
       ),
   ];
 }
 
 List<XmlNode> _$CEditorSceneryRenderToXmlChildren(
   CEditorSceneryRender instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
+  final detailLevel = instance.detailLevel;
+
   return [
-    XmlElement(
-      XmlName(
-        'DetailLevel',
+    if (detailLevel != null)
+      XmlElement(
+        XmlName(
+          'DetailLevel',
+        ),
+        [
+          ...detailLevel.toXmlAttributes(
+            namespaces: namespaces,
+          ),
+        ],
+        [
+          ...detailLevel.toXmlChildren(
+            namespaces: namespaces,
+          ),
+        ],
+        false,
       ),
-      instance.detailLevel?.toXmlAttributes(
-            namespaces: namespaces,
-          ) ??
-          [],
-      instance.detailLevel?.toXmlChildren(
-            namespaces: namespaces,
-          ) ??
-          [],
-    ),
   ];
 }
 
 XmlElement _$CEditorSceneryRenderToXmlElement(
   CEditorSceneryRender instance, {
-  Map<String, String> namespaces = const {},
+  Map<String, String?> namespaces = const {},
 }) {
   return XmlElement(
     XmlName(
       'cEditorSceneryRender',
     ),
     [
-      for (final entry in namespaces.entries)
-        XmlAttribute(
-          entry.value != null
-              ? XmlName(
-                  entry.value,
-                  'xmlns',
-                )
-              : XmlName(
-                  'xmlns',
-                ),
-          entry.key,
-        ),
+      ...namespaces.toXmlAttributes(),
       ...instance.toXmlAttributes(
         namespaces: namespaces,
       ),
@@ -127,5 +130,6 @@ XmlElement _$CEditorSceneryRenderToXmlElement(
     instance.toXmlChildren(
       namespaces: namespaces,
     ),
+    false,
   );
 }
