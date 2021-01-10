@@ -1,8 +1,9 @@
 import 'dart:io';
 
+import 'package:path/path.dart';
+import 'package:train_simulator_client/src/constants/file_name_constants.dart';
 import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:train_simulator_client/src/extensions/directory_extensions.dart';
-import 'package:train_simulator_client/src/extensions/file_extensions.dart';
 import 'package:train_simulator_client/src/models/c_record_set.dart';
 import 'package:train_simulator_client/src/models/c_scenario_properties.dart';
 import 'package:train_simulator_client/src/train_simulator_client_base.dart';
@@ -31,51 +32,17 @@ class ScenarioService {
     }
   }
 
-  Stream<File> listScenarios(
+  Future<CRecordSet?> readScenario(
     Directory directory,
-  ) async* {
-    if (!await directory.exists()) {
-      throw ArgumentError.value(
-        directory,
-        'directory',
-        'The directory does not exist.',
-      );
-    }
-
-    await for (final entity in directory.list()) {
-      if (entity is File && entity.isScenario()) {
-        yield entity;
-      }
-    }
-  }
-
-  Stream<File> listScenarioProperties(
-    Directory directory,
-  ) async* {
-    if (!await directory.exists()) {
-      throw ArgumentError.value(
-        directory,
-        'directory',
-        'The directory does not exist.',
-      );
-    }
-
-    await for (final entity in directory.list()) {
-      if (entity is File && entity.isScenarioProperties()) {
-        yield entity;
-      }
-    }
-  }
-
-  Future<CRecordSet> readScenario(
-    File file,
   ) async {
+    if (!await directory.exists()) {
+      return null;
+    }
+
+    final file = File(join(directory.path, scenarioFileName));
+
     if (!await file.exists()) {
-      throw ArgumentError.value(
-        file,
-        'file',
-        'The file does not exist.',
-      );
+      return null;
     }
 
     return CRecordSet.fromXmlElement(
@@ -85,15 +52,17 @@ class ScenarioService {
     );
   }
 
-  Future<CScenarioProperties> readScenarioProperties(
-    File file,
+  Future<CScenarioProperties?> readScenarioProperties(
+    Directory directory,
   ) async {
+    if (!await directory.exists()) {
+      return null;
+    }
+
+    final file = File(join(directory.path, scenarioPropertiesFileName));
+
     if (!await file.exists()) {
-      throw ArgumentError.value(
-        file,
-        'file',
-        'The file does not exist.',
-      );
+      return null;
     }
 
     return CScenarioProperties.fromXmlElement(
@@ -104,15 +73,17 @@ class ScenarioService {
   }
 
   Future<void> writeScenario(
-    File file,
+    Directory directory,
     CRecordSet cRecordSet,
   ) async {
+    if (!await directory.exists()) {
+      await directory.create();
+    }
+
+    final file = File(join(directory.path, scenarioFileName));
+
     if (!await file.exists()) {
-      throw ArgumentError.value(
-        file,
-        'file',
-        'The file does not exist.',
-      );
+      await file.create();
     }
 
     final builder = XmlBuilder();
@@ -123,15 +94,17 @@ class ScenarioService {
   }
 
   Future<void> writeScenarioProperties(
-    File file,
+    Directory directory,
     CScenarioProperties cScenarioProperties,
   ) async {
+    if (!await directory.exists()) {
+      await directory.create();
+    }
+
+    final file = File(join(directory.path, scenarioPropertiesFileName));
+
     if (!await file.exists()) {
-      throw ArgumentError.value(
-        file,
-        'file',
-        'The file does not exist.',
-      );
+      await file.create();
     }
 
     final builder = XmlBuilder();
