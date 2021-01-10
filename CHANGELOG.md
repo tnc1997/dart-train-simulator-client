@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0-nullsafety.1](https://github.com/tnc1997/dart-train-simulator-client/compare/v0.6.0-nullsafety.0...v0.6.0-nullsafety.1) (2021-01-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* read and write route and scenario (#16)
+
+### Code Refactoring
+
+* read and write route and scenario ([#16](https://github.com/tnc1997/dart-train-simulator-client/issues/16)) ([6789352](https://github.com/tnc1997/dart-train-simulator-client/commit/6789352974c06081734facbb38efaace7ca919c8))
+
 ## [0.6.0-nullsafety.0](https://github.com/tnc1997/dart-train-simulator-client/compare/v0.5.0...v0.6.0-nullsafety.0) (2021-01-09)
 
 
