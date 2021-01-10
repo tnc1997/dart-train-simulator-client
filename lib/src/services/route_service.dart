@@ -1,8 +1,9 @@
 import 'dart:io';
 
+import 'package:path/path.dart';
+import 'package:train_simulator_client/src/constants/file_name_constants.dart';
 import 'package:train_simulator_client/src/constants/namespace_constants.dart';
 import 'package:train_simulator_client/src/extensions/directory_extensions.dart';
-import 'package:train_simulator_client/src/extensions/file_extensions.dart';
 import 'package:train_simulator_client/src/models/c_route_properties.dart';
 import 'package:train_simulator_client/src/train_simulator_client_base.dart';
 import 'package:xml/xml.dart';
@@ -17,24 +18,6 @@ class RouteService {
   Stream<Directory> list() async* {
     await for (final entity in _context.routesDirectory.list()) {
       if (entity is Directory) {
-        yield entity;
-      }
-    }
-  }
-
-  Stream<File> listRouteProperties(
-    Directory directory,
-  ) async* {
-    if (!await directory.exists()) {
-      throw ArgumentError.value(
-        directory,
-        'directory',
-        'The directory does not exist.',
-      );
-    }
-
-    await for (final entity in directory.list()) {
-      if (entity is File && entity.isRouteProperties()) {
         yield entity;
       }
     }
@@ -62,15 +45,17 @@ class RouteService {
     }
   }
 
-  Future<CRouteProperties> readRouteProperties(
-    File file,
+  Future<CRouteProperties?> readRouteProperties(
+    Directory directory,
   ) async {
+    if (!await directory.exists()) {
+      return null;
+    }
+
+    final file = File(join(directory.path, routePropertiesFileName));
+
     if (!await file.exists()) {
-      throw ArgumentError.value(
-        file,
-        'file',
-        'The file does not exist.',
-      );
+      return null;
     }
 
     return CRouteProperties.fromXmlElement(
@@ -81,15 +66,17 @@ class RouteService {
   }
 
   Future<void> writeRouteProperties(
-    File file,
+    Directory directory,
     CRouteProperties cRouteProperties,
   ) async {
+    if (!await directory.exists()) {
+      await directory.create();
+    }
+
+    final file = File(join(directory.path, routePropertiesFileName));
+
     if (!await file.exists()) {
-      throw ArgumentError.value(
-        file,
-        'file',
-        'The file does not exist.',
-      );
+      await file.create();
     }
 
     final builder = XmlBuilder();

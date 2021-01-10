@@ -15,15 +15,11 @@ Future<void> main() async {
   );
 
   await for (final directory in client.routes.list()) {
-    await for (final file in client.routes.listRouteProperties(directory)) {
-      print(await client.routes.readRouteProperties(file));
-    }
+    print(await client.routes.readRouteProperties(directory));
   }
 
   await for (final directory in client.scenarios.list()) {
-    await for (final file in client.scenarios.listScenarioProperties(directory)) {
-      print(await client.scenarios.readScenarioProperties(file));
-    }
+    print(await client.scenarios.readScenarioProperties(directory));
   }
 }
 ```
