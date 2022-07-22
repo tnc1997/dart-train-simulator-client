@@ -6,105 +6,63 @@ part of 'trigger_sound.dart';
 // XmlSerializableGenerator
 // **************************************************************************
 
-void _$TriggerSoundBuildXmlChildren(
-  TriggerSound instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+void _$TriggerSoundBuildXmlChildren(TriggerSound instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final cGuid = instance.cGuid;
-
-  if (cGuid != null) {
-    builder.element(
-      'cGUID',
-      isSelfClosing: false,
-      nest: () {
-        cGuid.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cGuidSerialized = cGuid;
+  if (cGuidSerialized != null) {
+    builder.element('cGUID', isSelfClosing: false, nest: () {
+      cGuidSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
   }
 }
 
-void _$TriggerSoundBuildXmlElement(
-  TriggerSound instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'TriggerSound',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+void _$TriggerSoundBuildXmlElement(TriggerSound instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('TriggerSound', namespaces: namespaces, isSelfClosing: false,
+      nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 TriggerSound _$TriggerSoundFromXmlElement(XmlElement element) {
-  final cGuid = element.getElement(
-    'cGUID',
-  );
-
+  final cGuid = element.getElement('cGUID');
   return TriggerSound(
-    cGuid: cGuid != null ? CGuid.fromXmlElement(cGuid) : null,
-  );
+      cGuid: cGuid != null ? CGuid.fromXmlElement(cGuid) : null);
 }
 
-List<XmlAttribute> _$TriggerSoundToXmlAttributes(
-  TriggerSound instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+List<XmlAttribute> _$TriggerSoundToXmlAttributes(TriggerSound instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$TriggerSoundToXmlChildren(
-  TriggerSound instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$TriggerSoundToXmlChildren(TriggerSound instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final cGuid = instance.cGuid;
-
-  return [
-    if (cGuid != null)
-      XmlElement(
-        XmlName(
-          'cGUID',
-        ),
-        [
-          ...cGuid.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cGuid.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final cGuidSerialized = cGuid;
+  final cGuidConstructed = cGuidSerialized != null
+      ? XmlElement(
+          XmlName('cGUID'),
+          cGuidSerialized.toXmlAttributes(namespaces: namespaces),
+          cGuidSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (cGuidConstructed != null) {
+    children.add(cGuidConstructed);
+  }
+  return children;
 }
 
-XmlElement _$TriggerSoundToXmlElement(
-  TriggerSound instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$TriggerSoundToXmlElement(TriggerSound instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'TriggerSound',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('TriggerSound'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

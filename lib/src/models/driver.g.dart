@@ -6,105 +6,63 @@ part of 'driver.dart';
 // XmlSerializableGenerator
 // **************************************************************************
 
-void _$DriverBuildXmlChildren(
-  Driver instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+void _$DriverBuildXmlChildren(Driver instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final cDriver = instance.cDriver;
-
-  if (cDriver != null) {
-    builder.element(
-      'cDriver',
-      isSelfClosing: false,
-      nest: () {
-        cDriver.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cDriverSerialized = cDriver;
+  if (cDriverSerialized != null) {
+    builder.element('cDriver', isSelfClosing: false, nest: () {
+      cDriverSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
   }
 }
 
-void _$DriverBuildXmlElement(
-  Driver instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'Driver',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+void _$DriverBuildXmlElement(Driver instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('Driver', namespaces: namespaces, isSelfClosing: false,
+      nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 Driver _$DriverFromXmlElement(XmlElement element) {
-  final cDriver = element.getElement(
-    'cDriver',
-  );
-
+  final cDriver = element.getElement('cDriver');
   return Driver(
-    cDriver: cDriver != null ? CDriver.fromXmlElement(cDriver) : null,
-  );
+      cDriver: cDriver != null ? CDriver.fromXmlElement(cDriver) : null);
 }
 
-List<XmlAttribute> _$DriverToXmlAttributes(
-  Driver instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+List<XmlAttribute> _$DriverToXmlAttributes(Driver instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$DriverToXmlChildren(
-  Driver instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$DriverToXmlChildren(Driver instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final cDriver = instance.cDriver;
-
-  return [
-    if (cDriver != null)
-      XmlElement(
-        XmlName(
-          'cDriver',
-        ),
-        [
-          ...cDriver.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cDriver.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final cDriverSerialized = cDriver;
+  final cDriverConstructed = cDriverSerialized != null
+      ? XmlElement(
+          XmlName('cDriver'),
+          cDriverSerialized.toXmlAttributes(namespaces: namespaces),
+          cDriverSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (cDriverConstructed != null) {
+    children.add(cDriverConstructed);
+  }
+  return children;
 }
 
-XmlElement _$DriverToXmlElement(
-  Driver instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$DriverToXmlElement(Driver instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'Driver',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('Driver'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

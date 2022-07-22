@@ -21,8 +21,8 @@ class RailDriverService {
   }
 
   String getControllerList() {
-    return Utf8.fromUtf8(_railDriver.lookupFunction<Pointer<Utf8> Function(),
-        Pointer<Utf8> Function()>('GetControllerList')());
+    return _railDriver.lookupFunction<Pointer<Utf8> Function(),
+        Pointer<Utf8> Function()>('GetControllerList')().toDartString();
   }
 
   double getControllerValue(int controllerId, int getType) {
@@ -36,8 +36,8 @@ class RailDriverService {
   }
 
   String getLocoName() {
-    return Utf8.fromUtf8(_railDriver.lookupFunction<Pointer<Utf8> Function(),
-        Pointer<Utf8> Function()>('GetLocoName')());
+    return _railDriver.lookupFunction<Pointer<Utf8> Function(),
+        Pointer<Utf8> Function()>('GetLocoName')().toDartString();
   }
 
   int getNextRailDriverId(int railDriverId) {
@@ -97,7 +97,7 @@ class RailDriverService {
 
   void setLocoName(String locoName) {
     _railDriver.lookupFunction<Void Function(Pointer<Utf8>),
-        void Function(Pointer<Utf8>)>('SetLocoName')(Utf8.toUtf8(locoName));
+        void Function(Pointer<Utf8>)>('SetLocoName')(locoName.toNativeUtf8());
   }
 
   void setRailDriverConnected(int railDriverConnected) {

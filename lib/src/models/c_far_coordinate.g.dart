@@ -7,143 +7,91 @@ part of 'c_far_coordinate.dart';
 // **************************************************************************
 
 void _$CFarCoordinateBuildXmlChildren(
-  CFarCoordinate instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+    CFarCoordinate instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final routeCoordinate = instance.routeCoordinate;
-  final tileCoordinate = instance.tileCoordinate;
-
-  if (routeCoordinate != null) {
-    builder.element(
-      'RouteCoordinate',
-      isSelfClosing: false,
-      nest: () {
-        routeCoordinate.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final routeCoordinateSerialized = routeCoordinate;
+  if (routeCoordinateSerialized != null) {
+    builder.element('RouteCoordinate', isSelfClosing: false, nest: () {
+      routeCoordinateSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
-  if (tileCoordinate != null) {
-    builder.element(
-      'TileCoordinate',
-      isSelfClosing: false,
-      nest: () {
-        tileCoordinate.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final tileCoordinate = instance.tileCoordinate;
+  final tileCoordinateSerialized = tileCoordinate;
+  if (tileCoordinateSerialized != null) {
+    builder.element('TileCoordinate', isSelfClosing: false, nest: () {
+      tileCoordinateSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
 }
 
 void _$CFarCoordinateBuildXmlElement(
-  CFarCoordinate instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'cFarCoordinate',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+    CFarCoordinate instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('cFarCoordinate',
+      namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 CFarCoordinate _$CFarCoordinateFromXmlElement(XmlElement element) {
-  final routeCoordinate = element.getElement(
-    'RouteCoordinate',
-  );
-  final tileCoordinate = element.getElement(
-    'TileCoordinate',
-  );
-
+  final routeCoordinate = element.getElement('RouteCoordinate');
+  final tileCoordinate = element.getElement('TileCoordinate');
   return CFarCoordinate(
-    routeCoordinate: routeCoordinate != null
-        ? RouteCoordinate.fromXmlElement(routeCoordinate)
-        : null,
-    tileCoordinate: tileCoordinate != null
-        ? TileCoordinate.fromXmlElement(tileCoordinate)
-        : null,
-  );
+      routeCoordinate: routeCoordinate != null
+          ? RouteCoordinate.fromXmlElement(routeCoordinate)
+          : null,
+      tileCoordinate: tileCoordinate != null
+          ? TileCoordinate.fromXmlElement(tileCoordinate)
+          : null);
 }
 
-List<XmlAttribute> _$CFarCoordinateToXmlAttributes(
-  CFarCoordinate instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+List<XmlAttribute> _$CFarCoordinateToXmlAttributes(CFarCoordinate instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$CFarCoordinateToXmlChildren(
-  CFarCoordinate instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$CFarCoordinateToXmlChildren(CFarCoordinate instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final routeCoordinate = instance.routeCoordinate;
+  final routeCoordinateSerialized = routeCoordinate;
+  final routeCoordinateConstructed = routeCoordinateSerialized != null
+      ? XmlElement(
+          XmlName('RouteCoordinate'),
+          routeCoordinateSerialized.toXmlAttributes(namespaces: namespaces),
+          routeCoordinateSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (routeCoordinateConstructed != null) {
+    children.add(routeCoordinateConstructed);
+  }
   final tileCoordinate = instance.tileCoordinate;
-
-  return [
-    if (routeCoordinate != null)
-      XmlElement(
-        XmlName(
-          'RouteCoordinate',
-        ),
-        [
-          ...routeCoordinate.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...routeCoordinate.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (tileCoordinate != null)
-      XmlElement(
-        XmlName(
-          'TileCoordinate',
-        ),
-        [
-          ...tileCoordinate.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...tileCoordinate.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final tileCoordinateSerialized = tileCoordinate;
+  final tileCoordinateConstructed = tileCoordinateSerialized != null
+      ? XmlElement(
+          XmlName('TileCoordinate'),
+          tileCoordinateSerialized.toXmlAttributes(namespaces: namespaces),
+          tileCoordinateSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (tileCoordinateConstructed != null) {
+    children.add(tileCoordinateConstructed);
+  }
+  return children;
 }
 
-XmlElement _$CFarCoordinateToXmlElement(
-  CFarCoordinate instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$CFarCoordinateToXmlElement(CFarCoordinate instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'cFarCoordinate',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('cFarCoordinate'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

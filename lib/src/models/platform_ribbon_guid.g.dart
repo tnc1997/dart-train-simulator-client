@@ -7,104 +7,65 @@ part of 'platform_ribbon_guid.dart';
 // **************************************************************************
 
 void _$PlatformRibbonGuidBuildXmlChildren(
-  PlatformRibbonGuid instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+    PlatformRibbonGuid instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final cGuid = instance.cGuid;
-
-  if (cGuid != null) {
-    builder.element(
-      'cGUID',
-      isSelfClosing: false,
-      nest: () {
-        cGuid.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cGuidSerialized = cGuid;
+  if (cGuidSerialized != null) {
+    builder.element('cGUID', isSelfClosing: false, nest: () {
+      cGuidSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
   }
 }
 
 void _$PlatformRibbonGuidBuildXmlElement(
-  PlatformRibbonGuid instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'PlatformRibbonGUID',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+    PlatformRibbonGuid instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('PlatformRibbonGUID',
+      namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 PlatformRibbonGuid _$PlatformRibbonGuidFromXmlElement(XmlElement element) {
-  final cGuid = element.getElement(
-    'cGUID',
-  );
-
+  final cGuid = element.getElement('cGUID');
   return PlatformRibbonGuid(
-    cGuid: cGuid != null ? CGuid.fromXmlElement(cGuid) : null,
-  );
+      cGuid: cGuid != null ? CGuid.fromXmlElement(cGuid) : null);
 }
 
 List<XmlAttribute> _$PlatformRibbonGuidToXmlAttributes(
-  PlatformRibbonGuid instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+    PlatformRibbonGuid instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$PlatformRibbonGuidToXmlChildren(
-  PlatformRibbonGuid instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$PlatformRibbonGuidToXmlChildren(PlatformRibbonGuid instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final cGuid = instance.cGuid;
-
-  return [
-    if (cGuid != null)
-      XmlElement(
-        XmlName(
-          'cGUID',
-        ),
-        [
-          ...cGuid.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cGuid.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final cGuidSerialized = cGuid;
+  final cGuidConstructed = cGuidSerialized != null
+      ? XmlElement(
+          XmlName('cGUID'),
+          cGuidSerialized.toXmlAttributes(namespaces: namespaces),
+          cGuidSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (cGuidConstructed != null) {
+    children.add(cGuidConstructed);
+  }
+  return children;
 }
 
-XmlElement _$PlatformRibbonGuidToXmlElement(
-  PlatformRibbonGuid instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$PlatformRibbonGuidToXmlElement(PlatformRibbonGuid instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'PlatformRibbonGUID',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('PlatformRibbonGUID'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

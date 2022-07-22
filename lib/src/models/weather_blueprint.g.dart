@@ -7,110 +7,78 @@ part of 'weather_blueprint.dart';
 // **************************************************************************
 
 void _$WeatherBlueprintBuildXmlChildren(
-  WeatherBlueprint instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+    WeatherBlueprint instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final iBlueprintLibraryCAbsoluteBlueprintId =
       instance.iBlueprintLibraryCAbsoluteBlueprintId;
-
-  if (iBlueprintLibraryCAbsoluteBlueprintId != null) {
-    builder.element(
-      'iBlueprintLibrary-cAbsoluteBlueprintID',
-      isSelfClosing: false,
-      nest: () {
-        iBlueprintLibraryCAbsoluteBlueprintId.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final iBlueprintLibraryCAbsoluteBlueprintIdSerialized =
+      iBlueprintLibraryCAbsoluteBlueprintId;
+  if (iBlueprintLibraryCAbsoluteBlueprintIdSerialized != null) {
+    builder.element('iBlueprintLibrary-cAbsoluteBlueprintID',
+        isSelfClosing: false, nest: () {
+      iBlueprintLibraryCAbsoluteBlueprintIdSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
 }
 
 void _$WeatherBlueprintBuildXmlElement(
-  WeatherBlueprint instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'WeatherBlueprint',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+    WeatherBlueprint instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('WeatherBlueprint',
+      namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 WeatherBlueprint _$WeatherBlueprintFromXmlElement(XmlElement element) {
-  final iBlueprintLibraryCAbsoluteBlueprintId = element.getElement(
-    'iBlueprintLibrary-cAbsoluteBlueprintID',
-  );
-
+  final iBlueprintLibraryCAbsoluteBlueprintId =
+      element.getElement('iBlueprintLibrary-cAbsoluteBlueprintID');
   return WeatherBlueprint(
-    iBlueprintLibraryCAbsoluteBlueprintId:
-        iBlueprintLibraryCAbsoluteBlueprintId != null
-            ? IBlueprintLibraryCAbsoluteBlueprintId.fromXmlElement(
-                iBlueprintLibraryCAbsoluteBlueprintId)
-            : null,
-  );
+      iBlueprintLibraryCAbsoluteBlueprintId:
+          iBlueprintLibraryCAbsoluteBlueprintId != null
+              ? IBlueprintLibraryCAbsoluteBlueprintId.fromXmlElement(
+                  iBlueprintLibraryCAbsoluteBlueprintId)
+              : null);
 }
 
-List<XmlAttribute> _$WeatherBlueprintToXmlAttributes(
-  WeatherBlueprint instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+List<XmlAttribute> _$WeatherBlueprintToXmlAttributes(WeatherBlueprint instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$WeatherBlueprintToXmlChildren(
-  WeatherBlueprint instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$WeatherBlueprintToXmlChildren(WeatherBlueprint instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final iBlueprintLibraryCAbsoluteBlueprintId =
       instance.iBlueprintLibraryCAbsoluteBlueprintId;
-
-  return [
-    if (iBlueprintLibraryCAbsoluteBlueprintId != null)
-      XmlElement(
-        XmlName(
-          'iBlueprintLibrary-cAbsoluteBlueprintID',
-        ),
-        [
-          ...iBlueprintLibraryCAbsoluteBlueprintId.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...iBlueprintLibraryCAbsoluteBlueprintId.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final iBlueprintLibraryCAbsoluteBlueprintIdSerialized =
+      iBlueprintLibraryCAbsoluteBlueprintId;
+  final iBlueprintLibraryCAbsoluteBlueprintIdConstructed =
+      iBlueprintLibraryCAbsoluteBlueprintIdSerialized != null
+          ? XmlElement(
+              XmlName('iBlueprintLibrary-cAbsoluteBlueprintID'),
+              iBlueprintLibraryCAbsoluteBlueprintIdSerialized.toXmlAttributes(
+                  namespaces: namespaces),
+              iBlueprintLibraryCAbsoluteBlueprintIdSerialized.toXmlChildren(
+                  namespaces: namespaces),
+              false)
+          : null;
+  if (iBlueprintLibraryCAbsoluteBlueprintIdConstructed != null) {
+    children.add(iBlueprintLibraryCAbsoluteBlueprintIdConstructed);
+  }
+  return children;
 }
 
-XmlElement _$WeatherBlueprintToXmlElement(
-  WeatherBlueprint instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$WeatherBlueprintToXmlElement(WeatherBlueprint instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'WeatherBlueprint',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('WeatherBlueprint'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

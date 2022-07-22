@@ -7,106 +7,71 @@ part of 'final_destination.dart';
 // **************************************************************************
 
 void _$FinalDestinationBuildXmlChildren(
-  FinalDestination instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+    FinalDestination instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final cDriverInstructionTarget = instance.cDriverInstructionTarget;
-
-  if (cDriverInstructionTarget != null) {
-    builder.element(
-      'cDriverInstructionTarget',
-      isSelfClosing: false,
-      nest: () {
-        cDriverInstructionTarget.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cDriverInstructionTargetSerialized = cDriverInstructionTarget;
+  if (cDriverInstructionTargetSerialized != null) {
+    builder.element('cDriverInstructionTarget', isSelfClosing: false, nest: () {
+      cDriverInstructionTargetSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
 }
 
 void _$FinalDestinationBuildXmlElement(
-  FinalDestination instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'FinalDestination',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+    FinalDestination instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('FinalDestination',
+      namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 FinalDestination _$FinalDestinationFromXmlElement(XmlElement element) {
-  final cDriverInstructionTarget = element.getElement(
-    'cDriverInstructionTarget',
-  );
-
+  final cDriverInstructionTarget =
+      element.getElement('cDriverInstructionTarget');
   return FinalDestination(
-    cDriverInstructionTarget: cDriverInstructionTarget != null
-        ? CDriverInstructionTarget.fromXmlElement(cDriverInstructionTarget)
-        : null,
-  );
+      cDriverInstructionTarget: cDriverInstructionTarget != null
+          ? CDriverInstructionTarget.fromXmlElement(cDriverInstructionTarget)
+          : null);
 }
 
-List<XmlAttribute> _$FinalDestinationToXmlAttributes(
-  FinalDestination instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+List<XmlAttribute> _$FinalDestinationToXmlAttributes(FinalDestination instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$FinalDestinationToXmlChildren(
-  FinalDestination instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$FinalDestinationToXmlChildren(FinalDestination instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final cDriverInstructionTarget = instance.cDriverInstructionTarget;
-
-  return [
-    if (cDriverInstructionTarget != null)
-      XmlElement(
-        XmlName(
-          'cDriverInstructionTarget',
-        ),
-        [
-          ...cDriverInstructionTarget.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cDriverInstructionTarget.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final cDriverInstructionTargetSerialized = cDriverInstructionTarget;
+  final cDriverInstructionTargetConstructed =
+      cDriverInstructionTargetSerialized != null
+          ? XmlElement(
+              XmlName('cDriverInstructionTarget'),
+              cDriverInstructionTargetSerialized.toXmlAttributes(
+                  namespaces: namespaces),
+              cDriverInstructionTargetSerialized.toXmlChildren(
+                  namespaces: namespaces),
+              false)
+          : null;
+  if (cDriverInstructionTargetConstructed != null) {
+    children.add(cDriverInstructionTargetConstructed);
+  }
+  return children;
 }
 
-XmlElement _$FinalDestinationToXmlElement(
-  FinalDestination instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$FinalDestinationToXmlElement(FinalDestination instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'FinalDestination',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('FinalDestination'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

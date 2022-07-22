@@ -6,107 +6,65 @@ part of 'x.dart';
 // XmlSerializableGenerator
 // **************************************************************************
 
-void _$XBuildXmlChildren(
-  X instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+void _$XBuildXmlChildren(X instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final cFarCoordinate = instance.cFarCoordinate;
-
-  if (cFarCoordinate != null) {
-    builder.element(
-      'cFarCoordinate',
-      isSelfClosing: false,
-      nest: () {
-        cFarCoordinate.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cFarCoordinateSerialized = cFarCoordinate;
+  if (cFarCoordinateSerialized != null) {
+    builder.element('cFarCoordinate', isSelfClosing: false, nest: () {
+      cFarCoordinateSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
 }
 
-void _$XBuildXmlElement(
-  X instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'X',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+void _$XBuildXmlElement(X instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('X', namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 X _$XFromXmlElement(XmlElement element) {
-  final cFarCoordinate = element.getElement(
-    'cFarCoordinate',
-  );
-
+  final cFarCoordinate = element.getElement('cFarCoordinate');
   return X(
-    cFarCoordinate: cFarCoordinate != null
-        ? CFarCoordinate.fromXmlElement(cFarCoordinate)
-        : null,
-  );
+      cFarCoordinate: cFarCoordinate != null
+          ? CFarCoordinate.fromXmlElement(cFarCoordinate)
+          : null);
 }
 
-List<XmlAttribute> _$XToXmlAttributes(
-  X instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+List<XmlAttribute> _$XToXmlAttributes(X instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$XToXmlChildren(
-  X instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$XToXmlChildren(X instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final cFarCoordinate = instance.cFarCoordinate;
-
-  return [
-    if (cFarCoordinate != null)
-      XmlElement(
-        XmlName(
-          'cFarCoordinate',
-        ),
-        [
-          ...cFarCoordinate.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cFarCoordinate.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final cFarCoordinateSerialized = cFarCoordinate;
+  final cFarCoordinateConstructed = cFarCoordinateSerialized != null
+      ? XmlElement(
+          XmlName('cFarCoordinate'),
+          cFarCoordinateSerialized.toXmlAttributes(namespaces: namespaces),
+          cFarCoordinateSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (cFarCoordinateConstructed != null) {
+    children.add(cFarCoordinateConstructed);
+  }
+  return children;
 }
 
-XmlElement _$XToXmlElement(
-  X instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$XToXmlElement(X instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'X',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('X'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

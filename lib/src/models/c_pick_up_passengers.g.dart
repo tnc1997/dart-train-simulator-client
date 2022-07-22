@@ -7,673 +7,427 @@ part of 'c_pick_up_passengers.dart';
 // **************************************************************************
 
 void _$CPickUpPassengersBuildXmlChildren(
-  CPickUpPassengers instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+    CPickUpPassengers instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final activationLevel = instance.activationLevel;
+  final activationLevelSerialized = activationLevel;
+  if (activationLevelSerialized != null) {
+    builder.element('ActivationLevel', isSelfClosing: false, nest: () {
+      activationLevelSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
+  }
   final active = instance.active;
+  final activeSerialized = active;
+  if (activeSerialized != null) {
+    builder.element('Active', isSelfClosing: false, nest: () {
+      activeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final arriveTime = instance.arriveTime;
+  final arriveTimeSerialized = arriveTime;
+  if (arriveTimeSerialized != null) {
+    builder.element('ArriveTime', isSelfClosing: false, nest: () {
+      arriveTimeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final deltaTarget = instance.deltaTarget;
+  final deltaTargetSerialized = deltaTarget;
+  if (deltaTargetSerialized != null) {
+    builder.element('DeltaTarget', isSelfClosing: false, nest: () {
+      deltaTargetSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final departTime = instance.departTime;
+  final departTimeSerialized = departTime;
+  if (departTimeSerialized != null) {
+    builder.element('DepartTime', isSelfClosing: false, nest: () {
+      departTimeSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final displayText = instance.displayText;
+  final displayTextSerialized = displayText;
+  if (displayTextSerialized != null) {
+    builder.element('DisplayText', isSelfClosing: false, nest: () {
+      displayTextSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final id = instance.id;
+  final idSerialized = id;
+  if (idSerialized != null) {
+    builder.attribute('id', idSerialized,
+        namespace: 'http://www.kuju.com/TnT/2003/Delta');
+  }
   final satisfied = instance.satisfied;
+  final satisfiedSerialized = satisfied;
+  if (satisfiedSerialized != null) {
+    builder.element('Satisfied', isSelfClosing: false, nest: () {
+      satisfiedSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final secondsDelay = instance.secondsDelay;
+  final secondsDelaySerialized = secondsDelay;
+  if (secondsDelaySerialized != null) {
+    builder.element('SecondsDelay', isSelfClosing: false, nest: () {
+      secondsDelaySerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final started = instance.started;
+  final startedSerialized = started;
+  if (startedSerialized != null) {
+    builder.element('Started', isSelfClosing: false, nest: () {
+      startedSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final travelForwards = instance.travelForwards;
+  final travelForwardsSerialized = travelForwards;
+  if (travelForwardsSerialized != null) {
+    builder.element('TravelForwards', isSelfClosing: false, nest: () {
+      travelForwardsSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
+  }
   final triggerAnimation = instance.triggerAnimation;
+  final triggerAnimationSerialized = triggerAnimation;
+  if (triggerAnimationSerialized != null) {
+    builder.element('TriggerAnimation', isSelfClosing: false, nest: () {
+      triggerAnimationSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
+  }
   final triggeredText = instance.triggeredText;
+  final triggeredTextSerialized = triggeredText;
+  if (triggeredTextSerialized != null) {
+    builder.element('TriggeredText', isSelfClosing: false, nest: () {
+      triggeredTextSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final triggerSound = instance.triggerSound;
+  final triggerSoundSerialized = triggerSound;
+  if (triggerSoundSerialized != null) {
+    builder.element('TriggerSound', isSelfClosing: false, nest: () {
+      triggerSoundSerialized.buildXmlChildren(builder, namespaces: namespaces);
+    });
+  }
   final triggerTrainStop = instance.triggerTrainStop;
+  final triggerTrainStopSerialized = triggerTrainStop;
+  if (triggerTrainStopSerialized != null) {
+    builder.element('TriggerTrainStop', isSelfClosing: false, nest: () {
+      triggerTrainStopSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
+  }
   final triggerWheelSlip = instance.triggerWheelSlip;
+  final triggerWheelSlipSerialized = triggerWheelSlip;
+  if (triggerWheelSlipSerialized != null) {
+    builder.element('TriggerWheelSlip', isSelfClosing: false, nest: () {
+      triggerWheelSlipSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
+  }
   final untriggeredText = instance.untriggeredText;
-
-  if (activationLevel != null) {
-    builder.element(
-      'ActivationLevel',
-      isSelfClosing: false,
-      nest: () {
-        activationLevel.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (active != null) {
-    builder.element(
-      'Active',
-      isSelfClosing: false,
-      nest: () {
-        active.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (arriveTime != null) {
-    builder.element(
-      'ArriveTime',
-      isSelfClosing: false,
-      nest: () {
-        arriveTime.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (deltaTarget != null) {
-    builder.element(
-      'DeltaTarget',
-      isSelfClosing: false,
-      nest: () {
-        deltaTarget.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (departTime != null) {
-    builder.element(
-      'DepartTime',
-      isSelfClosing: false,
-      nest: () {
-        departTime.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (displayText != null) {
-    builder.element(
-      'DisplayText',
-      isSelfClosing: false,
-      nest: () {
-        displayText.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (id != null) {
-    builder.attribute(
-      'id',
-      id,
-      namespace: 'http://www.kuju.com/TnT/2003/Delta',
-    );
-  }
-  if (satisfied != null) {
-    builder.element(
-      'Satisfied',
-      isSelfClosing: false,
-      nest: () {
-        satisfied.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (secondsDelay != null) {
-    builder.element(
-      'SecondsDelay',
-      isSelfClosing: false,
-      nest: () {
-        secondsDelay.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (started != null) {
-    builder.element(
-      'Started',
-      isSelfClosing: false,
-      nest: () {
-        started.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (travelForwards != null) {
-    builder.element(
-      'TravelForwards',
-      isSelfClosing: false,
-      nest: () {
-        travelForwards.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (triggerAnimation != null) {
-    builder.element(
-      'TriggerAnimation',
-      isSelfClosing: false,
-      nest: () {
-        triggerAnimation.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (triggeredText != null) {
-    builder.element(
-      'TriggeredText',
-      isSelfClosing: false,
-      nest: () {
-        triggeredText.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (triggerSound != null) {
-    builder.element(
-      'TriggerSound',
-      isSelfClosing: false,
-      nest: () {
-        triggerSound.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (triggerTrainStop != null) {
-    builder.element(
-      'TriggerTrainStop',
-      isSelfClosing: false,
-      nest: () {
-        triggerTrainStop.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (triggerWheelSlip != null) {
-    builder.element(
-      'TriggerWheelSlip',
-      isSelfClosing: false,
-      nest: () {
-        triggerWheelSlip.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
-  }
-  if (untriggeredText != null) {
-    builder.element(
-      'UntriggeredText',
-      isSelfClosing: false,
-      nest: () {
-        untriggeredText.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final untriggeredTextSerialized = untriggeredText;
+  if (untriggeredTextSerialized != null) {
+    builder.element('UntriggeredText', isSelfClosing: false, nest: () {
+      untriggeredTextSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
 }
 
 void _$CPickUpPassengersBuildXmlElement(
-  CPickUpPassengers instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'cPickUpPassengers',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+    CPickUpPassengers instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('cPickUpPassengers',
+      namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 CPickUpPassengers _$CPickUpPassengersFromXmlElement(XmlElement element) {
-  final activationLevel = element.getElement(
-    'ActivationLevel',
-  );
-  final active = element.getElement(
-    'Active',
-  );
-  final arriveTime = element.getElement(
-    'ArriveTime',
-  );
-  final deltaTarget = element.getElement(
-    'DeltaTarget',
-  );
-  final departTime = element.getElement(
-    'DepartTime',
-  );
-  final displayText = element.getElement(
-    'DisplayText',
-  );
-  final id = element.getAttribute(
-    'id',
-    namespace: 'http://www.kuju.com/TnT/2003/Delta',
-  );
-  final satisfied = element.getElement(
-    'Satisfied',
-  );
-  final secondsDelay = element.getElement(
-    'SecondsDelay',
-  );
-  final started = element.getElement(
-    'Started',
-  );
-  final travelForwards = element.getElement(
-    'TravelForwards',
-  );
-  final triggerAnimation = element.getElement(
-    'TriggerAnimation',
-  );
-  final triggeredText = element.getElement(
-    'TriggeredText',
-  );
-  final triggerSound = element.getElement(
-    'TriggerSound',
-  );
-  final triggerTrainStop = element.getElement(
-    'TriggerTrainStop',
-  );
-  final triggerWheelSlip = element.getElement(
-    'TriggerWheelSlip',
-  );
-  final untriggeredText = element.getElement(
-    'UntriggeredText',
-  );
-
+  final activationLevel = element.getElement('ActivationLevel');
+  final active = element.getElement('Active');
+  final arriveTime = element.getElement('ArriveTime');
+  final deltaTarget = element.getElement('DeltaTarget');
+  final departTime = element.getElement('DepartTime');
+  final displayText = element.getElement('DisplayText');
+  final id = element.getAttribute('id',
+      namespace: 'http://www.kuju.com/TnT/2003/Delta');
+  final satisfied = element.getElement('Satisfied');
+  final secondsDelay = element.getElement('SecondsDelay');
+  final started = element.getElement('Started');
+  final travelForwards = element.getElement('TravelForwards');
+  final triggerAnimation = element.getElement('TriggerAnimation');
+  final triggeredText = element.getElement('TriggeredText');
+  final triggerSound = element.getElement('TriggerSound');
+  final triggerTrainStop = element.getElement('TriggerTrainStop');
+  final triggerWheelSlip = element.getElement('TriggerWheelSlip');
+  final untriggeredText = element.getElement('UntriggeredText');
   return CPickUpPassengers(
-    activationLevel: activationLevel != null
-        ? ActivationLevel.fromXmlElement(activationLevel)
-        : null,
-    active: active != null ? Active.fromXmlElement(active) : null,
-    arriveTime:
-        arriveTime != null ? ArriveTime.fromXmlElement(arriveTime) : null,
-    deltaTarget:
-        deltaTarget != null ? DeltaTarget.fromXmlElement(deltaTarget) : null,
-    departTime:
-        departTime != null ? DepartTime.fromXmlElement(departTime) : null,
-    displayText:
-        displayText != null ? DisplayText.fromXmlElement(displayText) : null,
-    id: id,
-    satisfied: satisfied != null ? Satisfied.fromXmlElement(satisfied) : null,
-    secondsDelay:
-        secondsDelay != null ? SecondsDelay.fromXmlElement(secondsDelay) : null,
-    started: started != null ? Started.fromXmlElement(started) : null,
-    travelForwards: travelForwards != null
-        ? TravelForwards.fromXmlElement(travelForwards)
-        : null,
-    triggerAnimation: triggerAnimation != null
-        ? TriggerAnimation.fromXmlElement(triggerAnimation)
-        : null,
-    triggeredText: triggeredText != null
-        ? TriggeredText.fromXmlElement(triggeredText)
-        : null,
-    triggerSound:
-        triggerSound != null ? TriggerSound.fromXmlElement(triggerSound) : null,
-    triggerTrainStop: triggerTrainStop != null
-        ? TriggerTrainStop.fromXmlElement(triggerTrainStop)
-        : null,
-    triggerWheelSlip: triggerWheelSlip != null
-        ? TriggerWheelSlip.fromXmlElement(triggerWheelSlip)
-        : null,
-    untriggeredText: untriggeredText != null
-        ? UntriggeredText.fromXmlElement(untriggeredText)
-        : null,
-  );
+      activationLevel: activationLevel != null
+          ? ActivationLevel.fromXmlElement(activationLevel)
+          : null,
+      active: active != null ? Active.fromXmlElement(active) : null,
+      arriveTime:
+          arriveTime != null ? ArriveTime.fromXmlElement(arriveTime) : null,
+      deltaTarget:
+          deltaTarget != null ? DeltaTarget.fromXmlElement(deltaTarget) : null,
+      departTime:
+          departTime != null ? DepartTime.fromXmlElement(departTime) : null,
+      displayText:
+          displayText != null ? DisplayText.fromXmlElement(displayText) : null,
+      id: id,
+      satisfied: satisfied != null ? Satisfied.fromXmlElement(satisfied) : null,
+      secondsDelay: secondsDelay != null
+          ? SecondsDelay.fromXmlElement(secondsDelay)
+          : null,
+      started: started != null ? Started.fromXmlElement(started) : null,
+      travelForwards: travelForwards != null
+          ? TravelForwards.fromXmlElement(travelForwards)
+          : null,
+      triggerAnimation: triggerAnimation != null
+          ? TriggerAnimation.fromXmlElement(triggerAnimation)
+          : null,
+      triggeredText: triggeredText != null
+          ? TriggeredText.fromXmlElement(triggeredText)
+          : null,
+      triggerSound: triggerSound != null
+          ? TriggerSound.fromXmlElement(triggerSound)
+          : null,
+      triggerTrainStop: triggerTrainStop != null
+          ? TriggerTrainStop.fromXmlElement(triggerTrainStop)
+          : null,
+      triggerWheelSlip: triggerWheelSlip != null
+          ? TriggerWheelSlip.fromXmlElement(triggerWheelSlip)
+          : null,
+      untriggeredText: untriggeredText != null
+          ? UntriggeredText.fromXmlElement(untriggeredText)
+          : null);
 }
 
 List<XmlAttribute> _$CPickUpPassengersToXmlAttributes(
-  CPickUpPassengers instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+    CPickUpPassengers instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
   final id = instance.id;
-
-  return [
-    if (id != null)
-      XmlAttribute(
-        XmlName(
-          'id',
-          namespaces['http://www.kuju.com/TnT/2003/Delta'],
-        ),
-        id,
-      ),
-  ];
+  final idSerialized = id;
+  final idConstructed = idSerialized != null
+      ? XmlAttribute(
+          XmlName('id', namespaces['http://www.kuju.com/TnT/2003/Delta']),
+          idSerialized)
+      : null;
+  if (idConstructed != null) {
+    attributes.add(idConstructed);
+  }
+  return attributes;
 }
 
-List<XmlNode> _$CPickUpPassengersToXmlChildren(
-  CPickUpPassengers instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$CPickUpPassengersToXmlChildren(CPickUpPassengers instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final activationLevel = instance.activationLevel;
+  final activationLevelSerialized = activationLevel;
+  final activationLevelConstructed = activationLevelSerialized != null
+      ? XmlElement(
+          XmlName('ActivationLevel'),
+          activationLevelSerialized.toXmlAttributes(namespaces: namespaces),
+          activationLevelSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (activationLevelConstructed != null) {
+    children.add(activationLevelConstructed);
+  }
   final active = instance.active;
+  final activeSerialized = active;
+  final activeConstructed = activeSerialized != null
+      ? XmlElement(
+          XmlName('Active'),
+          activeSerialized.toXmlAttributes(namespaces: namespaces),
+          activeSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (activeConstructed != null) {
+    children.add(activeConstructed);
+  }
   final arriveTime = instance.arriveTime;
+  final arriveTimeSerialized = arriveTime;
+  final arriveTimeConstructed = arriveTimeSerialized != null
+      ? XmlElement(
+          XmlName('ArriveTime'),
+          arriveTimeSerialized.toXmlAttributes(namespaces: namespaces),
+          arriveTimeSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (arriveTimeConstructed != null) {
+    children.add(arriveTimeConstructed);
+  }
   final deltaTarget = instance.deltaTarget;
+  final deltaTargetSerialized = deltaTarget;
+  final deltaTargetConstructed = deltaTargetSerialized != null
+      ? XmlElement(
+          XmlName('DeltaTarget'),
+          deltaTargetSerialized.toXmlAttributes(namespaces: namespaces),
+          deltaTargetSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (deltaTargetConstructed != null) {
+    children.add(deltaTargetConstructed);
+  }
   final departTime = instance.departTime;
+  final departTimeSerialized = departTime;
+  final departTimeConstructed = departTimeSerialized != null
+      ? XmlElement(
+          XmlName('DepartTime'),
+          departTimeSerialized.toXmlAttributes(namespaces: namespaces),
+          departTimeSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (departTimeConstructed != null) {
+    children.add(departTimeConstructed);
+  }
   final displayText = instance.displayText;
+  final displayTextSerialized = displayText;
+  final displayTextConstructed = displayTextSerialized != null
+      ? XmlElement(
+          XmlName('DisplayText'),
+          displayTextSerialized.toXmlAttributes(namespaces: namespaces),
+          displayTextSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (displayTextConstructed != null) {
+    children.add(displayTextConstructed);
+  }
   final satisfied = instance.satisfied;
+  final satisfiedSerialized = satisfied;
+  final satisfiedConstructed = satisfiedSerialized != null
+      ? XmlElement(
+          XmlName('Satisfied'),
+          satisfiedSerialized.toXmlAttributes(namespaces: namespaces),
+          satisfiedSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (satisfiedConstructed != null) {
+    children.add(satisfiedConstructed);
+  }
   final secondsDelay = instance.secondsDelay;
+  final secondsDelaySerialized = secondsDelay;
+  final secondsDelayConstructed = secondsDelaySerialized != null
+      ? XmlElement(
+          XmlName('SecondsDelay'),
+          secondsDelaySerialized.toXmlAttributes(namespaces: namespaces),
+          secondsDelaySerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (secondsDelayConstructed != null) {
+    children.add(secondsDelayConstructed);
+  }
   final started = instance.started;
+  final startedSerialized = started;
+  final startedConstructed = startedSerialized != null
+      ? XmlElement(
+          XmlName('Started'),
+          startedSerialized.toXmlAttributes(namespaces: namespaces),
+          startedSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (startedConstructed != null) {
+    children.add(startedConstructed);
+  }
   final travelForwards = instance.travelForwards;
+  final travelForwardsSerialized = travelForwards;
+  final travelForwardsConstructed = travelForwardsSerialized != null
+      ? XmlElement(
+          XmlName('TravelForwards'),
+          travelForwardsSerialized.toXmlAttributes(namespaces: namespaces),
+          travelForwardsSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (travelForwardsConstructed != null) {
+    children.add(travelForwardsConstructed);
+  }
   final triggerAnimation = instance.triggerAnimation;
+  final triggerAnimationSerialized = triggerAnimation;
+  final triggerAnimationConstructed = triggerAnimationSerialized != null
+      ? XmlElement(
+          XmlName('TriggerAnimation'),
+          triggerAnimationSerialized.toXmlAttributes(namespaces: namespaces),
+          triggerAnimationSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (triggerAnimationConstructed != null) {
+    children.add(triggerAnimationConstructed);
+  }
   final triggeredText = instance.triggeredText;
+  final triggeredTextSerialized = triggeredText;
+  final triggeredTextConstructed = triggeredTextSerialized != null
+      ? XmlElement(
+          XmlName('TriggeredText'),
+          triggeredTextSerialized.toXmlAttributes(namespaces: namespaces),
+          triggeredTextSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (triggeredTextConstructed != null) {
+    children.add(triggeredTextConstructed);
+  }
   final triggerSound = instance.triggerSound;
+  final triggerSoundSerialized = triggerSound;
+  final triggerSoundConstructed = triggerSoundSerialized != null
+      ? XmlElement(
+          XmlName('TriggerSound'),
+          triggerSoundSerialized.toXmlAttributes(namespaces: namespaces),
+          triggerSoundSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (triggerSoundConstructed != null) {
+    children.add(triggerSoundConstructed);
+  }
   final triggerTrainStop = instance.triggerTrainStop;
+  final triggerTrainStopSerialized = triggerTrainStop;
+  final triggerTrainStopConstructed = triggerTrainStopSerialized != null
+      ? XmlElement(
+          XmlName('TriggerTrainStop'),
+          triggerTrainStopSerialized.toXmlAttributes(namespaces: namespaces),
+          triggerTrainStopSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (triggerTrainStopConstructed != null) {
+    children.add(triggerTrainStopConstructed);
+  }
   final triggerWheelSlip = instance.triggerWheelSlip;
+  final triggerWheelSlipSerialized = triggerWheelSlip;
+  final triggerWheelSlipConstructed = triggerWheelSlipSerialized != null
+      ? XmlElement(
+          XmlName('TriggerWheelSlip'),
+          triggerWheelSlipSerialized.toXmlAttributes(namespaces: namespaces),
+          triggerWheelSlipSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (triggerWheelSlipConstructed != null) {
+    children.add(triggerWheelSlipConstructed);
+  }
   final untriggeredText = instance.untriggeredText;
-
-  return [
-    if (activationLevel != null)
-      XmlElement(
-        XmlName(
-          'ActivationLevel',
-        ),
-        [
-          ...activationLevel.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...activationLevel.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (active != null)
-      XmlElement(
-        XmlName(
-          'Active',
-        ),
-        [
-          ...active.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...active.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (arriveTime != null)
-      XmlElement(
-        XmlName(
-          'ArriveTime',
-        ),
-        [
-          ...arriveTime.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...arriveTime.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (deltaTarget != null)
-      XmlElement(
-        XmlName(
-          'DeltaTarget',
-        ),
-        [
-          ...deltaTarget.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...deltaTarget.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (departTime != null)
-      XmlElement(
-        XmlName(
-          'DepartTime',
-        ),
-        [
-          ...departTime.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...departTime.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (displayText != null)
-      XmlElement(
-        XmlName(
-          'DisplayText',
-        ),
-        [
-          ...displayText.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...displayText.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (satisfied != null)
-      XmlElement(
-        XmlName(
-          'Satisfied',
-        ),
-        [
-          ...satisfied.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...satisfied.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (secondsDelay != null)
-      XmlElement(
-        XmlName(
-          'SecondsDelay',
-        ),
-        [
-          ...secondsDelay.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...secondsDelay.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (started != null)
-      XmlElement(
-        XmlName(
-          'Started',
-        ),
-        [
-          ...started.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...started.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (travelForwards != null)
-      XmlElement(
-        XmlName(
-          'TravelForwards',
-        ),
-        [
-          ...travelForwards.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...travelForwards.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (triggerAnimation != null)
-      XmlElement(
-        XmlName(
-          'TriggerAnimation',
-        ),
-        [
-          ...triggerAnimation.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...triggerAnimation.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (triggeredText != null)
-      XmlElement(
-        XmlName(
-          'TriggeredText',
-        ),
-        [
-          ...triggeredText.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...triggeredText.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (triggerSound != null)
-      XmlElement(
-        XmlName(
-          'TriggerSound',
-        ),
-        [
-          ...triggerSound.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...triggerSound.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (triggerTrainStop != null)
-      XmlElement(
-        XmlName(
-          'TriggerTrainStop',
-        ),
-        [
-          ...triggerTrainStop.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...triggerTrainStop.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (triggerWheelSlip != null)
-      XmlElement(
-        XmlName(
-          'TriggerWheelSlip',
-        ),
-        [
-          ...triggerWheelSlip.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...triggerWheelSlip.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (untriggeredText != null)
-      XmlElement(
-        XmlName(
-          'UntriggeredText',
-        ),
-        [
-          ...untriggeredText.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...untriggeredText.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final untriggeredTextSerialized = untriggeredText;
+  final untriggeredTextConstructed = untriggeredTextSerialized != null
+      ? XmlElement(
+          XmlName('UntriggeredText'),
+          untriggeredTextSerialized.toXmlAttributes(namespaces: namespaces),
+          untriggeredTextSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (untriggeredTextConstructed != null) {
+    children.add(untriggeredTextConstructed);
+  }
+  return children;
 }
 
-XmlElement _$CPickUpPassengersToXmlElement(
-  CPickUpPassengers instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$CPickUpPassengersToXmlElement(CPickUpPassengers instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'cPickUpPassengers',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('cPickUpPassengers'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }

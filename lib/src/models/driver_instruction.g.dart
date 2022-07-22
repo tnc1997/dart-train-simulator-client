@@ -7,143 +7,92 @@ part of 'driver_instruction.dart';
 // **************************************************************************
 
 void _$DriverInstructionBuildXmlChildren(
-  DriverInstruction instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
+    DriverInstruction instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
   final cPickUpPassengers = instance.cPickUpPassengers;
-  final cTriggerInstruction = instance.cTriggerInstruction;
-
-  if (cPickUpPassengers != null) {
-    builder.element(
-      'cPickUpPassengers',
-      isSelfClosing: false,
-      nest: () {
-        cPickUpPassengers.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cPickUpPassengersSerialized = cPickUpPassengers;
+  if (cPickUpPassengersSerialized != null) {
+    builder.element('cPickUpPassengers', isSelfClosing: false, nest: () {
+      cPickUpPassengersSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
-  if (cTriggerInstruction != null) {
-    builder.element(
-      'cTriggerInstruction',
-      isSelfClosing: false,
-      nest: () {
-        cTriggerInstruction.buildXmlChildren(
-          builder,
-          namespaces: namespaces,
-        );
-      },
-    );
+  final cTriggerInstruction = instance.cTriggerInstruction;
+  final cTriggerInstructionSerialized = cTriggerInstruction;
+  if (cTriggerInstructionSerialized != null) {
+    builder.element('cTriggerInstruction', isSelfClosing: false, nest: () {
+      cTriggerInstructionSerialized.buildXmlChildren(builder,
+          namespaces: namespaces);
+    });
   }
 }
 
 void _$DriverInstructionBuildXmlElement(
-  DriverInstruction instance,
-  XmlBuilder builder, {
-  Map<String, String> namespaces = const {},
-}) {
-  builder.element(
-    'DriverInstruction',
-    namespaces: namespaces,
-    nest: () {
-      instance.buildXmlChildren(
-        builder,
-        namespaces: namespaces,
-      );
-    },
-  );
+    DriverInstruction instance, XmlBuilder builder,
+    {Map<String, String> namespaces = const {}}) {
+  builder.element('DriverInstruction',
+      namespaces: namespaces, isSelfClosing: false, nest: () {
+    instance.buildXmlChildren(builder, namespaces: namespaces);
+  });
 }
 
 DriverInstruction _$DriverInstructionFromXmlElement(XmlElement element) {
-  final cPickUpPassengers = element.getElement(
-    'cPickUpPassengers',
-  );
-  final cTriggerInstruction = element.getElement(
-    'cTriggerInstruction',
-  );
-
+  final cPickUpPassengers = element.getElement('cPickUpPassengers');
+  final cTriggerInstruction = element.getElement('cTriggerInstruction');
   return DriverInstruction(
-    cPickUpPassengers: cPickUpPassengers != null
-        ? CPickUpPassengers.fromXmlElement(cPickUpPassengers)
-        : null,
-    cTriggerInstruction: cTriggerInstruction != null
-        ? CTriggerInstruction.fromXmlElement(cTriggerInstruction)
-        : null,
-  );
+      cPickUpPassengers: cPickUpPassengers != null
+          ? CPickUpPassengers.fromXmlElement(cPickUpPassengers)
+          : null,
+      cTriggerInstruction: cTriggerInstruction != null
+          ? CTriggerInstruction.fromXmlElement(cTriggerInstruction)
+          : null);
 }
 
 List<XmlAttribute> _$DriverInstructionToXmlAttributes(
-  DriverInstruction instance, {
-  Map<String, String?> namespaces = const {},
-}) {
-  return [];
+    DriverInstruction instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final attributes = <XmlAttribute>[];
+  return attributes;
 }
 
-List<XmlNode> _$DriverInstructionToXmlChildren(
-  DriverInstruction instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+List<XmlNode> _$DriverInstructionToXmlChildren(DriverInstruction instance,
+    {Map<String, String?> namespaces = const {}}) {
+  final children = <XmlNode>[];
   final cPickUpPassengers = instance.cPickUpPassengers;
+  final cPickUpPassengersSerialized = cPickUpPassengers;
+  final cPickUpPassengersConstructed = cPickUpPassengersSerialized != null
+      ? XmlElement(
+          XmlName('cPickUpPassengers'),
+          cPickUpPassengersSerialized.toXmlAttributes(namespaces: namespaces),
+          cPickUpPassengersSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (cPickUpPassengersConstructed != null) {
+    children.add(cPickUpPassengersConstructed);
+  }
   final cTriggerInstruction = instance.cTriggerInstruction;
-
-  return [
-    if (cPickUpPassengers != null)
-      XmlElement(
-        XmlName(
-          'cPickUpPassengers',
-        ),
-        [
-          ...cPickUpPassengers.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cPickUpPassengers.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-    if (cTriggerInstruction != null)
-      XmlElement(
-        XmlName(
-          'cTriggerInstruction',
-        ),
-        [
-          ...cTriggerInstruction.toXmlAttributes(
-            namespaces: namespaces,
-          ),
-        ],
-        [
-          ...cTriggerInstruction.toXmlChildren(
-            namespaces: namespaces,
-          ),
-        ],
-        false,
-      ),
-  ];
+  final cTriggerInstructionSerialized = cTriggerInstruction;
+  final cTriggerInstructionConstructed = cTriggerInstructionSerialized != null
+      ? XmlElement(
+          XmlName('cTriggerInstruction'),
+          cTriggerInstructionSerialized.toXmlAttributes(namespaces: namespaces),
+          cTriggerInstructionSerialized.toXmlChildren(namespaces: namespaces),
+          false)
+      : null;
+  if (cTriggerInstructionConstructed != null) {
+    children.add(cTriggerInstructionConstructed);
+  }
+  return children;
 }
 
-XmlElement _$DriverInstructionToXmlElement(
-  DriverInstruction instance, {
-  Map<String, String?> namespaces = const {},
-}) {
+XmlElement _$DriverInstructionToXmlElement(DriverInstruction instance,
+    {Map<String, String?> namespaces = const {}}) {
   return XmlElement(
-    XmlName(
-      'DriverInstruction',
-    ),
-    [
-      ...namespaces.toXmlAttributes(),
-      ...instance.toXmlAttributes(
-        namespaces: namespaces,
-      ),
-    ],
-    instance.toXmlChildren(
-      namespaces: namespaces,
-    ),
-    false,
-  );
+      XmlName('DriverInstruction'),
+      [
+        ...namespaces.toXmlAttributes(),
+        ...instance.toXmlAttributes(namespaces: namespaces)
+      ],
+      instance.toXmlChildren(namespaces: namespaces),
+      false);
 }
